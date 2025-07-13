@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opera Ph-2</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="top-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <!-- Logo -->
+                <div class="top-logo d-flex align-items-center gap-2">
+                    <img src="img/opera-Logo.svg" alt="Logo" />
+                    <span class="fw-bold text-uppercase">Cairo Opera House</span>
+                </div>
+
+                <!-- Search bar -->
+                <form class="d-flex flex-grow-1" style="max-width: 400px;">
+                    <input class="form-control form-control-sm" type="search" placeholder="Search the whole site..." />
+                    <button class="btn btn-sm ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <div class="d-flex justify-content-between align-items-center gap-5">
+                    <div class="theme-controls">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع">
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </button>
+                    </div>
+
+                    <div class="calendar-header">
+                        <i class="bi bi-calendar"></i>
+                        <span>calendar</span>
+                    </div>
+
+                    <div class="dropdown-lang">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i>
+                            <span>العربية</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#">العربية</a></li>
+                            <li><a class="dropdown-item" href="#">Français</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <nav class="navbar navbar-expand-lg">
+                <div class="w-100">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNavbar" style="margin: 0px 60px;">
+                        <ul class="navbar-nav w-100" style="justify-content: space-between;">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Theaters</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Companies</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Talent Center</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Festivals</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Conferences</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="header-slide" style="background-image: url('img/slide-1.png');">
+                        <div class="slide-overlay"></div>
+                        <div class="w-100 header-slide_content">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="">
+                                    <div class="">
+                                        <h1 class="header-slide_content__title">Ballet Class</h1>
+                                        <p class="header-slide_content__subtitle">New course is available now
+                                            to register in our art</p>
+                                        <a href="#" class="btn btn-primary btn-lg header-slide_content__btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="header-slide" style="background-image: url('img/slide-2.png');">
+                        <div class="slide-overlay"></div>
+                        <div class="w-100 header-slide_content">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="">
+                                    <div class="">
+                                        <h1 class="header-slide_content__title">Ballet Class</h1>
+                                        <p class="header-slide_content__subtitle">New course is available now
+                                            to register in our art
+                                        </p>
+                                        <a href="#" class="btn btn-primary btn-lg header-slide_content__btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="header-slide" style="background-image: url('img/slide-3.png');">
+                        <div class="slide-overlay"></div>
+                        <div class="w-100 header-slide_content">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="">
+                                    <div class="">
+                                        <h1 class="header-slide_content__title">Ballet Class</h1>
+                                        <p class="header-slide_content__subtitle">New course is available now
+                                            to register in our art</p>
+                                        <a href="#" class="btn btn-primary btn-lg header-slide_content__btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-item">
+                    <div class="header-slide" style="background-image: url('img/slide-4.png');">
+                        <div class="slide-overlay"></div>
+                        <div class="w-100 header-slide_content">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="">
+                                    <div class="">
+                                        <h1 class="header-slide_content__title">Ballet Class</h1>
+                                        <p class="header-slide_content__subtitle">New course is available now
+                                            to register in our art</p>
+                                        <a href="#" class="btn btn-primary btn-lg header-slide_content__btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main">
+        <section class="hero">
+            <h1 class="header-slide_content__title">
+                مرحباً بك في موقعنا
+            </h1>
+            <p class="hero-description">
+                هذا نص تجريبي لوصف الموقع والخدمات المقدمة
+            </p>
+            <button class="cta-button">
+                ابدأ الآن
+            </button>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">الميزات</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>سرعة عالية</h3>
+                    <p>
+                        أداء سريع ومحسن للمستخدمين
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>أمان متقدم</h3>
+                    <p>
+                        حماية قوية لبياناتك ومعلوماتك
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>تصميم متجاوب</h3>
+                    <p>
+                        يعمل بشكل مثالي على جميع الأجهزة
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>
+            جميع الحقوق محفوظة © 2024
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
