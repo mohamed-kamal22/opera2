@@ -40,7 +40,7 @@
 }
 
 body {
-  font-family: 'Alexandria', sans-serif;
+  font-family: 'Alexandria', sans-serif !important;
   background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   line-height: 1.6;
@@ -170,6 +170,7 @@ body {
 }
 
 [data-theme="dark"] {
+
   .sun-icon,
   .moon-icon {
     opacity: 0;
@@ -400,6 +401,7 @@ body {
   }
 
   &:hover {
+
     .carousel-control-prev,
     .carousel-control-next {
       opacity: 0.7;
@@ -717,12 +719,144 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--card-bg);
-  border-top: 1px solid var(--border-color);
-  padding: 2rem;
-  text-align: center;
-  color: var(--text-secondary);
-  margin-top: 4rem;
+  background-image: url("../img/bg-footer.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 45px 50px 45px;
+
+  .footer__content {
+    .footer__top {
+      .footer__column {
+        margin-bottom: 15px;
+
+        .title {
+          font-size: 20px;
+          color: #fff;
+          font-weight: bold;
+          margin-bottom: 16px;
+        }
+
+        .list {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          li {
+            a.footer__link {
+              font-size: 14px;
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .footer__center {
+      position: relative;
+      margin: 5rem 0;
+
+      hr {
+        background-color: #ffffff47;
+        border: none;
+        height: 2px;
+        margin-left: -45px;
+        margin-right: -45px;
+      }
+
+      .logo_footer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .details {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+
+          span {
+            &:first-child {
+              font-size: 15px;
+              font-weight: 600;
+              color: #fff;
+            }
+
+            &:last-child {
+              font-size: 8px;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .footer__bottom {
+      .footer__bottom-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .footer__copyright {
+          p {
+            color: #fff;
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+
+        .footer__social {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .footer__social-text {
+            font-size: 14px;
+            color: #fff;
+          }
+
+          .footer__social-icons {
+            display: flex;
+            gap: 10px;
+
+            .social-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              text-decoration: none;
+              transition: all 0.3s ease;
+              background-color: #d9d9d9;
+
+              i {
+                color: #474747;
+                font-size: 20px;
+              }
+
+              &:hover {
+                box-shadow: 0 6px 20px 0 rgba(202, 57, 30, 0.25);
+                background-color: #ca391e;
+                transform: scale(1.1);
+
+                i {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* ===== ANIMATIONS ===== */
@@ -735,6 +869,7 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -746,6 +881,7 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -753,11 +889,13 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px) scale(1);
     opacity: 0.6;
   }
+
   50% {
     transform: translateY(-20px) scale(1.1);
     opacity: 0.8;
@@ -921,9 +1059,26 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
     }
   }
 
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+  .footer {
+    padding: 20px 15px;
+
+    .footer__center {
+      .logo_footer {
+        transform: translate(-50%, -35%);
+      }
+    }
+
+    .footer__bottom {
+      .footer__social {
+        flex-direction: column;
+        gap: 10px;
+
+        .footer__social-icons {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
+    }
   }
 }
 
@@ -1021,6 +1176,31 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
   }
 }
 
+@media (max-width: 992px) {
+  .footer {
+    padding: 20px 30px;
+
+    .footer__content {
+
+      .footer__center {
+        margin: 3rem 0 10rem 0;
+
+        hr {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      .footer__bottom {
+        .footer__bottom-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 1200px) {
   #headerCarousel .header-slide_content {
     max-width: 700px;
@@ -1071,7 +1251,8 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
 }
 
 /* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .header .top-header .top-logo img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
