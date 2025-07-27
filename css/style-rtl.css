@@ -252,13 +252,11 @@ body {
   color: #ffffff;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   line-height: 1.2;
-  animation: slideInLeft 1s ease-out;
 }
 #headerCarousel .header-slide_content__subtitle {
   margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
-  animation: slideInLeft 1s ease-out 0.3s both;
   font-weight: 300;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
   font-size: 18px;
@@ -1015,26 +1013,6 @@ html[data-theme=light] .main .latest-news .latest-news__cards .grid-cards .card 
     transform: translateY(0);
   }
 }
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-20px) scale(1.1);
-    opacity: 0.8;
-  }
-}
 /* ===== RESPONSIVE DESIGN ===== */
 @media (min-width: 767px) {
   .main .latest-news .latest-news__cards .grid-cards {
@@ -1282,7 +1260,7 @@ html[data-theme=light] .main .latest-news .latest-news__cards .grid-cards .card 
   }
 }
 /* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (min-resolution: 192dpi) {
   .header .top-header .top-logo img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;

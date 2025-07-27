@@ -310,14 +310,14 @@ body {
       color: #ffffff;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
       line-height: 1.2;
-      animation: slideInLeft 1s ease-out;
+      // animation: slideInLeft 1s ease-out;
     }
 
     &__subtitle {
       margin-bottom: 10px;
       color: rgba(255, 255, 255, 0.9);
       line-height: 1.6;
-      animation: slideInLeft 1s ease-out 0.3s both;
+      // animation: slideInLeft 1s ease-out 0.3s both;
       font-weight: 300;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
       font-size: 18px;
@@ -1182,31 +1182,31 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
+// @keyframes slideInLeft {
+//   from {
+//     opacity: 0;
+//     transform: translateX(-50px);
+//   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
 
-@keyframes float {
+// @keyframes float {
 
-  0%,
-  100% {
-    transform: translateY(0px) scale(1);
-    opacity: 0.6;
-  }
+//   0%,
+//   100% {
+//     transform: translateY(0px) scale(1);
+//     opacity: 0.6;
+//   }
 
-  50% {
-    transform: translateY(-20px) scale(1.1);
-    opacity: 0.8;
-  }
-}
+//   50% {
+//     transform: translateY(-20px) scale(1.1);
+//     opacity: 0.8;
+//   }
+// }
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (min-width: 767px) {
