@@ -171,58 +171,6 @@ body {
   }
 }
 
-[data-theme="dark"] {
-
-  .sun-icon,
-  .moon-icon {
-    opacity: 0;
-  }
-
-  .moon-icon {
-    opacity: 1;
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-
-  .opera-app {
-    .background-layer {
-      opacity: 0.4;
-    }
-  }
-
-  .latest-news {
-    .background-layer {
-      opacity: 0.07;
-    }
-  }
-}
-
-[data-theme="light"] {
-  .moon-icon {
-    opacity: 0;
-  }
-
-  .opera-app {
-    .background-layer {
-      opacity: 0.2;
-      mix-blend-mode: difference;
-    }
-  }
-
-  .latest-news {
-    .background-layer {
-      opacity: 0.07;
-      mix-blend-mode: difference;
-    }
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-}
-
 /* ===== HEADER CAROUSEL SECTION ===== */
 #headerCarousel {
   position: relative;
@@ -439,10 +387,11 @@ body {
 
 /* ===== MAIN CONTENT ===== */
 .main {
-  padding: 50px 0;
 
   /* ===== Currently at the Opera ===== */
   .opera-currently {
+    padding-top: 50px;
+
     .opera-currently__header {
       position: relative;
       margin-bottom: 90px;
@@ -873,7 +822,7 @@ body {
   }
 
   .latest-news {
-    padding-top: 50px;
+    padding: 50px 0;
     position: relative;
     overflow: hidden;
 
@@ -1004,21 +953,6 @@ body {
       }
     }
   }
-}
-
-html[data-theme="dark"] .main .latest-news .latest-news__cards .grid-cards .card {
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-image-slice: 1;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .card {
-  border: solid 1px #e5e5e5;
 }
 
 /* ===== FOOTER ===== */
@@ -1206,6 +1140,86 @@ html[data-theme="light"] .main .latest-news .latest-news__cards .grid-cards .car
 //     opacity: 0.8;
 //   }
 // }
+
+/* ===== THEME DESIGN ===== */
+[data-theme="dark"] {
+
+  .sun-icon,
+  .moon-icon {
+    opacity: 0;
+  }
+
+  .moon-icon {
+    opacity: 1;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .main {
+    .opera-app {
+      .background-layer {
+        opacity: 0.4;
+      }
+    }
+
+    .latest-news {
+      .background-layer {
+        opacity: 0.07;
+      }
+
+      .latest-news__cards {
+        .grid-cards {
+          .card {
+            border-radius: 10px;
+            border-style: solid;
+            border-width: 1px;
+            border-image-slice: 1;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme="light"] {
+  .moon-icon {
+    opacity: 0;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .main {
+    .opera-app {
+      .background-layer {
+        opacity: 0.2;
+        mix-blend-mode: difference;
+      }
+    }
+
+    .latest-news {
+      .background-layer {
+        opacity: 0.07;
+        mix-blend-mode: difference;
+      }
+
+      .latest-news__cards {
+        .grid-cards {
+          .card {
+            border: solid 1px #e5e5e5;
+          }
+        }
+      }
+    }
+  }
+}
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (min-width: 767px) {
