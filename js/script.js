@@ -48,17 +48,19 @@ class LanguageManager {
     localStorage.setItem("lang", lang);
     localStorage.setItem("dir", dir);
 
-    // ✅ تغيير ملف CSS حسب اللغة
     const cssLink = document.getElementById("lang-style");
     if (cssLink) {
       cssLink.href = lang === "fr" ? "css/style-ltr.css" : "css/style-rtl.css";
     }
 
-    // ✅ تغيير نص الزر الظاهر
     const currentLangBtn = document.getElementById("currentLang");
     if (currentLangBtn) {
       currentLangBtn.textContent = lang === "ar" ? "العربية" : "Français";
     }
+
+    document.dispatchEvent(new CustomEvent('languageChanged', {
+      detail: { lang, dir }
+    }));
   }
 
   bindEvents() {
@@ -74,8 +76,57 @@ class LanguageManager {
   }
 }
 
+
 // Initialize both managers when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new ThemeManager();
   new LanguageManager();
 });
+
+
+// Slick Slider 
+// Determine if page is RTL
+document.addEventListener("DOMContentLoaded", () => {
+  initSlider(document.documentElement.getAttribute("dir"));
+});
+
+document.addEventListener("languageChanged", (e) => {
+  initSlider(e.detail.dir);
+});
+
+function initSlider(dir) {
+  const $slider = $('.fastivals .slider');
+
+  if ($slider.hasClass('slick-initialized')) {
+    $slider.slick('unslick');
+  }
+
+  setTimeout(() => {
+    $slider.slick({
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      rtl: dir === 'rtl',
+      autoplay: false,
+      // rows: 2,
+      autoplaySpeed: 2000,
+      arrows: false,
+      dots: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  }, 100);
+}

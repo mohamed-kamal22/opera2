@@ -1577,3 +1577,420 @@ body {
     image-rendering: crisp-edges;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== FASTIVAL CAROUSEL SECTION ===== */
+.fastivals {
+  .carousel-custom {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    /* Carousel Items */
+    .carousel-item {
+      height: 100vh;
+      transition: transform 0.8s ease-in-out;
+      position: relative;
+
+      &-next,
+      &-prev {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &-next {
+        transform: translateX(100%);
+
+        &.carousel-item-start {
+          transform: translateX(0);
+        }
+      }
+
+      &-prev {
+        transform: translateX(-100%);
+
+        &.carousel-item-end {
+          transform: translateX(0);
+        }
+      }
+
+      &.active {
+        &.carousel-item-start {
+          transform: translateX(-100%);
+        }
+
+        &.carousel-item-end {
+          transform: translateX(100%);
+        }
+      }
+    }
+
+    .header-slide {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-attachment: fixed;
+    }
+
+    /* Hero Overlay */
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg,
+          rgba(24, 22, 22, 0.7) 0%,
+          rgba(24, 22, 22, 0.4) 50%,
+          rgba(24, 22, 22, 0.6) 100%);
+      z-index: 1;
+    }
+
+    /* Hero Content */
+    .header-slide_content {
+      position: relative;
+      z-index: 3;
+      max-width: 600px;
+
+      &__title {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #ffffff;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        line-height: 1.2;
+        // animation: slideInLeft 1s ease-out;
+      }
+
+      &__subtitle {
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        // animation: slideInLeft 1s ease-out 0.3s both;
+        font-weight: 300;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      &__btn {
+        background: #ca391e;
+        color: white;
+        border: none;
+        padding: 10px 60px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 7px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+      }
+    }
+
+    /* Carousel Indicators */
+    .carousel-indicators {
+      bottom: 30px;
+      z-index: 4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .bg_carousel-indicators {
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        height: auto;
+        border-radius: 2rem;
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        border: none;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: auto;
+      }
+
+      button {
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50%;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.4s ease;
+        opacity: 1;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background-color: #dc3545;
+          border-radius: 50%;
+          transition: all 0.4s ease;
+          transform: translate(-50%, -50%);
+        }
+
+        &.active {
+          background-color: #dc3545;
+          border-color: #dc3545;
+          transform: scale(1.2);
+          box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+
+          &::before {
+            width: 100%;
+            height: 100%;
+          }
+
+          &:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+          }
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.9);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    /* Carousel Controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .festival-body {
+    padding: 32px 0;
+
+    .festival-body__breadcrumb {
+      margin-bottom: 5px;
+
+      .breadcrumb {
+        margin-bottom: 0;
+
+        .breadcrumb-item {
+          font-size: 14px;
+          color: var(--text-app);
+
+          &::before {
+            color: var(--text-app);
+          }
+
+          &.active {
+            font-weight: bold;
+          }
+
+          a {
+            text-decoration: none;
+            color: var(--text-app) !important;
+          }
+        }
+      }
+    }
+
+    .festival-body__header {
+      margin-bottom: 32px;
+
+      .festival-body__title {
+        font-size: 29px;
+        color: var(--text-app);
+      }
+    }
+
+    .fastival-body__slider {
+      .slider {
+        .card {
+          position: relative;
+          border-radius: 10px;
+          background-color: rgba(51, 51, 51, 0.5);
+          padding: 10px;
+          z-index: 0;
+          overflow: hidden;
+          transition: background-color 0.4s ease;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
+            -webkit-mask:
+              linear-gradient(#fff 0 0) content-box,
+              linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+          }
+
+          img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+          }
+
+          &__details {
+            p {
+              font-size: 20px;
+              font-weight: 600;
+              color: #fff;
+            }
+          }
+
+          &:hover {
+            background-color: #ca391ecc;
+          }
+
+          @media (hover: none) and (pointer: coarse) {
+            &:active {
+              background-color: #ca391ecc;
+            }
+          }
+        }
+
+
+
+        .slick-dots {
+          bottom: -40px;
+
+          li {
+            button {
+              &:before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: var(--text-app);
+                border-radius: 50%;
+                display: inline-block;
+                opacity: 1;
+              }
+            }
+
+            &.slick-active {
+              margin-right: 25px !important;
+
+              button {
+                &:before {
+                  content: "";
+                  width: 34px;
+                  height: 9px;
+                  background-color: var(--text-app);
+                  border-radius: 4px;
+                  display: inline-block;
+                  opacity: 1;
+                  margin-right: 20px !important;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme=light] {
+  .fastivals {
+    .festival-body {
+      padding: 32px 0;
+
+      .fastival-body__slider {
+        .slider {
+          .card {
+            background-color: #181616;
+            &:hover {
+              background-color: #ca391e;
+            }
+
+            @media (hover: none) and (pointer: coarse) {
+              &:active {
+                background-color: #ca391e;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1264,4 +1264,295 @@ body {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
+}
+/* ===== FASTIVAL CAROUSEL SECTION ===== */
+.fastivals .carousel-custom {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* Carousel Items */
+  /* Hero Overlay */
+  /* Hero Content */
+  /* Carousel Indicators */
+  /* Carousel Controls */
+}
+.fastivals .carousel-custom .carousel-item {
+  height: 100vh;
+  transition: transform 0.8s ease-in-out;
+  position: relative;
+}
+.fastivals .carousel-custom .carousel-item-next, .fastivals .carousel-custom .carousel-item-prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.fastivals .carousel-custom .carousel-item-next {
+  transform: translateX(100%);
+}
+.fastivals .carousel-custom .carousel-item-next.carousel-item-start {
+  transform: translateX(0);
+}
+.fastivals .carousel-custom .carousel-item-prev {
+  transform: translateX(-100%);
+}
+.fastivals .carousel-custom .carousel-item-prev.carousel-item-end {
+  transform: translateX(0);
+}
+.fastivals .carousel-custom .carousel-item.active.carousel-item-start {
+  transform: translateX(-100%);
+}
+.fastivals .carousel-custom .carousel-item.active.carousel-item-end {
+  transform: translateX(100%);
+}
+.fastivals .carousel-custom .header-slide {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-attachment: fixed;
+}
+.fastivals .carousel-custom .slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(24, 22, 22, 0.7) 0%, rgba(24, 22, 22, 0.4) 50%, rgba(24, 22, 22, 0.6) 100%);
+  z-index: 1;
+}
+.fastivals .carousel-custom .header-slide_content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+}
+.fastivals .carousel-custom .header-slide_content__title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+.fastivals .carousel-custom .header-slide_content__subtitle {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-weight: 300;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
+  font-size: 18px;
+  font-weight: 500;
+}
+.fastivals .carousel-custom .header-slide_content__btn {
+  background: #ca391e;
+  color: white;
+  border: none;
+  padding: 10px 60px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+.fastivals .carousel-custom .carousel-indicators {
+  bottom: 30px;
+  z-index: 4;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.fastivals .carousel-custom .carousel-indicators .bg_carousel-indicators {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  height: auto;
+  border-radius: 2rem;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+}
+.fastivals .carousel-custom .carousel-indicators button {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+}
+.fastivals .carousel-custom .carousel-indicators button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #dc3545;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+}
+.fastivals .carousel-custom .carousel-indicators button.active {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+}
+.fastivals .carousel-custom .carousel-indicators button.active::before {
+  width: 100%;
+  height: 100%;
+}
+.fastivals .carousel-custom .carousel-indicators button.active:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+.fastivals .carousel-custom .carousel-indicators button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+}
+.fastivals .carousel-custom .carousel-control-prev,
+.fastivals .carousel-custom .carousel-control-next {
+  width: 5%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.fastivals .carousel-custom .carousel-control-prev:hover,
+.fastivals .carousel-custom .carousel-control-next:hover {
+  opacity: 1;
+}
+.fastivals .carousel-custom:hover .carousel-control-prev,
+.fastivals .carousel-custom:hover .carousel-control-next {
+  opacity: 0.7;
+}
+.fastivals .festival-body {
+  padding: 32px 0;
+}
+.fastivals .festival-body .festival-body__breadcrumb {
+  margin-bottom: 5px;
+}
+.fastivals .festival-body .festival-body__breadcrumb .breadcrumb {
+  margin-bottom: 0;
+}
+.fastivals .festival-body .festival-body__breadcrumb .breadcrumb .breadcrumb-item {
+  font-size: 14px;
+  color: var(--text-app);
+}
+.fastivals .festival-body .festival-body__breadcrumb .breadcrumb .breadcrumb-item::before {
+  color: var(--text-app);
+}
+.fastivals .festival-body .festival-body__breadcrumb .breadcrumb .breadcrumb-item.active {
+  font-weight: bold;
+}
+.fastivals .festival-body .festival-body__breadcrumb .breadcrumb .breadcrumb-item a {
+  text-decoration: none;
+  color: var(--text-app) !important;
+}
+.fastivals .festival-body .festival-body__header {
+  margin-bottom: 32px;
+}
+.fastivals .festival-body .festival-body__header .festival-body__title {
+  font-size: 29px;
+  color: var(--text-app);
+}
+.fastivals .festival-body .fastival-body__slider .slider .card {
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(51, 51, 51, 0.5);
+  padding: 10px;
+  z-index: 0;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+}
+.fastivals .festival-body .fastival-body__slider .slider .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+.fastivals .festival-body .fastival-body__slider .slider .card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.fastivals .festival-body .fastival-body__slider .slider .card__details p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.fastivals .festival-body .fastival-body__slider .slider .card:hover {
+  background-color: rgba(202, 57, 30, 0.8);
+}
+@media (hover: none) and (pointer: coarse) {
+  .fastivals .festival-body .fastival-body__slider .slider .card:active {
+    background-color: rgba(202, 57, 30, 0.8);
+  }
+}
+.fastivals .festival-body .fastival-body__slider .slider .slick-dots {
+  bottom: -40px;
+}
+.fastivals .festival-body .fastival-body__slider .slider .slick-dots li button:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-app);
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 1;
+}
+.fastivals .festival-body .fastival-body__slider .slider .slick-dots li.slick-active {
+  margin-right: 25px !important;
+}
+.fastivals .festival-body .fastival-body__slider .slider .slick-dots li.slick-active button:before {
+  content: "";
+  width: 34px;
+  height: 9px;
+  background-color: var(--text-app);
+  border-radius: 4px;
+  display: inline-block;
+  opacity: 1;
+  margin-right: 20px !important;
+  display: block;
+}
+
+[data-theme=light] .fastivals .festival-body {
+  padding: 32px 0;
+}
+[data-theme=light] .fastivals .festival-body .fastival-body__slider .slider .card {
+  background-color: #181616;
+}
+[data-theme=light] .fastivals .festival-body .fastival-body__slider .slider .card:hover {
+  background-color: #ca391e;
+}
+@media (hover: none) and (pointer: coarse) {
+  [data-theme=light] .fastivals .festival-body .fastival-body__slider .slider .card:active {
+    background-color: #ca391e;
+  }
 }/*# sourceMappingURL=style-ltr.css.map */
