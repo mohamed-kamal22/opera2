@@ -106,7 +106,7 @@ function initSlider(dir) {
       slidesToShow: 3,
       slidesToScroll: 3,
       rtl: dir === 'rtl',
-      autoplay: false,
+      autoplay: true,
       // rows: 2,
       autoplaySpeed: 2000,
       arrows: false,
