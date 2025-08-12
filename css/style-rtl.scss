@@ -1940,6 +1940,75 @@ body {
       }
     }
   }
+
+   @media (max-width: 1199px) {
+    .carousel-custom .header-slide_content__title {
+      font-size: 34px;
+    }
+    .carousel-custom .header-slide_content__subtitle {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .carousel-custom {
+      .header-slide_content__title {
+        font-size: 28px;
+      }
+      .header-slide_content__subtitle {
+        font-size: 15px;
+      }
+    }
+    .festival-body__header .festival-body__title {
+      font-size: 24px;
+    }
+    .fastival-body__slider .slider .card__details p {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .carousel-custom {
+      .header-slide_content__title {
+        font-size: 22px;
+      }
+      .header-slide_content__subtitle {
+        font-size: 14px;
+      }
+      .header-slide_content__btn {
+        padding: 8px 40px;
+        font-size: 13px;
+      }
+    }
+    .festival-body__header .festival-body__title {
+      font-size: 20px;
+    }
+    .fastival-body__slider .slider .card__details p {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .carousel-custom {
+      .header-slide_content__title {
+        font-size: 18px;
+      }
+      .header-slide_content__subtitle {
+        font-size: 13px;
+      }
+      .header-slide_content__btn {
+        padding: 6px 30px;
+        font-size: 12px;
+      }
+    }
+    .festival-body__header .festival-body__title {
+      font-size: 18px;
+      text-align: center;
+    }
+    .fastival-body__slider .slider .card__details p {
+      font-size: 14px;
+    }
+  }
 }
 
 [data-theme=light] {
@@ -1961,6 +2030,486 @@ body {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* ===== FASTIVAL DETAILS ===== */
+.fastivalsDetails {
+  margin-top: 125px;
+  overflow: hidden;
+  position: relative;
+
+  .background-layer {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/fastivals/bg-fastivalDetails.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    z-index: 0;
+  }
+
+  .fastivalsDetails__header {
+    margin-bottom: 16px;
+
+    .fastivalsDetails__header-title {
+      span {
+        color: var(--text-app);
+        font-size: 30px;
+      }
+    }
+  }
+
+  .fastivalsDetails__body {
+    .description-fastival {
+      margin-bottom: 25px;
+
+      .img-fastival {
+        padding: 2px;
+        height: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+          height: 100%;
+        }
+      }
+
+      .competition-description {
+        .competition-description_title {
+          color: #fff;
+          font-size: 23px;
+          font-weight: normal;
+        }
+
+        .competition-description_body {
+          .title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          .body__section {
+            margin-bottom: 16px;
+
+            p {
+              color: #fff;
+              font-size: 14px;
+              margin-bottom: 0;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+
+    .presidents-section {
+      margin-bottom: 32px;
+
+      .section-title {
+        font-size: 29px;
+        color: #fff;
+      }
+
+      .president-card {
+        padding: 16px;
+
+        .president-image {
+          height: 100%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+            border-radius: 5px;
+          }
+        }
+
+        .president-content {
+          margin-top: 10px;
+
+          .president-name {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 0;
+          }
+
+          .president-date {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
+          }
+
+          .president-description {
+            font-size: 14px;
+            color: #fff;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .president-link {
+            display: flex;
+            justify-content: end;
+
+            a {
+              text-decoration: none;
+              color: #CA391E;
+              cursor: pointer;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    .shows-section {
+      margin-bottom: 32px;
+
+      .section-title {
+        font-size: 29px;
+        color: var(--text-app);
+      }
+
+      .slider {
+        .card {
+          border-radius: 10px;
+          height: 512px;
+          background: unset;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .slick-dots {
+          bottom: -40px;
+
+          li {
+            button {
+              &:before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: var(--text-app);
+                border-radius: 50%;
+                display: inline-block;
+                opacity: 1;
+              }
+            }
+
+            &.slick-active {
+              margin-right: 25px !important;
+
+              button {
+                &:before {
+                  content: "";
+                  width: 34px;
+                  height: 9px;
+                  background-color: var(--text-app);
+                  border-radius: 4px;
+                  display: inline-block;
+                  opacity: 1;
+                  margin-right: 20px !important;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .competitions {
+      margin-bottom: 32px;
+
+      .section-title {
+        color: var(--text-app);
+        font-size: 29px;
+        margin-bottom: 16px;
+      }
+
+      .section-content {
+        .section-content_card {
+          background-color: #252321;
+          border-radius: 10px;
+          height: 100%;
+          position: relative;
+
+          img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 32px;
+          }
+
+          .section-content-card__details {
+            .section-content-card__title {
+              font-size: 24px;
+              color: #fff;
+              margin-bottom: 23px;
+            }
+          }
+
+          .section-content-card__badge--ended {
+            border-radius: 5px;
+            border: solid 1px #fff;
+            background-color: rgba(202, 57, 30, 0.7);
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 10px;
+
+            span {
+              font-size: 14px;
+              font-weight: bold;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .artistic-committee {
+      margin-bottom: 32px;
+
+      .section-title {
+        color: var(--text-app);
+        font-size: 29px;
+        margin-bottom: 16px;
+      }
+
+      .section-content {
+        .section-content_card {
+          img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 32px;
+          }
+
+          .section-content-card__details {
+            .section-content-card__title {
+              font-size: 20px;
+              font-weight: 600;
+              color: #fff;
+              margin-bottom: 23px;
+            }
+
+            .section-content-card__subtitle {
+              font-size: 14px;
+              color: #fafafa;
+            }
+          }
+        }
+      }
+    }
+
+    .related-topics {
+      margin-bottom: 32px;
+
+      .section-title {
+        color: var(--text-app);
+        font-size: 29px;
+        margin-bottom: 16px;
+      }
+
+      .section-content {
+        .section-content_card {
+          img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 32px;
+          }
+
+          .section-content-card__details {
+            .section-content-card__title {
+              font-size: 20px;
+              font-weight: 600;
+              color: #fff;
+              margin-bottom: 23px;
+            }
+
+            .section-content-card__subtitle {
+              font-size: 14px;
+              color: #fafafa;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.gradiant_border {
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(51, 51, 51, 0.5);
+  padding: 10px;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+}
+
+[data-theme="dark"] {
+  .fastivalsDetails {
+    .background-layer {
+      opacity: 0.02;
+    }
+  }
+}
+
+[data-theme=light] {
+  .gradiant_border {
+    background-color: #252321;
+  }
+
+  .fastivalsDetails {
+    .background-layer {
+      opacity: 0.02;
+      mix-blend-mode: difference;
+    }
+  }
+}
+
+.modal {
+  &.presidentModal {
+    .modal-content {
+      padding: 16px;
+
+      .modal-header {
+        align-items: flex-start;
+        border: 0;
+        padding: 0;
+        margin-bottom: 20px;
+
+        .modal-title {
+          display: flex;
+          gap: 20px;
+
+          .modal-title__image {
+            img {
+              border-radius: 10px;
+              image-rendering: pixelated;
+            }
+          }
+
+          .modal-title__info {
+            .modal-title__name {
+              margin-bottom: 7px;
+
+              p {
+                margin-bottom: 0;
+
+                &:first-child {
+                  font-size: 24px;
+                }
+
+                &:last-child {
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .modal-title__brief {
+              p {
+                margin-bottom: 0;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .modal-body {
+        padding: 0;
+
+        p {
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+
+      /* ============================= */
+      /* 📱 Responsive Breakpoints */
+      /* ============================= */
+      @media (max-width: 991px) {
+        padding: 12px;
+
+        .modal-header {
+          .modal-title {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            text-align: center;
+
+            .modal-title__info {
+              .modal-title__name p:first-child {
+                font-size: 20px;
+              }
+              .modal-title__name p:last-child {
+                font-size: 13px;
+              }
+              .modal-title__brief p {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 575px) {
+        padding: 10px;
+
+        .modal-header {
+          margin-bottom: 15px;
+
+          .modal-title__image img {
+            max-width: 100px;
+          }
+
+          .modal-title__info {
+            .modal-title__name p:first-child {
+              font-size: 18px;
+            }
+            .modal-title__name p:last-child {
+              font-size: 12px;
+            }
+            .modal-title__brief p {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .modal-body p {
+          font-size: 13px;
         }
       }
     }

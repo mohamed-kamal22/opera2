@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link id="lang-style" rel="stylesheet" href="css/style-ltr.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
+    <title>festivalsDetails</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="top-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <!-- Logo -->
+                <div class="top-logo d-flex align-items-center gap-2">
+                    <img src="img/opera-Logo.svg" alt="Logo" />
+                    <span class="fw-bold text-uppercase">Cairo Opera House</span>
+                </div>
+
+                <!-- Search bar -->
+                <form class="d-flex flex-grow-1" style="max-width: 400px;">
+                    <input class="form-control form-control-sm" type="search" placeholder="Search the whole site..." />
+                    <button class="btn btn-sm ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <div class="d-flex justify-content-between align-items-center gap-5">
+                    <div class="theme-controls">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع">
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </button>
+                    </div>
+
+                    <div class="calendar-header">
+                        <i class="bi bi-calendar"></i>
+                        <span>calendar</span>
+                    </div>
+
+                    <div class="dropdown-lang">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i>
+                            <span id="currentLang">العربية</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" data-lang="ar" data-dir="rtl">العربية</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="fr" data-dir="ltr">Français</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="w-100">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav w-100" style="justify-content: space-between;">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Theaters</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Companies</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Talent Center</a></li>
+                            <li class="nav-item"><a class="nav-link" href="festivals.html">Festivals</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Conferences</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <section class="fastivalsDetails">
+        <div class="background-layer"></div>
+        <div class="container">
+            <div class="fastivalsDetails__header">
+                <div class="fastivalsDetails__header-title">
+                    <span>Arab Music Festival and Conference 32nd</span>
+                </div>
+            </div>
+            <div class="fastivalsDetails__body">
+                <div class="description-fastival">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-12 mb-3">
+                            <div class="img-fastival gradiant_border">
+                                <img src="img/fastivals/fastival-card_1.png">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-12 mb-3">
+                            <div class="competition-description gradiant_border">
+                                <p class="competition-description_title">Description</p>
+                                <div class="competition-description_body">
+                                    <p class="title">Competition Participation Details</p>
+                                    <div class="body__section">
+                                        <p class="section-label">Registration Method:</p>
+                                        <p class="section-content">The competition is open to youth and people of
+                                            determination aged 16 to 40
+                                            (due to the month of October).</p>
+                                    </div>
+                                    <div class="body__section">
+                                        <p class="section-label">Competition Registration Fees:</p>
+                                        <p class="section-content">For Egyptians: 100 Egyptian Pounds.</p>
+                                        <p class="section-content">For non-Egyptians: 100 US Dollars (or 5,000 Egyptian
+                                            Pounds), payable only if the contestants (foreigners) qualify for the final
+                                            round.</p>
+                                    </div>
+                                    <div class="body__section">
+                                        <p class="section-content">»»The competition is held in two stages««</p>
+                                    </div>
+                                    <div class="body__section">
+                                        <p class="section-label">1- Preliminary Stage:</p>
+                                        <p class="section-content">- The contestant in the preliminary round submits a
+                                            video, taking into account the quality of the sound and image, presenting a
+                                            song by Sayed Darwish, in addition to another song of their choice. Each
+                                            song must be a maximum of one minute long.</p>
+                                        <p class="section-content">- After completing the video preparation and editing,
+                                            it is submitted via the competition registration page (next page). This is
+                                            followed by creating a link to online file storage and sharing services
+                                            (WeTransfer, Dropbox, Google Drive, OneDrive, SendAnywhere, etc.)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="presidents-section">
+                    <p class="section-title">Word’s Presidents</p>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mb-3">
+                            <div class="president-card gradiant_border">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="president-image">
+                                            <img src="img/fastivals/Presidents.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="president-content">
+                                            <h3 class="president-name">Prof. Dr. Alaa Abdel Salam</h3>
+                                            <p class="president-date">09 April 2025</p>
+                                            <p class="president-description">
+                                                Dr. Ahmed Fouad Hano, Minister of Culture, issued a decision to assign
+                                                Dr. Alaa Abdel Salam as the Chairman of the...
+                                            </p>
+                                            <div class="president-link">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#presidentModal">
+                                                    More Details →
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mb-3">
+                            <div class="president-card gradiant_border">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="president-image">
+                                            <img src="img/fastivals/Presidents.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="president-content">
+                                            <h3 class="president-name">Prof. Dr. Alaa Abdel Salam</h3>
+                                            <p class="president-date">09 April 2025</p>
+                                            <p class="president-description">
+                                                Dr. Ahmed Fouad Hano, Minister of Culture, issued a decision to assign
+                                                Dr. Alaa Abdel Salam as the Chairman of the...
+                                            </p>
+                                            <div class="president-link">
+                                                <a href="#">More Details →</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shows-section">
+                    <p class="section-title">Festival Shows</p>
+                    <div class="slider">
+                        <div class="slide-1">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/artist-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-2">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/artist-2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-3">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/artist-3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-4">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/artist-4.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-5">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/fastivals/fastival-card_1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-6">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/fastivals/fastival-card_1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-7">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/fastivals/fastival-card_1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-8">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/fastivals/fastival-card_1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="slide-9">
+                            <div class="card mb-3 m-md-2">
+                                <img src="img/fastivals/fastival-card_1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competitions">
+                    <div class="section-title">Competitions</div>
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card">
+                                    <img src="img/fastivals/competitions-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title text-center">Competition 1</p>
+                                    </div>
+                                    <div class="section-content-card__badge--ended">
+                                        <span>Competition time is over</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card">
+                                    <img src="img/fastivals/competitions-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title text-center">Competition 1</p>
+                                    </div>
+                                    <div class="section-content-card__badge--ended">
+                                        <span>Competition time is over</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card">
+                                    <img src="img/fastivals/competitions-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title text-center">Competition 1</p>
+                                    </div>
+                                    <div class="section-content-card__badge--ended">
+                                        <span>Competition time is over</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artistic-committee">
+                    <div class="section-title">Artistic Committee</div>
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/artistic-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">Title 1</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/artistic-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">Title 1</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/artistic-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">Title 1</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-topics">
+                    <div class="section-title">Related Topics</div>
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/topics-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">International Castle Festival 25th</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.
+                                            Doors open one hour before the concert.
+                                            When entering the Grand Theater, please adhere to...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/topics-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">International Castle Festival 25th</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.
+                                            Doors open one hour before the concert.
+                                            When entering the Grand Theater, please adhere to...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                <div class="section-content_card gradiant_border">
+                                    <img src="img/fastivals/topics-1.png" alt="">
+                                    <div class="section-content-card__details">
+                                        <p class="section-content-card__title">International Castle Festival 25th</p>
+                                        <p class="section-content-card__subtitle">The Egyptian Opera House is not
+                                            responsible for tickets purchased through any other sources.
+                                            Doors open one hour before the concert.
+                                            When entering the Grand Theater, please adhere to...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- presidentModal -->
+            <div class="modal fade presidentModal" id="presidentModal" tabindex="-1"
+                aria-labelledby="presidentModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title" id="presidentModalLabel">
+                                <div class="modal-title__image">
+                                    <img src="img/fastivals/Presidents.png" alt="">
+                                </div>
+                                <div class="modal-title__info">
+                                    <div class="modal-title__name">
+                                        <p>Prof. Dr. Alaa Abdel Salam</p>
+                                        <p>The Chairman Of Cairo Opera House</p>
+                                    </div>
+                                    <div class="modal-title__brief">
+                                        <p>
+                                            Dr. Ahmed Fouad Hano, Minister of Culture, issued a decision to assign Dr.
+                                            Alaa Abdel Salam
+                                        </p>
+                                        <p>
+                                            as the Chairman Dr. Ahmed Fouad Hano, Minister of Culture, issued a decision
+                                            to assign Dr. Alaa Abdel Salam
+                                            as the Chairman
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content
+                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                here', making it look like readable English. Many desktop publishing packages and web
+                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                                ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+                                over the years, sometimes by accident, sometimes on purpose (injected humour and the
+                                like).
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content
+                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                here', making it look like readable English. Many desktop publishing packages and web
+                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                                ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+                                over the years, sometimes by accident, sometimes on purpose (injected humour and the
+                                like).
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content
+                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                here', making it look like readable English. Many desktop publishing packages and web
+                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                                ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+                                over the years, sometimes by accident, sometimes on purpose (injected humour and the
+                                like).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
