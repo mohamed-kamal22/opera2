@@ -2707,8 +2707,15 @@ body {
           font-size: 14px;
           color: var(--text-app);
 
+          +.breadcrumb-item {
+            padding-right: 0.5rem;
+          }
+
           &::before {
             color: var(--text-app);
+            float: right;
+            padding-right: 0;
+            padding-left: 0.5rem;
           }
 
           &.active {

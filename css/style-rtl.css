@@ -2102,8 +2102,14 @@ body {
   font-size: 14px;
   color: var(--text-app);
 }
+.competition-details .competition-details__header .competition-details__breadcrumb .breadcrumb .breadcrumb-item + .breadcrumb-item {
+  padding-right: 0.5rem;
+}
 .competition-details .competition-details__header .competition-details__breadcrumb .breadcrumb .breadcrumb-item::before {
   color: var(--text-app);
+  float: right;
+  padding-right: 0;
+  padding-left: 0.5rem;
 }
 .competition-details .competition-details__header .competition-details__breadcrumb .breadcrumb .breadcrumb-item.active {
   font-weight: bold;
