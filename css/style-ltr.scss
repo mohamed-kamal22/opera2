@@ -1927,10 +1927,11 @@ body {
     }
   }
 
-   @media (max-width: 1199px) {
+  @media (max-width: 1199px) {
     .carousel-custom .header-slide_content__title {
       font-size: 34px;
     }
+
     .carousel-custom .header-slide_content__subtitle {
       font-size: 16px;
     }
@@ -1941,13 +1942,16 @@ body {
       .header-slide_content__title {
         font-size: 28px;
       }
+
       .header-slide_content__subtitle {
         font-size: 15px;
       }
     }
+
     .festival-body__header .festival-body__title {
       font-size: 24px;
     }
+
     .fastival-body__slider .slider .card__details p {
       font-size: 18px;
     }
@@ -1958,17 +1962,21 @@ body {
       .header-slide_content__title {
         font-size: 22px;
       }
+
       .header-slide_content__subtitle {
         font-size: 14px;
       }
+
       .header-slide_content__btn {
         padding: 8px 40px;
         font-size: 13px;
       }
     }
+
     .festival-body__header .festival-body__title {
       font-size: 20px;
     }
+
     .fastival-body__slider .slider .card__details p {
       font-size: 16px;
     }
@@ -1979,18 +1987,22 @@ body {
       .header-slide_content__title {
         font-size: 18px;
       }
+
       .header-slide_content__subtitle {
         font-size: 13px;
       }
+
       .header-slide_content__btn {
         padding: 6px 30px;
         font-size: 12px;
       }
     }
+
     .festival-body__header .festival-body__title {
       font-size: 18px;
       text-align: center;
     }
+
     .fastival-body__slider .slider .card__details p {
       font-size: 14px;
     }
@@ -2337,29 +2349,175 @@ body {
       }
     }
   }
-}
 
-.gradiant_border {
-  position: relative;
-  border-radius: 10px;
-  background-color: rgba(51, 51, 51, 0.5);
-  padding: 10px;
-  z-index: 0;
-  overflow: hidden;
+  @media (max-width: 1200px) {
+    .fastivalsDetails__header-title {
+      span {
+        font-size: 26px;
+      }
+    }
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: 10px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
+    .section-title {
+      font-size: 26px !important;
+    }
+  }
+
+  @media (max-width: 992px) {
+    margin-top: 165px;
+
+    .fastivalsDetails__header-title {
+      span {
+        font-size: 24px;
+      }
+    }
+
+    .competition-description_title {
+      font-size: 20px;
+    }
+
+    .section-title {
+      font-size: 24px !important;
+    }
+
+    .president-card {
+      .president-name {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 165px;
+
+    .fastivalsDetails__header-title {
+      span {
+        font-size: 22px;
+      }
+    }
+
+    .competition-description_title {
+      font-size: 18px;
+    }
+
+    .competition-description_body {
+
+      .title,
+      p {
+        font-size: 13px;
+      }
+    }
+
+    .section-title {
+      font-size: 22px !important;
+    }
+
+    .president-card {
+      .president-name {
+        font-size: 18px;
+      }
+
+      .president-date,
+      .president-description {
+        font-size: 13px;
+      }
+    }
+
+    .shows-section {
+      .slider {
+        .card {
+          height: 380px;
+        }
+      }
+    }
+
+    .section-content-card__title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin-top: 205px;
+
+    .fastivalsDetails__header-title {
+      span {
+        font-size: 20px;
+      }
+    }
+
+    .competition-description_title {
+      font-size: 16px;
+    }
+
+    .competition-description_body {
+
+      .title,
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .section-title {
+      font-size: 20px !important;
+    }
+
+    .president-card {
+      padding: 10px;
+
+      .president-name {
+        font-size: 16px;
+      }
+
+      .president-date,
+      .president-description {
+        font-size: 12px;
+      }
+    }
+
+    .shows-section {
+      .slider {
+        .card {
+          height: 300px;
+        }
+      }
+    }
+
+    .section-content-card__title {
+      font-size: 18px;
+    }
+
+    .section-content-card__subtitle {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .fastivalsDetails__header-title {
+      span {
+        font-size: 18px;
+      }
+    }
+
+    .section-title {
+      font-size: 18px !important;
+    }
+
+    .president-card {
+      .president-name {
+        font-size: 14px;
+      }
+    }
+
+    .shows-section {
+      .slider {
+        .card {
+          height: 250px;
+        }
+      }
+    }
+
+    .section-content-card__title {
+      font-size: 16px;
+    }
   }
 }
 
@@ -2381,11 +2539,7 @@ body {
 
 }
 
-[data-theme=light] {
-  .gradiant_border {
-    background-color: #252321;
-  }
-}
+
 
 .modal {
   &.presidentModal {
@@ -2464,9 +2618,11 @@ body {
               .modal-title__name p:first-child {
                 font-size: 20px;
               }
+
               .modal-title__name p:last-child {
                 font-size: 13px;
               }
+
               .modal-title__brief p {
                 font-size: 13px;
               }
@@ -2489,9 +2645,11 @@ body {
             .modal-title__name p:first-child {
               font-size: 18px;
             }
+
             .modal-title__name p:last-child {
               font-size: 12px;
             }
+
             .modal-title__brief p {
               font-size: 12px;
             }
@@ -2503,5 +2661,346 @@ body {
         }
       }
     }
+  }
+}
+
+
+
+
+/* ===== Competition DETAILS ===== */
+.competition-details {
+  margin-top: 125px;
+  position: relative;
+  overflow: hidden;
+
+  .background-layer {
+    position: absolute;
+    inset: 0;
+    background: url('../img/fastivals/bg-fastivalDetails.png') no-repeat center / cover;
+    opacity: 0.28;
+    z-index: -1;
+  }
+
+  .competition-details__header {
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+    .competition-details__breadcrumb {
+      margin-bottom: 5px;
+
+      .breadcrumb {
+        margin-bottom: 0;
+
+        .breadcrumb-item {
+          font-size: 14px;
+          color: var(--text-app);
+
+          &::before {
+            color: var(--text-app);
+          }
+
+          &.active {
+            font-weight: bold;
+          }
+
+          a {
+            text-decoration: none;
+            color: var(--text-app) !important;
+          }
+        }
+      }
+    }
+
+    .competition-details__title span {
+      color: var(--text-app);
+      font-size: 29px;
+    }
+  }
+
+  .competition-details__body {
+
+    .competition-details__row {
+      display: flex;
+      align-items: stretch;
+
+      >[class*="col-"] {
+        display: flex;
+      }
+
+      .competition-details__image {
+        flex: 1;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+
+      .competition-details__info {
+        flex: 1;
+
+        .competition-details_title {
+          color: #fff;
+          font-size: 23px;
+        }
+
+        .competition-details__text-list {
+          color: #fff;
+          font-size: 14px;
+          margin-bottom: 0;
+        }
+
+        .competition-details__info-list {
+          padding-left: 25px;
+
+          li {
+            color: #fff;
+            font-size: 14px;
+
+            &::marker {
+              color: #ca391e;
+              font-size: 25px;
+            }
+          }
+        }
+
+        .competition-details__info-meta {
+          .competition-details__info-meta--item {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .competition-details__notes {
+      margin-bottom: 32px;
+
+      .competition-details__notes--item {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        color: var(--text-app);
+      }
+    }
+
+    .competition__registration {
+      .__title {
+        font-size: 29px;
+        color: var(--text-app);
+        margin-bottom: 32px;
+      }
+
+      .competition__registration--option {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin-bottom: 32px;
+
+        .form-check {
+          .form-check-input {
+            border-color: var(--text-app);
+
+            &:checked {
+              border-color: #ca391e;
+              background-color: #ca391e;
+            }
+
+            &:focus {
+              box-shadow: unset;
+            }
+          }
+
+          .form-check-label {
+            color: var(--text-app);
+          }
+        }
+      }
+
+      .termsConditions {
+        margin-bottom: 32px;
+        padding: 2px;
+
+        .accordion-item {
+          border: 0;
+
+          .accordion-button {
+            box-shadow: unset;
+
+            &::after {
+              filter: invert(100%);
+              margin-left: auto;
+              margin-right: unset;
+            }
+          }
+        }
+      }
+
+      .competition__registration--btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .agreementTerms {
+          .form-check-label {
+            color: var(--text-app);
+            font-size: 14px;
+          }
+
+          .form-check-input {
+            border-color: var(--text-app);
+
+            &:checked {
+              border-color: #ca391e;
+              background-color: #ca391e;
+            }
+
+            &:focus {
+              box-shadow: unset;
+            }
+          }
+        }
+
+        button {
+          border-radius: 7px;
+          background-color: #ca391e;
+          color: #fff;
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    margin-top: 164px;
+
+    .competition-details__header {
+      .competition-details__title span {
+        font-size: 24px;
+      }
+    }
+
+    .competition-details__body {
+      .competition-details__row {
+        flex-direction: column;
+        gap: 20px;
+
+        .competition-details__image,
+        .competition-details__info {
+          width: 100%;
+        }
+      }
+
+      .competition__registration {
+        .__title {
+          font-size: 24px;
+        }
+
+        .competition__registration--option {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 165px;
+  }
+
+  @media (max-width: 576px) {
+    margin-top: 203px;
+
+    .competition-details__header {
+      .competition-details__title span {
+        font-size: 20px;
+      }
+    }
+
+    .competition-details__body {
+      .competition-details__info {
+        .competition-details_title {
+          font-size: 18px;
+        }
+
+        .competition-details__text-list,
+        .competition-details__info-list li,
+        .competition-details__info-meta--item {
+          font-size: 12px;
+        }
+      }
+
+      .competition__registration {
+        .__title {
+          font-size: 20px;
+        }
+
+        .competition__registration--btns {
+          flex-direction: column;
+          gap: 16px;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .competition-details {
+    .background-layer {
+      opacity: 0.02;
+    }
+  }
+}
+
+[data-theme="light"] {
+  .competition-details {
+    .background-layer {
+      opacity: 0.02;
+      mix-blend-mode: difference;
+    }
+  }
+}
+
+
+
+
+
+
+.gradiant_border {
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(51, 51, 51, 0.5);
+  padding: 10px;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #181616);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+}
+
+[data-theme=light] {
+  .gradiant_border {
+    background-color: #252321;
   }
 }
