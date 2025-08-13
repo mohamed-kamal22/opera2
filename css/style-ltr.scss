@@ -2802,8 +2802,13 @@ body {
         margin-bottom: 32px;
 
         .form-check {
+          padding-left: 1.5em;
+          padding-right: 0;
           .form-check-input {
             border-color: var(--text-app);
+            float: left;
+            margin-left: -1.5em;
+            margin-right: 0;
 
             &:checked {
               border-color: #ca391e;
@@ -2846,6 +2851,8 @@ body {
         justify-content: space-between;
 
         .agreementTerms {
+          padding-left: 1.5em;
+          padding-right: 0;
           .form-check-label {
             color: var(--text-app);
             font-size: 14px;
@@ -2853,6 +2860,9 @@ body {
 
           .form-check-input {
             border-color: var(--text-app);
+            float: left;
+            margin-left: -1.5em;
+            margin-right: 0;
 
             &:checked {
               border-color: #ca391e;

@@ -2821,8 +2821,13 @@ body {
         margin-bottom: 32px;
 
         .form-check {
+          padding-right: 1.5em;
+          padding-left: 0;
           .form-check-input {
             border-color: var(--text-app);
+            float: right;
+            margin-right: -1.5em;
+            margin-left: 0;
 
             &:checked {
               border-color: #ca391e;
@@ -2859,13 +2864,14 @@ body {
         }
       }
 
-      /* Buttons */
       .competition__registration--btns {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         .agreementTerms {
+          padding-right: 1.5em;
+          padding-left: 0;
           .form-check-label {
             color: var(--text-app);
             font-size: 14px;
@@ -2873,6 +2879,9 @@ body {
 
           .form-check-input {
             border-color: var(--text-app);
+            float: right;
+            margin-right: -1.5em;
+            margin-left: 0;
 
             &:checked {
               border-color: #ca391e;

@@ -2177,9 +2177,6 @@ body {
   gap: 14px;
   color: var(--text-app);
 }
-.competition-details .competition-details__body .competition__registration {
-  /* Buttons */
-}
 .competition-details .competition-details__body .competition__registration .__title {
   font-size: 29px;
   color: var(--text-app);
@@ -2191,8 +2188,15 @@ body {
   gap: 32px;
   margin-bottom: 32px;
 }
+.competition-details .competition-details__body .competition__registration .competition__registration--option .form-check {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
 .competition-details .competition-details__body .competition__registration .competition__registration--option .form-check .form-check-input {
   border-color: var(--text-app);
+  float: right;
+  margin-right: -1.5em;
+  margin-left: 0;
 }
 .competition-details .competition-details__body .competition__registration .competition__registration--option .form-check .form-check-input:checked {
   border-color: #ca391e;
@@ -2224,12 +2228,19 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.competition-details .competition-details__body .competition__registration .competition__registration--btns .agreementTerms {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
 .competition-details .competition-details__body .competition__registration .competition__registration--btns .agreementTerms .form-check-label {
   color: var(--text-app);
   font-size: 14px;
 }
 .competition-details .competition-details__body .competition__registration .competition__registration--btns .agreementTerms .form-check-input {
   border-color: var(--text-app);
+  float: right;
+  margin-right: -1.5em;
+  margin-left: 0;
 }
 .competition-details .competition-details__body .competition__registration .competition__registration--btns .agreementTerms .form-check-input:checked {
   border-color: #ca391e;
