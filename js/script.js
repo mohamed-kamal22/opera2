@@ -105,10 +105,13 @@ function initAllSliders() {
       $slider.slick('unslick');
     }
 
+    const slidesToShow = parseInt($slider.data('slides-to-show')) || 4;
+    const slidesToScroll = parseInt($slider.data('slides-to-scroll')) || slidesToShow;
+
     setTimeout(() => {
       $slider.slick({
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow,
+        slidesToScroll,
         rtl: isRTL,
         autoplay: false,
         autoplaySpeed: 2000,
@@ -118,8 +121,8 @@ function initAllSliders() {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
+              slidesToShow: Math.min(2, slidesToShow),
+              slidesToScroll: Math.min(2, slidesToScroll)
             }
           },
           {
@@ -134,6 +137,7 @@ function initAllSliders() {
     }, 100);
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   initAllSliders();
