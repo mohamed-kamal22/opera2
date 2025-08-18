@@ -95,6 +95,12 @@ body {
 .header .top-header .calendar-header {
   cursor: pointer;
 }
+.header .top-header .calendar-header a {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  text-decoration: none;
+}
 .header .top-header .calendar-header i,
 .header .top-header .calendar-header span {
   color: var(--text-primary);
@@ -811,6 +817,9 @@ body {
 .main .latest-news .latest-news__cards .grid-cards .card .card-body {
   padding: 15px;
   background-color: var(--bg-news);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .main .latest-news .latest-news__cards .grid-cards .card .card-body .card-details {
   margin-bottom: 25px;

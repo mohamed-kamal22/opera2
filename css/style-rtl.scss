@@ -99,6 +99,13 @@ body {
     .calendar-header {
       cursor: pointer;
 
+      a {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        text-decoration: none;
+      }
+
       i,
       span {
         color: var(--text-primary);
@@ -915,6 +922,9 @@ body {
           .card-body {
             padding: 15px;
             background-color: var(--bg-news);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             .card-details {
               margin-bottom: 25px;
