@@ -7,6 +7,7 @@
   --bg-news: #fff;
   --text-app: #000;
   --text-primary: #1a202c;
+  --text-news: #ca391e;
   --text-nav: #1c1c1c;
   --text-secondary: #4a5568;
   --accent-primary: #3182ce;
@@ -24,6 +25,7 @@
   --bg-news: #000;
   --text-app: #fff;
   --text-primary: #f7fafc;
+  --text-news: #fff;
   --text-nav: #ffffff;
   --text-secondary: #cbd5e0;
   --accent-primary: #63b3ed;
@@ -954,7 +956,7 @@ body {
               display: flex;
               justify-content: end;
               margin-bottom: 0;
-              color: var(--text-primary);
+              color: var(--text-news);
               cursor: pointer;
               text-decoration: underline;
             }
@@ -1535,7 +1537,7 @@ body {
     max-width: 700px;
 
     &__title {
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
 
     &__subtitle {
