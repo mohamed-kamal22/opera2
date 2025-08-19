@@ -120,22 +120,43 @@ body {
       align-items: center;
 
       .theme-toggle {
-        height: 32px;
-        background-color: var(--bg-search);
-        border: 0;
-        border-radius: 50px;
+        position: relative;
+        width: 80px;
+        height: 30px;
+        border-radius: 30px;
+        background: #444;
+        padding: 0 6px;
+        border: none;
         cursor: pointer;
+        overflow: hidden;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        justify-content: space-between;
 
-        .sun-icon,
-        .moon-icon {
-          font-size: 1.2rem;
-          transition: opacity 0.3s ease;
+        .icon {
+          z-index: 1;
+          i {
+            font-size: 18px;
+            color: #fff;
+          }
+        }
+
+        .indicator {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #e74c3c;
+          transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+          i {
+            color: #fff;
+          }
         }
       }
     }
@@ -1156,13 +1177,8 @@ body {
 /* ===== THEME DESIGN ===== */
 [data-theme="dark"] {
 
-  .sun-icon,
-  .moon-icon {
-    opacity: 0;
-  }
-
-  .moon-icon {
-    opacity: 1;
+  .theme-toggle .indicator {
+    transform: translateX(49px);
   }
 
   .navbar-toggler-icon {
@@ -1200,8 +1216,9 @@ body {
 }
 
 [data-theme="light"] {
-  .moon-icon {
-    opacity: 0;
+
+  .theme-toggle .indicator {
+    transform: translateX(0);
   }
 
   .navbar-toggler-icon {
