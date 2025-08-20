@@ -2674,14 +2674,19 @@ body {
 
       .president-card {
         padding: 16px;
+        display:flex;
+        flex-direction: column;
+        height:100%;
 
         .president-image {
           height: 100%;
+          flex:1;
 
           img {
             width: 100%;
             height: 100%;
             image-rendering: pixelated;
+            object-fit:cover;
             border-radius: 5px;
           }
         }

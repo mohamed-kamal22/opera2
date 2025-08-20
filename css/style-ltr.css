@@ -2118,14 +2118,20 @@ body {
 }
 .fastivalsDetails .fastivalsDetails__body .presidents-section .president-card {
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .fastivalsDetails .fastivalsDetails__body .presidents-section .president-card .president-image {
   height: 100%;
+  flex: 1;
 }
 .fastivalsDetails .fastivalsDetails__body .presidents-section .president-card .president-image img {
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
 }
 .fastivalsDetails .fastivalsDetails__body .presidents-section .president-card .president-content {
