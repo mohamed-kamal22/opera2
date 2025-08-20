@@ -133,8 +133,17 @@ body {
         align-items: center;
         justify-content: space-between;
 
+        .sun-icon {
+          order: 2;
+        }
+
+        .moon-icon {
+          order: 1;
+        }
+
         .icon {
           z-index: 1;
+
           i {
             font-size: 18px;
             color: #fff;
@@ -1179,7 +1188,7 @@ body {
 [data-theme="dark"] {
 
   .theme-toggle .indicator {
-    transform: translateX(49px);
+    transform: translateX(0);
   }
 
   .navbar-toggler-icon {
@@ -1218,7 +1227,7 @@ body {
 
 [data-theme="light"] {
   .theme-toggle .indicator {
-    transform: translateX(0);
+    transform: translateX(49px);
   }
 
   .navbar-toggler-icon {
@@ -3381,6 +3390,7 @@ body {
         .form-check {
           padding-right: 1.5em;
           padding-left: 0;
+
           .form-check-input {
             border-color: var(--text-app);
             float: right;
@@ -3430,6 +3440,7 @@ body {
         .agreementTerms {
           padding-right: 1.5em;
           padding-left: 0;
+
           .form-check-label {
             color: var(--text-app);
             font-size: 14px;

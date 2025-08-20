@@ -100,7 +100,7 @@ body {
 
     .calendar-header {
       cursor: pointer;
-      
+
       a {
         display: flex;
         gap: 6px;
@@ -133,8 +133,17 @@ body {
         align-items: center;
         justify-content: space-between;
 
+        .sun-icon {
+          order: 2;
+        }
+
+        .moon-icon {
+          order: 1;
+        }
+
         .icon {
           z-index: 1;
+
           i {
             font-size: 18px;
             color: #fff;
@@ -1178,7 +1187,7 @@ body {
 [data-theme="dark"] {
 
   .theme-toggle .indicator {
-    transform: translateX(49px);
+    transform: translateX(0);
   }
 
   .navbar-toggler-icon {
@@ -1218,7 +1227,7 @@ body {
 [data-theme="light"] {
 
   .theme-toggle .indicator {
-    transform: translateX(0);
+    transform: translateX(49px);
   }
 
   .navbar-toggler-icon {
