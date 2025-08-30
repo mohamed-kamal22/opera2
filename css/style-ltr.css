@@ -2770,10 +2770,7 @@ body {
 }
 
 /* ===== Registration Form ===== */
-.registration-form .registration-form__header {
-  margin-bottom: 16px;
-}
-.registration-form .registration-form__header .registration-form__title {
+.registration-form .registration-form__body .registration-form__title {
   color: #fff;
   margin-bottom: 22px;
 }
@@ -2810,6 +2807,8 @@ body {
   float: left;
   margin-left: -1.5em;
   margin-right: 0;
+  width: 14px;
+  height: 14px;
 }
 .registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
   border-color: #ca391e;
@@ -2842,6 +2841,10 @@ body {
 .registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check label {
   color: #fff;
 }
+.registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input {
+  height: 14px;
+  width: 14px;
+}
 .registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input:checked {
   background-color: #ca391e;
   border-color: #ca391e;
@@ -2859,6 +2862,8 @@ body {
   float: left;
   margin-left: -1.5em;
   margin-right: 0;
+  width: 14px;
+  height: 14px;
 }
 .registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
   border-color: #ca391e;

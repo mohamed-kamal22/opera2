@@ -3585,16 +3585,12 @@ body {
 
 /* ===== Registration Form ===== */
 .registration-form {
-  .registration-form__header {
-    margin-bottom: 16px;
-
+  .registration-form__body {
     .registration-form__title {
       color: #fff;
       margin-bottom: 22px;
     }
-  }
 
-  .registration-form__body {
     .registration-form__stepCount {
       color: #fff;
     }
@@ -3641,6 +3637,8 @@ body {
               float: left;
               margin-left: -1.5em;
               margin-right: 0;
+              width: 14px;
+              height: 14px;
 
               &:checked {
                 border-color: #ca391e;
@@ -3695,6 +3693,9 @@ body {
                 }
 
                 .form-check-input {
+                  height: 14px;
+                  width: 14px;
+
                   &:checked {
                     background-color: #ca391e;
                     border-color: #ca391e;
@@ -3720,6 +3721,8 @@ body {
               float: left;
               margin-left: -1.5em;
               margin-right: 0;
+              width: 14px;
+              height: 14px;
 
               &:checked {
                 border-color: #ca391e;

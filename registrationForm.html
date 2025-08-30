@@ -13,25 +13,28 @@
 
 <body>
     <section class="registration-form">
-        <div class="registration-form__header">
-            <p class="registration-form__title text-center">Competition Name : <span>Competition 1</span></p>
-        </div>
         <div class="registration-form__body">
-            <p class="registration-form__stepCount text-center">
-                Step <span id="counter" class="counter">1</span> of 3
-            </p>
-            <div class="registration-form--option" id="type-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="option-local" value="local" checked>
-                    <label class="form-check-label" for="option-local">
-                        Egyptian
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type" id="option-foreign" value="foreign">
-                    <label class="form-check-label" for="option-foreign">
-                        Foreigner
-                    </label>
+            <div id="parent-option__count">
+                <p class="registration-form__title text-center">Competition Name : <span>Competition 1</span></p>
+                <p class="registration-form__stepCount text-center">
+                    <span id="egyptianCount" class="d-none">(Egyptian)</span>
+                    <span id="foreignCount" class="d-none">(Foreigner)</span>
+                    Step <span id="counter" class="counter">1</span> of 3
+                </p>
+                <div class="registration-form--option" id="type-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="option-local" value="local"
+                            checked>
+                        <label class="form-check-label" for="option-local">
+                            Egyptian
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="option-foreign" value="foreign">
+                        <label class="form-check-label" for="option-foreign">
+                            Foreigner
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="container">
@@ -54,7 +57,7 @@
                                 </div>
 
                                 <!-- Mobile Number -->
-                                <div class="col-md-5 form-col d-flex flex-column">
+                                <div class="col-md-5 form-col d-flex flex-column mobileNumber_field">
                                     <label for="mobileNumber2" class="form-label">
                                         Mobile Number <span class="text-danger">*</span>
                                     </label>
@@ -427,7 +430,7 @@
                                             mandatory.</div>
                                     </div>
 
-                                    <div class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                    <div class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column mobileNumber_field">
                                         <label for="phoneNumber__Foreign" class="form-label">
                                             Phone Number
                                         </label>
@@ -603,6 +606,7 @@
         const group = document.getElementById("type-group");
         const localContent = document.getElementById("local-content");
         const foreignContent = document.getElementById("foreign-content");
+        const parentOptionCount = document.getElementById("parent-option__count");
 
         const formStep1 = document.getElementById("form-step1");
         const formStep2 = document.getElementById("form-step2");
@@ -620,15 +624,36 @@
         const hide = (el) => el.classList.add("d-none");
         const markInvalid = (input, invalid) => input.classList.toggle("is-invalid", invalid);
 
+        let stepCounter = 1;
+        const counterEl = document.getElementById("counter");
+
+        const egyptianCount = document.getElementById("egyptianCount");
+        const foreignCount = document.getElementById("foreignCount");
+
+        function updateCounter(value) {
+            stepCounter = value;
+            counterEl.textContent = stepCounter;
+        }
+
+        function resetCounter() {
+            stepCounter = 1;
+            counterEl.textContent = stepCounter;
+        }
 
         group.addEventListener("change", (e) => {
             if (e.target.name === "type") {
+                resetCounter();
+
                 if (e.target.value === "local") {
                     localContent.classList.remove("d-none");
                     foreignContent.classList.add("d-none");
-                } else {
+                    egyptianCount.classList.remove("d-none");
+                    foreignCount.classList.add("d-none");
+                } else if (e.target.value === "foreign") {
                     foreignContent.classList.remove("d-none");
                     localContent.classList.add("d-none");
+                    foreignCount.classList.remove("d-none");
+                    egyptianCount.classList.add("d-none");
                 }
             }
         });
@@ -712,6 +737,9 @@
             if (validateFormStep1()) {
                 step1.classList.add("d-none");
                 step2.classList.remove("d-none");
+                updateCounter(2);
+                egyptianCount.classList.remove("d-none");
+                foreignCount.classList.add("d-none");
             }
         });
 
@@ -755,6 +783,7 @@
             } else {
                 step2.classList.add("d-none");
                 step3.classList.remove("d-none");
+                updateCounter(3);
             }
         });
 
@@ -844,9 +873,11 @@
         formStep3.addEventListener("submit", (e) => {
             e.preventDefault();
             [firstName, middleName, lastName, governorateResidence, idUpload].forEach(f => f.touched = true);
+
             if (validateStep3Egyptian()) {
                 step3.classList.add("d-none");
                 document.getElementById("step4-egy").classList.remove("d-none");
+                parentOptionCount.classList.add("d-none");
             } else {
                 validateStep3Egyptian();
             }
@@ -953,6 +984,8 @@
             if (!step1Btn.disabled) {
                 document.getElementById("step1-Foreign").classList.add("d-none");
                 document.getElementById("step2-Foreign").classList.remove("d-none");
+                stepCounter = 2;
+                counterEl.textContent = stepCounter;
             }
         });
 
@@ -1007,6 +1040,8 @@
 
                 document.getElementById("step2-Foreign").classList.add("d-none");
                 document.getElementById("step3-Foreign").classList.remove("d-none");
+                stepCounter = 3;
+                counterEl.textContent = stepCounter;
             }
         });
 
@@ -1107,6 +1142,7 @@
             if (!step3Btn.disabled) {
                 document.getElementById("step3-Foreign").classList.add("d-none");
                 document.getElementById("step4-Foreign").classList.remove("d-none");
+                parentOptionCount.classList.add("d-none");
             }
         });
 
