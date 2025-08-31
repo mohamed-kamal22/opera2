@@ -450,9 +450,7 @@ registerButton.disabled = true;
 
 const showError = (el) => el.classList.remove("d-none");
 const hideError = (el) => el.classList.add("d-none");
-
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 const fields = {
   email: {
     input: document.getElementById("Email"),
@@ -704,3 +702,37 @@ formStep3_Foreign.addEventListener("submit", (e) => {
 });
 
 step3Btn.disabled = true;
+
+// Agreement Checkbox & Enroll Btn
+const radios = document.querySelectorAll('input[name="flexRadioDefault"]');
+const agreeCheckbox = document.getElementById("agree");
+const enrollBtn = document.getElementById("btn-enroll");
+const newUserContent = document.getElementById("content-new__user");
+const hasProfileContent = document.getElementById("content-has__profile");
+let selectedOption = null;
+
+radios.forEach(radio => {
+  radio.addEventListener("change", () => {
+    agreeCheckbox.disabled = false;
+    agreeCheckbox.checked = false;
+    enrollBtn.disabled = true;
+    selectedOption = radio.id;
+  });
+});
+
+agreeCheckbox.addEventListener("change", () => {
+  enrollBtn.disabled = !agreeCheckbox.checked;
+});
+
+const registFormModal = document.getElementById('regist-form');
+registFormModal.addEventListener('show.bs.modal', () => {
+  newUserContent.classList.add("d-none");
+  hasProfileContent.classList.add("d-none");
+
+  if (selectedOption === "newUser-option") {
+    newUserContent.classList.remove("d-none");
+  }
+  if (selectedOption === "hasProfile-option") {
+    hasProfileContent.classList.remove("d-none");
+  }
+});

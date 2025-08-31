@@ -2692,10 +2692,8 @@ body {
   border-radius: 7px;
   background-color: #ca391e;
   width: 200px;
-}
-.competition-details .competition-details__body .competition__registration .competition__registration--btns button a {
+  border: 0;
   color: #fff;
-  text-decoration: none;
 }
 @media (max-width: 992px) {
   .competition-details {

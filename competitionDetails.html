@@ -182,16 +182,12 @@
                     <p class="__title">Competition Registration</p>
                     <div class="competition__registration--option">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                New User
-                            </label>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="newUser-option">
+                            <label class="form-check-label" for="newUser-option">New User</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Has Opera Profile
-                            </label>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasProfile-option">
+                            <label class="form-check-label" for="hasProfile-option">Has Opera Profile</label>
                         </div>
                     </div>
 
@@ -215,14 +211,15 @@
 
                     <div class="competition__registration--btns">
                         <div class="form-check agreementTerms">
-                            <input class="form-check-input" type="checkbox" id="agree">
+                            <input class="form-check-input" type="checkbox" id="agree" disabled>
                             <label class="form-check-label" for="agree">
                                 I have read the terms and conditions and I hereby accept and agree to the terms and
                                 conditions as stated above
                             </label>
                         </div>
-                        <button type="button" class="btn enroll" disabled>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#regist-form">Enroll</a>
+                        <button id="btn-enroll" type="button" class="btn enroll" disabled data-bs-toggle="modal"
+                            data-bs-target="#regist-form">
+                            Enroll
                         </button>
                     </div>
                 </div>
@@ -238,11 +235,12 @@
                     </button>
                     <div class="modal-body">
                         <section class="registration-form">
-                            <div class="new-user" id="new-user">
+                            <div class="new-user d-none" id="content-new__user">
                                 <div class="registration-form__body">
                                     <div id="parent-option__count">
                                         <p class="registration-form__title text-center">Competition Name :
-                                            <span>Competition 1</span></p>
+                                            <span>Competition 1</span>
+                                        </p>
                                         <p class="registration-form__stepCount text-center">
                                             <span id="egyptianCount" class="d-none">(Egyptian)</span>
                                             <span id="foreignCount" class="d-none">(Foreigner)</span>
@@ -924,7 +922,7 @@
                                 </div>
                             </div>
 
-                            <div class="has-profile" id="has-profile">
+                            <div class="has-profile d-none" id="content-has__profile">
                                 aasdasdasdasd
                             </div>
                         </section>
