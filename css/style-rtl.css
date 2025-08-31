@@ -2530,6 +2530,21 @@ body {
     font-size: 13px;
   }
 }
+.modal.regist-form .modal-dialog .modal-content {
+  border-radius: 10px;
+  background-color: #272727;
+  position: relative;
+}
+.modal.regist-form .modal-dialog .modal-content button.closeModal {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 1;
+}
+.modal.regist-form .modal-dialog .modal-content button.closeModal i {
+  color: #fff;
+  font-size: 20px;
+}
 
 /* ===== Competition DETAILS ===== */
 .competition-details {
@@ -2708,8 +2723,11 @@ body {
 .competition-details .competition-details__body .competition__registration .competition__registration--btns button {
   border-radius: 7px;
   background-color: #ca391e;
-  color: #fff;
   width: 200px;
+}
+.competition-details .competition-details__body .competition__registration .competition__registration--btns button a {
+  color: #fff;
+  text-decoration: none;
 }
 @media (max-width: 992px) {
   .competition-details {

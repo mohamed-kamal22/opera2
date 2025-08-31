@@ -184,14 +184,13 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
-                                Default radio
+                                New User
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
-                                Default checked radio
+                                Has Opera Profile
                             </label>
                         </div>
                     </div>
@@ -222,7 +221,713 @@
                                 conditions as stated above
                             </label>
                         </div>
-                        <button type="button" class="btn enroll">Enroll</button>
+                        <button type="button" class="btn enroll" disabled>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#regist-form">Enroll</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Registration Form Modal -->
+        <div class="modal fade regist-form" id="regist-form" tabindex="-1" aria-labelledby="regist-formLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <button type="button" class="btn closeModal" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <div class="modal-body">
+                        <section class="registration-form">
+                            <div class="new-user" id="new-user">
+                                <div class="registration-form__body">
+                                    <div id="parent-option__count">
+                                        <p class="registration-form__title text-center">Competition Name :
+                                            <span>Competition 1</span></p>
+                                        <p class="registration-form__stepCount text-center">
+                                            <span id="egyptianCount" class="d-none">(Egyptian)</span>
+                                            <span id="foreignCount" class="d-none">(Foreigner)</span>
+                                            Step <span id="counter" class="counter">1</span> of 3
+                                        </p>
+                                        <div class="registration-form--option" id="type-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="type"
+                                                    id="option-local" value="local" checked>
+                                                <label class="form-check-label" for="option-local">
+                                                    Egyptian
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="type"
+                                                    id="option-foreign" value="foreign">
+                                                <label class="form-check-label" for="option-foreign">
+                                                    Foreigner
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <!-- Local content -->
+                                        <div class="local-content" id="local-content">
+                                            <div id="step1-egy" class="step1">
+                                                <form id="form-step1">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- National ID -->
+                                                        <div class="col-md-5 form-col d-flex flex-column">
+                                                            <label for="nationalId" class="form-label">
+                                                                National ID <span class="text-danger">*</span>
+                                                            </label>
+                                                            <input type="text" class="form-control" id="nationalId"
+                                                                placeholder="12345678901234">
+                                                            <div class="error-text d-none" id="id-required">National ID
+                                                                is mandatory.</div>
+                                                            <div class="error-text d-none" id="id-length">National ID
+                                                                must be 14 digits.
+                                                            </div>
+                                                            <div class="error-text d-none" id="id-exists">This ID is
+                                                                already registered
+                                                                before.
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Mobile Number -->
+                                                        <div
+                                                            class="col-md-5 form-col d-flex flex-column mobileNumber_field">
+                                                            <label for="mobileNumber2" class="form-label">
+                                                                Mobile Number <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text">+20</span>
+                                                                <input type="text" class="form-control"
+                                                                    id="mobileNumber2" placeholder="1012345678"
+                                                                    inputmode="numeric" maxlength="10"
+                                                                    autocomplete="tel-national" />
+                                                            </div>
+                                                            <div class="error-text d-none" id="mobile-required">Mobile
+                                                                number is mandatory.
+                                                            </div>
+                                                            <div class="error-text d-none" id="mobile-incomplete">Please
+                                                                enter 10 digits
+                                                                after
+                                                                +20.</div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-2 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Send</label>
+                                                            <button type="submit" class="btn w-100"
+                                                                disabled>Send</button>
+                                                            <div class="error-text" style="visibility: hidden;">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step2-egy" class="step2 d-none">
+                                                <form id="form-step2">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- OTP Verification -->
+                                                        <div class="col-md-8 form-col d-flex flex-column">
+                                                            <label for="otpCode" class="form-label">
+                                                                OTP Verification <span class="text-danger">*</span>
+                                                                <span>(Will be sent on WhatsApp)</span>
+                                                            </label>
+                                                            <input type="text" class="form-control" id="otpCode"
+                                                                placeholder="Type OTP Code">
+
+                                                            <div class="warning-text__otp">
+                                                                <p class="time-otp">
+                                                                    <span>Enter verification code within 0:09.</span>
+                                                                    <a href="#"><span>Resend</span></a>
+                                                                </p>
+                                                                <p class="text-error__otp d-none">OTP verification
+                                                                    failed. Please try again.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Verify</label>
+                                                            <button type="submit" class="btn w-100"
+                                                                disabled>Verify</button>
+                                                            <div class="error-text" style="visibility: hidden;">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step3-egy" class="step3 d-none">
+                                                <form id="form-step3">
+                                                    <div class="mainInfo-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="firstName" class="form-label">
+                                                                    First Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="firstName"
+                                                                    placeholder="Type First Name">
+                                                                <div class="error-text d-none"
+                                                                    id="firstNameEgyptian-error">First Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="middleName" class="form-label">
+                                                                    Middle Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="middleName"
+                                                                    placeholder="Type Middle Name">
+                                                                <div class="error-text d-none"
+                                                                    id="middleNameEgyptian-error">Middle Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="lastName" class="form-label">
+                                                                    Last Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="lastName"
+                                                                    placeholder="Type Middle Name">
+                                                                <div class="error-text d-none"
+                                                                    id="lastNameEgyptian-error">Last Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="firstName" class="form-label">
+                                                                    Date Of Birth
+                                                                </label>
+                                                                <input type="date" class="form-control" id="firstName"
+                                                                    placeholder="DD-MM-YYYY" disabled>
+                                                                <!-- <div class="error-text d-none" id="">First Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="age" class="form-label">
+                                                                    Age
+                                                                </label>
+                                                                <input type="number" class="form-control" id="age"
+                                                                    placeholder="Type Age" disabled>
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="gender" class="form-label">
+                                                                    Gender
+                                                                </label>
+                                                                <select id="gender" class="form-select" disabled>
+                                                                    <option selected disabled>Select Gender</option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                                <!-- <div class="error-text d-none" id="gender-error">Gender is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="IDUpload" class="form-label">
+                                                                    National ID File Upload <span
+                                                                        class="text-danger">*</span>
+                                                                </label>
+                                                                <input class="form-control" type="file" id="IDUpload"
+                                                                    placeholder="Type Age"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <div class="error-text d-none" id="idEgyptian-error">
+                                                                    National ID File is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="governorateResidence" class="form-label">
+                                                                    Governorate of Residence <span
+                                                                        class="text-danger">*</span>
+                                                                </label>
+                                                                <select id="governorateResidence" class="form-select">
+                                                                    <option value="" selected disabled>Select
+                                                                        Governorate of Residence
+                                                                    </option>
+                                                                    <option value="cairo">Cairo</option>
+                                                                    <option value="alex">Alexandria</option>
+                                                                </select>
+                                                                <div class="error-text d-none" id="govResidence-error">
+                                                                    Governorate of Residence is mandatory.
+                                                                </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="guardianConsent" class="form-label">Guardian
+                                                                    Consent</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="guardianConsent"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="experienceYears" class="form-label">
+                                                                    Experience In Years
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="experienceYears"
+                                                                    placeholder="Select your experience in years">
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="disabilityStatus-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-12">
+                                                                <div class="form-check disabilityStatus">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkDisability">
+                                                                    <label class="form-check-label"
+                                                                        for="checkDisability">
+                                                                        Disability Status ( Accessibility Needs : Wheel
+                                                                        Chair )
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityNumber" class="form-label">
+                                                                    Disability Card Number
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="disabilityNumber"
+                                                                    placeholder="Type Disability Card Number" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityImage"
+                                                                    class="form-label">Disability Card
+                                                                    Image</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="disabilityImage"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="communication-step3">
+                                                        <div class="icon-whatss mb-5">
+                                                            <a>
+                                                                <i class="bi bi-whatsapp"></i>
+                                                                <span>For Communication</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="extraDocument" class="form-label">Extra
+                                                                    Document</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="extraDocument"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="videoURL" class="form-label">
+                                                                    Video URL
+                                                                </label>
+                                                                <input type="text" class="form-control" id="videoURL"
+                                                                    placeholder="Paste YouTube, Google Drive, etc">
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="competitionsFees" class="form-label">
+                                                                    Competitions Fees
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="competitionsFees" placeholder="" disabled>
+                                                            </div>
+
+                                                            <!-- Button -->
+                                                            <div
+                                                                class="col-md-4 offset-md-8 form-col d-flex flex-column">
+                                                                <label class="form-label invisible">Send</label>
+                                                                <button type="submit" class="btn btn-custom w-100"
+                                                                    disabled>Register And Pay
+                                                                    Now</button>
+                                                                <div class="error-text" style="visibility:hidden;">
+                                                                    &nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step4-egy" class="content__success d-none">
+                                                <div class="contentBody text-center">
+                                                    <div class="_top">
+                                                        <i class="bi bi-check-circle-fill"></i>
+                                                        <span>SUCCESS</span>
+                                                    </div>
+                                                    <div class="_middle">
+                                                        <p>
+                                                            <span>Your application for the (Competition Name)</span>
+                                                            <br />
+                                                            <span>has been successfully submitted.</span>
+                                                        </p>
+                                                        <p>Your request will be reviewed by the administration.</p>
+                                                    </div>
+                                                    <div class="_bottom">
+                                                        <button type="submit" class="btn">Home</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                    <!-- Foreign content -->
+                                    <div class="container">
+                                        <div id="foreign-content" class="foreign-content d-none">
+                                            <div id="step1-Foreign" class="step1">
+                                                <form id="form-step1_Foreign">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- Email -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label for="Email" class="form-label">Email <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="Email"
+                                                                placeholder="Type Email">
+                                                            <div class="error-text d-none" id="emailError">Email format
+                                                                is not correct. it
+                                                                must
+                                                                be “xxx@yyy.xxx”.
+                                                            </div>
+                                                            <div class="error-text d-none" id="emailRequired">Email is
+                                                                mandatory.</div>
+                                                        </div>
+
+                                                        <!-- Passport No -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label for="Passport" class="form-label">Passport ID No
+                                                                <span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="Passport"
+                                                                placeholder="Type Passport ID No">
+                                                            <div class="error-text d-none" id="passportRequired">
+                                                                Passport ID is mandatory.
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Nationality -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label for="nationality" class="form-label">Nationality
+                                                                <span class="text-danger">*</span></label>
+                                                            <select id="nationality" class="form-select">
+                                                                <option selected disabled>Select Nationality</option>
+                                                                <option value="eg">Egyptian</option>
+                                                                <option value="us">American</option>
+                                                                <option value="uk">British</option>
+                                                                <option value="fr">French</option>
+                                                                <option value="de">German</option>
+                                                                <option value="other">Other</option>
+                                                            </select>
+                                                            <div class="error-text d-none" id="nationalityRequired">
+                                                                Nationality is
+                                                                mandatory.
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-4 offset-md-8 form-col d-flex flex-column">
+                                                            <button type="submit" class="btn btn-custom w-100"
+                                                                disabled>Send</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step2-Foreign" class="step2 d-none">
+                                                <form id="form-step2_Foreign">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- OTP Verification -->
+                                                        <div class="col-md-8 form-col d-flex flex-column">
+                                                            <label for="otpCode_Foreign" class="form-label">
+                                                                OTP Verification <span class="text-danger">*</span>
+                                                            </label>
+                                                            <input type="text" class="form-control" id="otpCode_Foreign"
+                                                                placeholder="Type OTP Code">
+
+                                                            <div class="warning-text__otp">
+                                                                <p class="time-otp">
+                                                                    <span>Enter verification code within 0:09.</span>
+                                                                    <a href="#"><span>Resend</span></a>
+                                                                </p>
+                                                                <p class="text-error__otp d-none" id="otpRequired">OTP
+                                                                    verification failed.
+                                                                    Please try again.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Verify</label>
+                                                            <button type="submit" class="btn w-100"
+                                                                disabled>Verify</button>
+                                                            <div class="error-text" style="visibility: hidden;">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step3-Foreign" class="step3 d-none">
+                                                <form id="form-step3_Foreign">
+                                                    <div class="mainInfo-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="firstName_Foreign" class="form-label">
+                                                                    First Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="firstName_Foreign"
+                                                                    placeholder="Type First Name">
+                                                                <div class="error-text d-none"
+                                                                    id="firstNameForeign-error">First Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="middleName_Foreign" class="form-label">
+                                                                    Middle Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="middleName_Foreign"
+                                                                    placeholder="Type Middle Name">
+                                                                <div class="error-text d-none"
+                                                                    id="middleNameForeign-error">Middle Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="lastName_Foreign" class="form-label">
+                                                                    Last Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="lastName_Foreign"
+                                                                    placeholder="Type Middle Name">
+                                                                <div class="error-text d-none"
+                                                                    id="lastNameForeign-error">Last Name is
+                                                                    mandatory.</div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column mobileNumber_field">
+                                                                <label for="phoneNumber__Foreign" class="form-label">
+                                                                    Phone Number
+                                                                </label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-text">+20</span>
+                                                                    <input type="text" class="form-control"
+                                                                        id="phoneNumber__Foreign"
+                                                                        placeholder="1012345678" inputmode="numeric"
+                                                                        autocomplete="tel-national" />
+                                                                </div>
+                                                                <!-- <div class="error-text d-none" id="">Mobile number is mandatory.
+                                        </div>
+                                        <div class="error-text d-none" id="">Please enter 10 digits
+                                            after
+                                            +20.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="dateBirth_Foreign" class="form-label">
+                                                                    Date Of Birth
+                                                                </label>
+                                                                <input type="date" class="form-control"
+                                                                    id="dateBirth_Foreign" placeholder="DD-MM-YYYY"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none" id="">First Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="age_Foreign" class="form-label">
+                                                                    Age
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="age_Foreign" placeholder="Type Age" disabled>
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="gender" class="form-label">
+                                                                    Gender
+                                                                </label>
+                                                                <select id="gender_Foreign" class="form-select"
+                                                                    disabled>
+                                                                    <option selected disabled>Select Gender</option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                                <!-- <div class="error-text d-none" id="gender-error">Gender is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column visaStatus">
+                                                                <label class="form-label">
+                                                                    Visa Status <span class="text-danger">*</span>
+                                                                    <span> (Do you have a valid visa for Egypt?)</span>
+                                                                </label>
+                                                                <div class="option-visaStatus">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="flexRadioDefault" id="option-yes">
+                                                                        <label class="form-check-label"
+                                                                            for="option-yes">
+                                                                            Yes
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="flexRadioDefault" id="option-no"
+                                                                            checked>
+                                                                        <label class="form-check-label" for="option-no">
+                                                                            No
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="error-text d-none" id="visaStatus-error">
+                                                                    Visa Status is
+                                                                    mandatory.
+                                                                </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="guardianConsent_Foreign"
+                                                                    class="form-label">Guardian
+                                                                    Consent</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="guardianConsent_Foreign"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="disabilityStatus-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-12 form-col">
+                                                                <div class="form-check disabilityStatus">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkDisability_Foreign">
+                                                                    <label class="form-check-label"
+                                                                        for="checkDisability_Foreign">
+                                                                        Disability Status
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityNumber_Foreign"
+                                                                    class="form-label">
+                                                                    Disability Card Number
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="disabilityNumber_Foreign"
+                                                                    placeholder="Type Disability Card Number" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityImage_Foreign"
+                                                                    class="form-label">Disability Card
+                                                                    Image</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="disabilityImage_Foreign"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="communication-step3">
+                                                        <div class="icon-whatss mb-5">
+                                                            <a>
+                                                                <i class="bi bi-whatsapp"></i>
+                                                                <span>For Communication</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="extraDocument_Foreign"
+                                                                    class="form-label">Extra Document</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="extraDocument_Foreign"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="videoURL_Foreign" class="form-label">
+                                                                    Video URL
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="videoURL_Foreign"
+                                                                    placeholder="Paste YouTube, Google Drive, etc">
+                                                            </div>
+
+                                                            <!-- Button -->
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label class="form-label invisible">Send</label>
+                                                                <button type="submit" class="btn btn-custom w-100"
+                                                                    disabled>Register And Pay
+                                                                    Now</button>
+                                                                <div class="error-text" style="visibility:hidden;">
+                                                                    &nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step4-Foreign" class="content__success d-none">
+                                                <div class="contentBody text-center">
+                                                    <div class="_top">
+                                                        <i class="bi bi-check-circle-fill"></i>
+                                                        <span>SUCCESS</span>
+                                                    </div>
+                                                    <div class="_middle">
+                                                        <p>
+                                                            <span>Your application for the (Competition Name)</span>
+                                                            <br />
+                                                            <span>has been successfully submitted.</span>
+                                                        </p>
+                                                        <p>Your request will be reviewed by the administration.</p>
+                                                    </div>
+                                                    <div class="_bottom">
+                                                        <button type="submit" class="btn">Home</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="has-profile" id="has-profile">
+                                aasdasdasdasd
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

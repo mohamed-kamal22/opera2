@@ -3224,6 +3224,26 @@ body {
       }
     }
   }
+
+  &.regist-form {
+    .modal-dialog {
+      .modal-content {
+        border-radius: 10px;
+        background-color: #272727;
+        position: relative;
+        button.closeModal {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          z-index: 1;
+          i {
+            color: #fff;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -3440,8 +3460,11 @@ body {
         button {
           border-radius: 7px;
           background-color: #ca391e;
-          color: #fff;
           width: 200px;
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
         }
       }
     }
