@@ -155,6 +155,10 @@ body {
 .header .top-header .theme-controls .theme-toggle .indicator i {
   color: #fff;
 }
+.header .top-header .faq a {
+  text-decoration: none;
+  color: var(--text-app);
+}
 .header .top-header .dropdown-lang button {
   background-color: unset;
   border: 0;

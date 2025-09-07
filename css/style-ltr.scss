@@ -170,6 +170,13 @@ body {
       }
     }
 
+    .faq {
+      a {
+        text-decoration: none;
+        color: var(--text-app);
+      }
+    }
+
     .dropdown-lang {
       button {
         background-color: unset;
