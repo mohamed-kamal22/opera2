@@ -15,6 +15,7 @@
   --border-color: #e2e8f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --card-bg: #ffffffa6;
+  --theme-toggle-bg: #fff;
 }
 
 [data-theme="dark"] {
@@ -33,6 +34,7 @@
   --border-color: #4a5568;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --card-bg: #1b1b1ba6;
+  --theme-toggle-bg: #444;
 }
 
 /* ===== RESET & BASE STYLES ===== */
@@ -124,7 +126,7 @@ body {
         width: 80px;
         height: 30px;
         border-radius: 30px;
-        background: #444;
+        background: var(--theme-toggle-bg);
         padding: 0 6px;
         border: none;
         cursor: pointer;
@@ -146,7 +148,7 @@ body {
 
           i {
             font-size: 18px;
-            color: #fff;
+            color: var(--text-app);
           }
         }
 
@@ -1193,8 +1195,22 @@ body {
 /* ===== THEME DESIGN ===== */
 [data-theme="dark"] {
 
-  .theme-toggle .indicator {
-    transform: translateX(0);
+  .theme-toggle {
+    .indicator {
+      transform: translateX(0);
+    }
+
+    .sun-icon {
+      i {
+        color: #fff;
+      }
+    }
+
+    .moon-icon {
+      i {
+        color: #fff;
+      }
+    }
   }
 
   .navbar-toggler-icon {
@@ -1233,8 +1249,22 @@ body {
 
 [data-theme="light"] {
 
-  .theme-toggle .indicator {
-    transform: translateX(49px);
+  .theme-toggle {
+    .indicator {
+      transform: translateX(49px);
+    }
+
+    .moon-icon {
+      i {
+        color: #000;
+      }
+    }
+
+    .sun-icon {
+      i {
+        color: #fff!important;
+      }
+    }
   }
 
   .navbar-toggler-icon {
