@@ -263,8 +263,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Local content -->
                                     <div class="container">
-                                        <!-- Local content -->
                                         <div class="local-content" id="local-content">
                                             <div id="step1-egy" class="step1">
                                                 <form id="form-step1">
@@ -585,12 +585,6 @@
                                         </div>
                                     </div>
 
-
-
-
-
-
-
                                     <!-- Foreign content -->
                                     <div class="container">
                                         <div id="foreign-content" class="foreign-content d-none">
@@ -740,11 +734,6 @@
                                                                         placeholder="1012345678" inputmode="numeric"
                                                                         autocomplete="tel-national" />
                                                                 </div>
-                                                                <!-- <div class="error-text d-none" id="">Mobile number is mandatory.
-                                        </div>
-                                        <div class="error-text d-none" id="">Please enter 10 digits
-                                            after
-                                            +20.</div> -->
                                                             </div>
 
                                                             <div
@@ -918,12 +907,608 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
                             <div class="has-profile d-none" id="content-has__profile">
-                                aasdasdasdasd
+                                <div class="registration-form__body">
+                                    <div id="parent-optionProfile__count">
+                                        <p class="registration-form__title text-center">Competition Name :
+                                            <span>Competition 1</span>
+                                        </p>
+                                        <p class="registration-form__stepCount text-center">
+                                            <span id="egyptianProfileCount" class="d-none">(Egyptian)</span>
+                                            <span id="foreignProfileCount" class="d-none">(Foreigner)</span>
+                                            Step <span id="counterProfile" class="counter">1</span> of 3
+                                        </p>
+                                        <div class="registration-form--option" id="type-groupProfile">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="type"
+                                                    id="option-localProfile" value="local" checked>
+                                                <label class="form-check-label" for="option-localProfile">
+                                                    Egyptian
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="type"
+                                                    id="option-foreignProfile" value="foreign">
+                                                <label class="form-check-label" for="option-foreignProfile">
+                                                    Foreigner
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Local content -->
+                                    <div class="container">
+                                        <div class="local-content" id="localProfile-content">
+                                            <div id="step1-egyProfile" class="step1">
+                                                <form id="formProfile-step1">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- Mobile Number -->
+                                                        <div
+                                                            class="col-md-6 form-col d-flex flex-column mobileNumber_field">
+                                                            <label for="mobileNumber2-profile" class="form-label">
+                                                                Mobile Number <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text">+20</span>
+                                                                <input type="text" class="form-control"
+                                                                    id="mobileNumber2-profile" placeholder="1012345678"
+                                                                    inputmode="numeric" maxlength="10"
+                                                                    autocomplete="tel-national" />
+                                                            </div>
+                                                            <div class="error-text d-none" id="mobileProfile-required">
+                                                                Mobile
+                                                                number is mandatory.
+                                                            </div>
+                                                            <div class="error-text d-none"
+                                                                id="mobileProfile-incomplete">Please
+                                                                enter 10 digits
+                                                                after
+                                                                +20.</div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-6 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Send</label>
+                                                            <button type="submit" class="btn w-100"
+                                                                disabled>Send</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step2-egyProfile" class="step2 d-none">
+                                                <form id="formProfile-step2">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- OTP Verification -->
+                                                        <div class="col-md-8 form-col d-flex flex-column">
+                                                            <label for="otpCodeProfile" class="form-label">
+                                                                OTP Verification <span class="text-danger">*</span>
+                                                                <span>(Will be sent on WhatsApp)</span>
+                                                            </label>
+                                                            <input type="text" class="form-control" id="otpCodeProfile"
+                                                                placeholder="Type OTP Code">
+
+                                                            <div class="warning-text__otp">
+                                                                <p class="time-otp">
+                                                                    <span>Enter verification code within 0:09.</span>
+                                                                    <a href="#"><span>Resend</span></a>
+                                                                </p>
+                                                                <p class="text-error__otp d-none" id="otpProfile-error">
+                                                                    OTP verification failed. Please try again.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Verify</label>
+                                                            <button type="submit" class="btn w-100"
+                                                                disabled>Verify</button>
+                                                            <div class="error-text" style="visibility: hidden;">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step3-egyProfile" class="step3 d-none">
+                                                <form id="formProfile-step3">
+                                                    <div class="mainInfo-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="firstNameProfile" class="form-label">
+                                                                    First Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="firstNameProfile" placeholder="Type First Name"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="firstNameEgyptian-error">First Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="middleNameProfile" class="form-label">
+                                                                    Middle Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="middleNameProfile"
+                                                                    placeholder="Type Middle Name" disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="middleNameEgyptian-error">Middle Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="lastNameProfile" class="form-label">
+                                                                    Last Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="lastNameProfile" placeholder="Type Middle Name"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="lastNameEgyptian-error">Last Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="dateBirthProfile" class="form-label">
+                                                                    Date Of Birth
+                                                                </label>
+                                                                <input type="date" class="form-control"
+                                                                    id="dateBirthProfile" placeholder="DD-MM-YYYY"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none" id="">First Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="ageProfile" class="form-label">
+                                                                    Age
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="ageProfile" placeholder="Type Age" disabled>
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="genderProfile" class="form-label">
+                                                                    Gender
+                                                                </label>
+                                                                <select id="genderProfile" class="form-select" disabled>
+                                                                    <option selected disabled>Select Gender</option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                                <!-- <div class="error-text d-none" id="gender-error">Gender is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="IDUploadProfile" class="form-label">
+                                                                    National ID File Upload <span
+                                                                        class="text-danger">*</span>
+                                                                </label>
+                                                                <input class="form-control" type="file"
+                                                                    id="IDUploadProfile" placeholder="Type Age"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <div class="error-text d-none" id="idEgyptian-error">
+                                                                    National ID File is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="governorateResidenceProfile"
+                                                                    class="form-label">
+                                                                    Governorate of Residence <span
+                                                                        class="text-danger">*</span>
+                                                                </label>
+                                                                <select id="governorateResidenceProfile"
+                                                                    class="form-select" disabled>
+                                                                    <option value="" selected disabled>Select
+                                                                        Governorate of Residence
+                                                                    </option>
+                                                                    <option value="cairo">Cairo</option>
+                                                                    <option value="alex">Alexandria</option>
+                                                                </select>
+                                                                <!-- <div class="error-text d-none" id="govResidence-error">
+                                                                    Governorate of Residence is mandatory.
+                                                                </div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="guardianConsentProfile"
+                                                                    class="form-label">Guardian
+                                                                    Consent</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="guardianConsentProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="experienceYearsProfile" class="form-label">
+                                                                    Experience In Years
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="experienceYearsProfile"
+                                                                    placeholder="Select your experience in years"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="disabilityStatus-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-12">
+                                                                <div class="form-check disabilityStatus">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkDisabilityProfile">
+                                                                    <label class="form-check-label"
+                                                                        for="checkDisabilityProfile">
+                                                                        Disability Status
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityNumberProfile" class="form-label">
+                                                                    Disability Card Number
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="disabilityNumberProfile"
+                                                                    placeholder="Type Disability Card Number" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityImageProfile"
+                                                                    class="form-label">Disability Card
+                                                                    Image</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="disabilityImageProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="communication-step3">
+                                                        <div class="icon-whatss mb-5">
+                                                            <a>
+                                                                <i class="bi bi-whatsapp"></i>
+                                                                <span>For Communication</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="extraDocumentProfile"
+                                                                    class="form-label">Extra
+                                                                    Document</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="extraDocumentProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="videoURLProfile" class="form-label">
+                                                                    Video URL
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="videoURLProfile"
+                                                                    placeholder="Paste YouTube, Google Drive, etc">
+                                                            </div>
+
+                                                            <!-- Button -->
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label class="form-label invisible">Send</label>
+                                                                <button type="submit"
+                                                                    class="btn btn-custom w-100">Register And Pay
+                                                                    Now</button>
+                                                                <div class="error-text" style="visibility:hidden;">
+                                                                    &nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Foreign content -->
+                                    <div class="container">
+                                        <div class="foreign-content d-none" id="foreignProfile-content">
+                                            <div id="step1-ForeignProfile" class="step1">
+                                                <form id="formProfile-step1_Foreign">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- Email -->
+                                                        <div class="col-md-6 form-col d-flex flex-column">
+                                                            <label for="EmailProfile" class="form-label">Email <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" id="EmailProfile"
+                                                                placeholder="Type Email">
+                                                            <div class="error-text d-none" id="emailErrorProfile">Email
+                                                                format
+                                                                is not correct. it
+                                                                must
+                                                                be “xxx@yyy.xxx”.
+                                                            </div>
+                                                            <div class="error-text d-none" id="emailRequiredProfile">
+                                                                Email is
+                                                                mandatory.</div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-6 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Send</label>
+                                                            <button id="btnStep1-foreignProfile" type="submit"
+                                                                class="btn btn-custom w-100" disabled>Send</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step2-ForeignProfile" class="step2 d-none">
+                                                <form id="formProfile-step2_Foreign">
+                                                    <div class="row g-3 align-items-start">
+                                                        <!-- OTP Verification -->
+                                                        <div class="col-md-8 form-col d-flex flex-column">
+                                                            <label for="otpCode_ForeignProfile" class="form-label">
+                                                                OTP Verification <span class="text-danger">*</span>
+                                                            </label>
+                                                            <input type="text" class="form-control"
+                                                                id="otpCode_ForeignProfile" placeholder="Type OTP Code">
+
+                                                            <div class="warning-text__otp">
+                                                                <p class="time-otp">
+                                                                    <span>Enter verification code within 0:09.</span>
+                                                                    <a href="#"><span>Resend</span></a>
+                                                                </p>
+                                                                <p class="text-error__otp d-none"
+                                                                    id="otpRequiredProfile">OTP
+                                                                    verification failed.
+                                                                    Please try again.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Button -->
+                                                        <div class="col-md-4 form-col d-flex flex-column">
+                                                            <label class="form-label invisible">Verify</label>
+                                                            <button id="btnStep2-foreignProfile" type="submit"
+                                                                class="btn w-100" disabled>Verify</button>
+                                                            <div class="error-text" style="visibility: hidden;">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div id="step3-ForeignProfile" class="step3 d-none">
+                                                <form id="form-step3_Foreign">
+                                                    <div class="mainInfo-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="firstName_ForeignProfile"
+                                                                    class="form-label">
+                                                                    First Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="firstName_ForeignProfile"
+                                                                    placeholder="Type First Name" disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="firstNameForeign-error">First Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="middleName_ForeignProfile"
+                                                                    class="form-label">
+                                                                    Middle Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="middleName_ForeignProfile"
+                                                                    placeholder="Type Middle Name" disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="middleNameForeign-error">Middle Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="lastName_ForeignProfile" class="form-label">
+                                                                    Last Name <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="lastName_ForeignProfile"
+                                                                    placeholder="Type Middle Name" disabled>
+                                                                <!-- <div class="error-text d-none"
+                                                                    id="lastNameForeign-error">Last Name is
+                                                                    mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="dateBirth_ForeignProfile"
+                                                                    class="form-label">
+                                                                    Date Of Birth
+                                                                </label>
+                                                                <input type="date" class="form-control"
+                                                                    id="dateBirth_ForeignProfile"
+                                                                    placeholder="DD-MM-YYYY" disabled>
+                                                                <!-- <div class="error-text d-none" id="">First Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="age_ForeignProfile" class="form-label">
+                                                                    Age
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="age_ForeignProfile" placeholder="Type Age"
+                                                                    disabled>
+                                                                <!-- <div class="error-text d-none" id="">Middle Name is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="genderProfile" class="form-label">
+                                                                    Gender
+                                                                </label>
+                                                                <select id="gender_ForeignProfile" class="form-select"
+                                                                    disabled>
+                                                                    <option selected disabled>Select Gender</option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                                <!-- <div class="error-text d-none" id="gender-error">Gender is mandatory.</div> -->
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label class="form-label" for="passport_ForeignProfile">
+                                                                    Passport ID No <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="passport_ForeignProfile"
+                                                                    placeholder="Type Passport ID No">
+                                                                <div class="error-text d-none"
+                                                                    id="passportRequiredProfile">
+                                                                    Passport ID is mandatory.
+                                                                </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column visaStatus">
+                                                                <label class="form-label">
+                                                                    Visa Status <span class="text-danger">*</span>
+                                                                    <span> (Do you have a valid visa for Egypt?)</span>
+                                                                </label>
+                                                                <div class="option-visaStatus">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="btnRadio-profile"
+                                                                            id="option-yesProfile">
+                                                                        <label class="form-check-label"
+                                                                            for="option-yesProfile">
+                                                                            Yes
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="btnRadio-profile"
+                                                                            id="option-noProfile">
+                                                                        <label class="form-check-label"
+                                                                            for="option-noProfile">
+                                                                            No
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="error-text d-none"
+                                                                    id="visaStatus-errorProfile">
+                                                                    Visa Status is
+                                                                    mandatory.
+                                                                </div>
+                                                            </div>
+
+                                                            <div
+                                                                class="col-12 col-sm-6 col-md-4 form-col d-flex flex-column">
+                                                                <label for="guardianConsent_ForeignProfile"
+                                                                    class="form-label">Guardian
+                                                                    Consent</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="guardianConsent_ForeignProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="disabilityStatus-step3">
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-12 form-col">
+                                                                <div class="form-check disabilityStatus">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        id="checkDisability_Foreign">
+                                                                    <label class="form-check-label"
+                                                                        for="checkDisability_Foreign">
+                                                                        Disability Status
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityNumber_ForeignProfile"
+                                                                    class="form-label">
+                                                                    Disability Card Number
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    id="disabilityNumber_ForeignProfile"
+                                                                    placeholder="Type Disability Card Number" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="disabilityImage_ForeignProfile"
+                                                                    class="form-label">Disability Card
+                                                                    Image</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="disabilityImage_ForeignProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" disabled>
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="communication-step3">
+                                                        <div class="icon-whatss mb-5">
+                                                            <a>
+                                                                <i class="bi bi-whatsapp"></i>
+                                                                <span>For Communication</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="row g-3 align-items-start">
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="extraDocument_ForeignProfile"
+                                                                    class="form-label">Extra Document</label>
+                                                                <input class="form-control" type="file"
+                                                                    id="extraDocument_ForeignProfile"
+                                                                    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx">
+                                                                <!-- <small class="text-muted">Png, JPG, PDF, Word (MAX 1MB)</small> -->
+                                                            </div>
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label for="videoURL_ForeignProfile" class="form-label">
+                                                                    Video URL
+                                                                </label>
+                                                                <input type="text" class="form-control"
+                                                                    id="videoURL_ForeignProfile"
+                                                                    placeholder="Paste YouTube, Google Drive, etc">
+                                                            </div>
+
+                                                            <!-- Button -->
+                                                            <div class="col-md-4 form-col d-flex flex-column">
+                                                                <label class="form-label invisible">Send</label>
+                                                                <button id="btns-step3_profile" type="submit"
+                                                                    class="btn btn-custom w-100" disabled>Register And
+                                                                    Pay
+                                                                    Now</button>
+                                                                <div class="error-text" style="visibility:hidden;">
+                                                                    &nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>
@@ -934,6 +1519,555 @@
 
     <script src="js/script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // ------------------ Switch Local & Foreign ------------------
+            const groupProfile = document.getElementById("type-groupProfile");
+            const localProfileContent = document.getElementById("localProfile-content");
+            const foreignProfileContent = document.getElementById("foreignProfile-content");
+
+            const egyptianCountProfile = document.getElementById("egyptianProfileCount");
+            const foreignCountProfile = document.getElementById("foreignProfileCount");
+
+            // ------------------ Step Counter ------------------
+            const counterProfile = document.getElementById("counterProfile");
+            function updateCounterProfile(stepNumber) {
+                if (counterProfile) counterProfile.textContent = stepNumber;
+            }
+
+            // ------------------ Egyptian Steps ------------------
+            const step1Profile = document.getElementById("step1-egyProfile");
+            const formStep1Profile = document.getElementById("formProfile-step1");
+            const mobileInput = document.getElementById("mobileNumber2-profile");
+            const sendBtn = formStep1Profile ? formStep1Profile.querySelector("button[type='submit']") : null;
+            const errorRequired = document.getElementById("mobileProfile-required");
+            const errorIncomplete = document.getElementById("mobileProfile-incomplete");
+
+            const step2Profile = document.getElementById("step2-egyProfile");
+            const formStep2Profile = document.getElementById("formProfile-step2");
+            const otpInput = document.getElementById("otpCodeProfile");
+            const verifyBtn = formStep2Profile ? formStep2Profile.querySelector("button[type='submit']") : null;
+            const otpError = document.getElementById("otpProfile-error");
+
+            const step3Profile = document.getElementById("step3-egyProfile");
+
+            // ------------------ Foreign Steps ------------------
+            const step1Foreign = document.getElementById("step1-ForeignProfile");
+            const formStep1Foreign = document.getElementById("formProfile-step1_Foreign");
+            const emailInput = document.getElementById("EmailProfile");
+            const emailErrorRequired = document.getElementById("emailRequiredProfile");
+            const emailErrorFormat = document.getElementById("emailErrorProfile");
+            const emailBtn = document.getElementById("btnStep1-foreignProfile");
+
+            const step2Foreign = document.getElementById("step2-ForeignProfile");
+            const formStep2Foreign = document.getElementById("formProfile-step2_Foreign");
+            const otpForeignInput = document.getElementById("otpCode_ForeignProfile");
+            const otpForeignError = document.getElementById("otpRequiredProfile");
+            const otpForeignBtn = document.getElementById("btnStep2-foreignProfile");
+
+            const step3Foreign = document.getElementById("step3-ForeignProfile");
+            const formStep3Foreign = document.getElementById("formProfile-step3_Foreign");
+            const passportInput = document.getElementById("passport_ForeignProfile");
+            const passportError = document.getElementById("passportRequiredProfile");
+            const visaOptions = document.querySelectorAll("input[name='btnRadio-profile']");
+            const visaError = document.getElementById("visaStatus-errorProfile");
+            const step3Btn = document.getElementById("btns-step3_profile");
+            const formStep3Profile = document.getElementById("formProfile-step3");
+
+            // ------------------ Reset Function ------------------
+            function resetFormsAndStepsProfile(type) {
+                [formStep1Profile, formStep2Profile, formStep3Profile,
+                    formStep1Foreign, formStep2Foreign, formStep3Foreign].forEach(f => {
+                        if (f) f.reset();
+                    });
+
+                document.querySelectorAll(".text-error, .text-error__otp, .d-block").forEach(el => el.classList.add("d-none"));
+
+                if (type === "local") {
+                    localProfileContent.classList.remove("d-none");
+                    foreignProfileContent.classList.add("d-none");
+                    egyptianCountProfile.classList.remove("d-none");
+                    foreignCountProfile.classList.add("d-none");
+
+                    step1Profile.classList.remove("d-none");
+                    step2Profile.classList.add("d-none");
+                    step3Profile.classList.add("d-none");
+
+                    if (sendBtn) sendBtn.disabled = true;
+                    if (verifyBtn) verifyBtn.disabled = true;
+                } else {
+                    foreignProfileContent.classList.remove("d-none");
+                    localProfileContent.classList.add("d-none");
+                    foreignCountProfile.classList.remove("d-none");
+                    egyptianCountProfile.classList.add("d-none");
+
+                    step1Foreign.classList.remove("d-none");
+                    step2Foreign.classList.add("d-none");
+                    step3Foreign.classList.add("d-none");
+
+                    if (emailBtn) emailBtn.disabled = true;
+                    if (otpForeignBtn) otpForeignBtn.disabled = true;
+                    if (step3Btn) step3Btn.disabled = true;
+                }
+
+                updateCounterProfile(1);
+            }
+
+            // ------------------ Default Load ------------------
+            const defaultOptionProfile = document.getElementById("option-localProfile");
+            if (defaultOptionProfile && defaultOptionProfile.checked) {
+                resetFormsAndStepsProfile("local");
+            }
+
+            // ------------------ Event Switch ------------------
+            if (groupProfile) {
+                groupProfile.addEventListener("change", (e) => {
+                    if (e.target.id === "option-localProfile") {
+                        resetFormsAndStepsProfile("local");
+                    } else if (e.target.id === "option-foreignProfile") {
+                        resetFormsAndStepsProfile("foreign");
+                    }
+                });
+            }
+
+            // ------------------ Egyptian Validation ------------------
+            function validateMobile(showErrors = false) {
+                const value = mobileInput.value.trim();
+                const isTenDigits = /^\d{10}$/.test(value);
+
+                if (showErrors) {
+                    errorRequired.classList.toggle("d-none", value.length > 0);
+                    errorIncomplete.classList.toggle("d-none", value.length === 0 || isTenDigits);
+                }
+
+                return isTenDigits;
+            }
+
+            if (mobileInput && sendBtn) {
+                mobileInput.addEventListener("input", () => {
+                    const valid = validateMobile(true); // يظهر الأخطاء أثناء الكتابة
+                    sendBtn.disabled = !valid;
+                });
+                mobileInput.addEventListener("blur", () => validateMobile(true)); // يظهر الأخطاء عند الخروج
+
+                formStep1Profile.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateMobile(true);
+                    if (valid) {
+                        step1Profile.classList.add("d-none");
+                        step2Profile.classList.remove("d-none");
+                        updateCounterProfile(2);
+                    }
+                });
+            }
+
+            if (mobileInput && sendBtn) {
+                mobileInput.addEventListener("input", () => {
+                    const valid = validateMobile(true);
+                    sendBtn.disabled = !valid;
+                });
+
+                formStep1Profile.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateMobile(true);
+                    if (valid) {
+                        step1Profile.classList.add("d-none");
+                        step2Profile.classList.remove("d-none");
+                        updateCounterProfile(2);
+                    }
+                });
+            }
+
+            function validateOTP(showErrors = false) {
+                const isFourDigits = /^\d{4}$/.test(otpInput.value.trim());
+                if (showErrors) otpError.classList.toggle("d-none", isFourDigits);
+                return isFourDigits;
+            }
+
+            if (otpInput && verifyBtn) {
+                otpInput.addEventListener("input", () => {
+                    const valid = validateOTP(true);
+                    verifyBtn.disabled = !valid;
+                });
+                otpInput.addEventListener("blur", () => validateOTP(true));
+
+                formStep2Profile.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateOTP(true);
+                    if (valid) {
+                        step2Profile.classList.add("d-none");
+                        step3Profile.classList.remove("d-none");
+                        updateCounterProfile(3);
+                    }
+                });
+            }
+
+            // ------------------ Foreign Validation ------------------
+            function validateEmail(showErrors = false) {
+                const value = emailInput.value.trim();
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+                if (showErrors) {
+                    emailErrorRequired.classList.toggle("d-none", value.length > 0);
+                    emailErrorFormat.classList.toggle("d-none", value.length === 0 || isValid);
+                }
+                return isValid;
+            }
+
+            if (emailInput && emailBtn) {
+                emailInput.addEventListener("input", () => {
+                    const valid = validateEmail(true);
+                    emailBtn.disabled = !valid;
+                });
+                emailInput.addEventListener("blur", () => validateEmail(true));
+
+                formStep1Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateEmail(true);
+                    if (valid) {
+                        step1Foreign.classList.add("d-none");
+                        step2Foreign.classList.remove("d-none");
+                        updateCounterProfile(2);
+                    }
+                });
+            }
+
+            function validateOtpForeign(showErrors = false) {
+                const isValid = /^\d{4}$/.test(otpForeignInput.value.trim());
+                if (showErrors) otpForeignError.classList.toggle("d-none", isValid);
+                return isValid;
+            }
+
+            if (otpForeignInput && otpForeignBtn) {
+                otpForeignInput.addEventListener("input", () => {
+                    const valid = validateOtpForeign(true);
+                    otpForeignBtn.disabled = !valid;
+                });
+                otpForeignInput.addEventListener("blur", () => validateOtpForeign(true));
+
+                formStep2Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateOtpForeign(true);
+                    if (valid) {
+                        step2Foreign.classList.add("d-none");
+                        step3Foreign.classList.remove("d-none");
+                        updateCounterProfile(3);
+                    }
+                });
+            }
+
+            function validatePassport(showErrors = false) {
+                const isEmpty = passportInput.value.trim().length === 0;
+                if (showErrors) passportError.classList.toggle("d-none", !isEmpty);
+                return !isEmpty;
+            }
+
+            function validateVisa(showErrors = false) {
+                const isChecked = Array.from(visaOptions).some(opt => opt.checked);
+                if (showErrors) visaError.classList.toggle("d-none", isChecked);
+                return isChecked;
+            }
+
+            function updateStep3Button() {
+                step3Btn.disabled = !(validatePassport(true) && validateVisa(true));
+            }
+
+            if (passportInput) {
+                passportInput.addEventListener("input", updateStep3Button);
+                passportInput.addEventListener("blur", () => validatePassport(true));
+            }
+
+            if (visaOptions.length > 0) {
+                visaOptions.forEach(opt => opt.addEventListener("change", updateStep3Button));
+                visaOptions.forEach(opt => opt.addEventListener("blur", () => validateVisa(true)));
+            }
+
+            if (formStep3Foreign) {
+                formStep3Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const validPassport = validatePassport(true);
+                    const validVisa = validateVisa(true);
+                    if (validPassport && validVisa) {
+                        alert("Step 3 Passed ✅");
+                    }
+                });
+            }
+
+            updateStep3Button();
+        });
+    </script> -->
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // ------------------ Switch Local & Foreign ------------------
+            const groupProfile = document.getElementById("type-groupProfile");
+            const localProfileContent = document.getElementById("localProfile-content");
+            const foreignProfileContent = document.getElementById("foreignProfile-content");
+
+            const egyptianCountProfile = document.getElementById("egyptianProfileCount");
+            const foreignCountProfile = document.getElementById("foreignProfileCount");
+
+            // ------------------ Step Counter ------------------
+            const counterProfile = document.getElementById("counterProfile");
+            function updateCounterProfile(stepNumber) {
+                if (counterProfile) counterProfile.textContent = stepNumber;
+            }
+
+            // ------------------ Egyptian Steps ------------------
+            const step1Profile = document.getElementById("step1-egyProfile");
+            const formStep1Profile = document.getElementById("formProfile-step1");
+            const mobileInput = document.getElementById("mobileNumber2-profile");
+            const sendBtn = formStep1Profile ? formStep1Profile.querySelector("button[type='submit']") : null;
+            const errorRequired = document.getElementById("mobileProfile-required");
+            const errorIncomplete = document.getElementById("mobileProfile-incomplete");
+
+            const step2Profile = document.getElementById("step2-egyProfile");
+            const formStep2Profile = document.getElementById("formProfile-step2");
+            const otpInput = document.getElementById("otpCodeProfile");
+            const verifyBtn = formStep2Profile ? formStep2Profile.querySelector("button[type='submit']") : null;
+            const otpError = document.getElementById("otpProfile-error");
+
+            const step3Profile = document.getElementById("step3-egyProfile");
+            const formStep3Profile = document.getElementById("formProfile-step3");
+
+            // ------------------ Foreign Steps ------------------
+            const step1Foreign = document.getElementById("step1-ForeignProfile");
+            const formStep1Foreign = document.getElementById("formProfile-step1_Foreign");
+            const emailInput = document.getElementById("EmailProfile");
+            const emailErrorRequired = document.getElementById("emailRequiredProfile");
+            const emailErrorFormat = document.getElementById("emailErrorProfile");
+            const emailBtn = document.getElementById("btnStep1-foreignProfile");
+
+            const step2Foreign = document.getElementById("step2-ForeignProfile");
+            const formStep2Foreign = document.getElementById("formProfile-step2_Foreign");
+            const otpForeignInput = document.getElementById("otpCode_ForeignProfile");
+            const otpForeignError = document.getElementById("otpRequiredProfile");
+            const otpForeignBtn = document.getElementById("btnStep2-foreignProfile");
+
+            const step3Foreign = document.getElementById("step3-ForeignProfile");
+            const formStep3Foreign = document.getElementById("formProfile-step3_Foreign");
+            const passportInput = document.getElementById("passport_ForeignProfile");
+            const passportError = document.getElementById("passportRequiredProfile");
+            const visaOptions = document.querySelectorAll("input[name='btnRadio-profile']");
+            const visaError = document.getElementById("visaStatus-errorProfile");
+            const step3Btn = document.getElementById("btns-step3_profile");
+
+            // ------------------ Reset Function ------------------
+            function resetFormsAndStepsProfile(type) {
+                // Reset كل الـ forms
+                [formStep1Profile, formStep2Profile, formStep3Profile,
+                    formStep1Foreign, formStep2Foreign, formStep3Foreign].forEach(form => {
+                        if (form) form.reset();
+                    });
+
+                // اضبط الراديو على حسب النوع
+                const localRadio = document.getElementById("option-localProfile");
+                const foreignRadio = document.getElementById("option-foreignProfile");
+
+                if (type === "local") {
+                    if (localRadio) localRadio.checked = true;
+                    if (foreignRadio) foreignRadio.checked = false;
+                } else {
+                    if (foreignRadio) foreignRadio.checked = true;
+                    if (localRadio) localRadio.checked = false;
+                }
+
+                // اخفي كل الـ steps
+                [step1Profile, step2Profile, step3Profile,
+                    step1Foreign, step2Foreign, step3Foreign].forEach(step => {
+                        if (step) step.classList.add("d-none");
+                    });
+
+                // النصوص فوق (Egyptian / Foreigner)
+                if (type === "local") {
+                    if (localProfileContent) localProfileContent.classList.remove("d-none");
+                    if (foreignProfileContent) foreignProfileContent.classList.add("d-none");
+
+                    if (egyptianCountProfile) egyptianCountProfile.classList.remove("d-none");
+                    if (foreignCountProfile) foreignCountProfile.classList.add("d-none");
+
+                    if (step1Profile) step1Profile.classList.remove("d-none");
+                } else if (type === "foreign") {
+                    if (foreignProfileContent) foreignProfileContent.classList.remove("d-none");
+                    if (localProfileContent) localProfileContent.classList.add("d-none");
+
+                    if (foreignCountProfile) foreignCountProfile.classList.remove("d-none");
+                    if (egyptianCountProfile) egyptianCountProfile.classList.add("d-none");
+
+                    if (step1Foreign) step1Foreign.classList.remove("d-none");
+                }
+
+                // Reset counter
+                if (counterProfile) counterProfile.textContent = 1;
+            }
+
+            // ------------------ Default Load ------------------
+            resetFormsAndStepsProfile("local"); // دايماً يبدأ Egyptian
+
+            // ------------------ Event Switch ------------------
+            if (groupProfile) {
+                groupProfile.addEventListener("change", (e) => {
+                    if (e.target.id === "option-localProfile") {
+                        resetFormsAndStepsProfile("local");
+                    } else if (e.target.id === "option-foreignProfile") {
+                        resetFormsAndStepsProfile("foreign");
+                    }
+                });
+            }
+
+            // ------------------ Egyptian Validation ------------------
+            function validateMobile(showErrors = false) {
+                const value = mobileInput.value.trim();
+                const isTenDigits = /^\d{10}$/.test(value);
+
+                if (showErrors) {
+                    errorRequired.classList.toggle("d-none", value.length > 0);
+                    errorIncomplete.classList.toggle("d-none", value.length === 0 || isTenDigits);
+                }
+
+                return isTenDigits;
+            }
+
+            if (mobileInput && sendBtn) {
+                mobileInput.addEventListener("input", () => {
+                    const valid = validateMobile(true);
+                    sendBtn.disabled = !valid;
+                });
+                mobileInput.addEventListener("blur", () => validateMobile(true));
+
+                formStep1Profile.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateMobile(true);
+                    if (valid) {
+                        step1Profile.classList.add("d-none");
+                        step2Profile.classList.remove("d-none");
+                        updateCounterProfile(2);
+                    }
+                });
+            }
+
+            function validateOTP(showErrors = false) {
+                const isFourDigits = /^\d{4}$/.test(otpInput.value.trim());
+                if (showErrors) otpError.classList.toggle("d-none", isFourDigits);
+                return isFourDigits;
+            }
+
+            if (otpInput && verifyBtn) {
+                otpInput.addEventListener("input", () => {
+                    const valid = validateOTP(true);
+                    verifyBtn.disabled = !valid;
+                });
+                otpInput.addEventListener("blur", () => validateOTP(true));
+
+                formStep2Profile.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateOTP(true);
+                    if (valid) {
+                        step2Profile.classList.add("d-none");
+                        step3Profile.classList.remove("d-none");
+                        updateCounterProfile(3);
+                    }
+                });
+            }
+
+            // ------------------ Foreign Validation ------------------
+            function validateEmail(showErrors = false) {
+                const value = emailInput.value.trim();
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+                if (showErrors) {
+                    emailErrorRequired.classList.toggle("d-none", value.length > 0);
+                    emailErrorFormat.classList.toggle("d-none", value.length === 0 || isValid);
+                }
+                return isValid;
+            }
+
+            if (emailInput && emailBtn) {
+                emailInput.addEventListener("input", () => {
+                    const valid = validateEmail(true);
+                    emailBtn.disabled = !valid;
+                });
+                emailInput.addEventListener("blur", () => validateEmail(true));
+
+                formStep1Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateEmail(true);
+                    if (valid) {
+                        step1Foreign.classList.add("d-none");
+                        step2Foreign.classList.remove("d-none");
+                        updateCounterProfile(2);
+                    }
+                });
+            }
+
+            function validateOtpForeign(showErrors = false) {
+                const isValid = /^\d{4}$/.test(otpForeignInput.value.trim());
+                if (showErrors) otpForeignError.classList.toggle("d-none", isValid);
+                return isValid;
+            }
+
+            if (otpForeignInput && otpForeignBtn) {
+                otpForeignInput.addEventListener("input", () => {
+                    const valid = validateOtpForeign(true);
+                    otpForeignBtn.disabled = !valid;
+                });
+                otpForeignInput.addEventListener("blur", () => validateOtpForeign(true));
+
+                formStep2Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const valid = validateOtpForeign(true);
+                    if (valid) {
+                        step2Foreign.classList.add("d-none");
+                        step3Foreign.classList.remove("d-none");
+                        updateCounterProfile(3);
+                    }
+                });
+            }
+
+            function validatePassport(showErrors = false) {
+                const isEmpty = passportInput.value.trim().length === 0;
+                if (showErrors) passportError.classList.toggle("d-none", !isEmpty);
+                return !isEmpty;
+            }
+
+            function validateVisa(showErrors = false) {
+                const isChecked = Array.from(visaOptions).some(opt => opt.checked);
+                if (showErrors) visaError.classList.toggle("d-none", isChecked);
+                return isChecked;
+            }
+
+            function updateStep3Button() {
+                step3Btn.disabled = !(validatePassport(true) && validateVisa(true));
+            }
+
+            if (passportInput) {
+                passportInput.addEventListener("input", updateStep3Button);
+                passportInput.addEventListener("blur", () => validatePassport(true));
+            }
+
+            if (visaOptions.length > 0) {
+                visaOptions.forEach(opt => opt.addEventListener("change", updateStep3Button));
+                visaOptions.forEach(opt => opt.addEventListener("blur", () => validateVisa(true)));
+            }
+
+            if (formStep3Foreign) {
+                formStep3Foreign.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const validPassport = validatePassport(true);
+                    const validVisa = validateVisa(true);
+                    if (validPassport && validVisa) {
+                        alert("Step 3 Passed ✅");
+                    }
+                });
+            }
+
+            updateStep3Button();
+        });
+    </script>
+
 </body>
 
 </html>

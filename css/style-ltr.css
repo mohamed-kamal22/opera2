@@ -2786,39 +2786,39 @@ body {
 }
 
 /* ===== Registration Form ===== */
-.registration-form .registration-form__body .registration-form__title {
+.registration-form .new-user .registration-form__body .registration-form__title {
   color: #fff;
   margin-bottom: 22px;
 }
-.registration-form .registration-form__body .registration-form__stepCount {
+.registration-form .new-user .registration-form__body .registration-form__stepCount {
   color: #fff;
 }
-.registration-form .registration-form__body .registration-form--option {
+.registration-form .new-user .registration-form__body .registration-form--option {
   display: flex;
   gap: 30px;
   justify-content: center;
   margin-bottom: 32px;
 }
-.registration-form .registration-form__body .registration-form--option .form-check label {
+.registration-form .new-user .registration-form__body .registration-form--option .form-check label {
   color: #fff;
 }
-.registration-form .registration-form__body .registration-form--option .form-check .form-check-input:checked {
+.registration-form .new-user .registration-form__body .registration-form--option .form-check .form-check-input:checked {
   background-color: #ca391e;
   border-color: #ca391e;
 }
-.registration-form .registration-form__body .local-content .step3 hr {
+.registration-form .new-user .registration-form__body .local-content .step3 hr {
   margin: 18px 0;
   border: 1px solid #fff;
 }
-.registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus {
+.registration-form .new-user .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus {
   padding-left: 1.5em;
   padding-right: 0;
 }
-.registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
+.registration-form .new-user .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
   color: #fff;
   font-size: 14px;
 }
-.registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
+.registration-form .new-user .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
   border-color: #fff;
   float: left;
   margin-left: -1.5em;
@@ -2826,54 +2826,54 @@ body {
   width: 14px;
   height: 14px;
 }
-.registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
+.registration-form .new-user .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
   border-color: #ca391e;
   background-color: #ca391e;
 }
-.registration-form .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
+.registration-form .new-user .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
   box-shadow: unset;
 }
-.registration-form .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a {
+.registration-form .new-user .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
-.registration-form .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
+.registration-form .new-user .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
   color: #00d757;
   font-size: 12px;
   text-decoration: underline;
 }
-.registration-form .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a i {
+.registration-form .new-user .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a i {
   color: #00d757;
 }
-.registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus {
   display: flex;
   align-items: flex-start;
   gap: 40px;
   height: 35px;
   padding: 6px 0;
 }
-.registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check label {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check label {
   color: #fff;
 }
-.registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input {
   height: 14px;
   width: 14px;
 }
-.registration-form .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input:checked {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input:checked {
   background-color: #ca391e;
   border-color: #ca391e;
 }
-.registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus {
   padding-left: 1.5em;
   padding-right: 0;
 }
-.registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
   color: #fff;
   font-size: 14px;
 }
-.registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
   border-color: #fff;
   float: left;
   margin-left: -1.5em;
@@ -2881,111 +2881,274 @@ body {
   width: 14px;
   height: 14px;
 }
-.registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
   border-color: #ca391e;
   background-color: #ca391e;
 }
-.registration-form .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
   box-shadow: unset;
 }
-.registration-form .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
-.registration-form .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a span {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a span {
   color: #00d757;
   font-size: 12px;
   text-decoration: underline;
 }
-.registration-form .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a i {
+.registration-form .new-user .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a i {
   color: #00d757;
 }
-.registration-form .registration-form__body form .form-col {
+.registration-form .new-user .registration-form__body form .form-col {
   display: flex;
   flex-direction: column;
   position: relative;
 }
-.registration-form .registration-form__body form .form-col label {
+.registration-form .new-user .registration-form__body form .form-col label {
   color: #fff;
 }
-.registration-form .registration-form__body form .form-col input {
+.registration-form .new-user .registration-form__body form .form-col input {
   height: 40px;
   font-size: 14px;
 }
-.registration-form .registration-form__body form button {
+.registration-form .new-user .registration-form__body form button {
   background-color: #CA391E;
   color: #fff;
   border: 0;
   height: 40px;
 }
-.registration-form .registration-form__body .error-text {
+.registration-form .new-user .registration-form__body .error-text {
   color: #f00;
   font-size: 12px;
   min-height: 20px;
   margin-top: 3px;
 }
-.registration-form .registration-form__body .warning-text__otp .time-otp {
+.registration-form .new-user .registration-form__body .warning-text__otp .time-otp {
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.registration-form .registration-form__body .warning-text__otp .time-otp span {
+.registration-form .new-user .registration-form__body .warning-text__otp .time-otp span {
   color: #fff;
   font-size: 12px;
 }
-.registration-form .registration-form__body .warning-text__otp .time-otp a {
+.registration-form .new-user .registration-form__body .warning-text__otp .time-otp a {
   text-decoration: none;
 }
-.registration-form .registration-form__body .warning-text__otp .time-otp a span {
+.registration-form .new-user .registration-form__body .warning-text__otp .time-otp a span {
   color: #682e23;
   font-size: 12px;
 }
-.registration-form .registration-form__body .warning-text__otp .error-text,
-.registration-form .registration-form__body .warning-text__otp .text-error__otp {
+.registration-form .new-user .registration-form__body .warning-text__otp .error-text,
+.registration-form .new-user .registration-form__body .warning-text__otp .text-error__otp {
   color: #f00;
   font-size: 12px;
   min-height: 20px;
 }
-.registration-form .registration-form__body .content__success {
+.registration-form .new-user .registration-form__body .content__success {
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 9px 8px 25px 0 rgba(0, 0, 0, 0.1), 34px 31px 46px 0 rgba(0, 0, 0, 0.09), 78px 69px 62px 0 rgba(0, 0, 0, 0.05), 138px 123px 74px 0 rgba(0, 0, 0, 0.01), 215px 193px 81px 0 rgba(0, 0, 0, 0);
   padding: 32px 0;
 }
-.registration-form .registration-form__body .content__success .contentBody ._top {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._top {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-bottom: 16px;
 }
-.registration-form .registration-form__body .content__success .contentBody ._top i {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._top i {
   font-size: 40px;
   color: #14ae5c;
 }
-.registration-form .registration-form__body .content__success .contentBody ._top span {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._top span {
   color: #2ecc71;
   font-size: 24px;
   font-weight: bold;
 }
-.registration-form .registration-form__body .content__success .contentBody ._middle {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._middle {
   margin-bottom: 16px;
 }
-.registration-form .registration-form__body .content__success .contentBody ._middle p {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._middle p {
   margin-bottom: 0;
   color: #4a4a4a;
   font-size: 16px;
 }
-.registration-form .registration-form__body .content__success .contentBody ._middle p:first-child {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._middle p:first-child {
   font-weight: bold;
 }
-.registration-form .registration-form__body .content__success .contentBody ._bottom button {
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button {
   background-color: #2ecc71;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
   width: 200px;
   height: 48px;
+}
+.registration-form .has-profile .registration-form__body .registration-form__title {
+  color: #fff;
+  margin-bottom: 22px;
+}
+.registration-form .has-profile .registration-form__body .registration-form__stepCount {
+  color: #fff;
+}
+.registration-form .has-profile .registration-form__body .registration-form--option {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.registration-form .has-profile .registration-form__body .registration-form--option .form-check label {
+  color: #fff;
+}
+.registration-form .has-profile .registration-form__body .registration-form--option .form-check .form-check-input:checked {
+  background-color: #ca391e;
+  border-color: #ca391e;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 hr {
+  margin: 18px 0;
+  border: 1px solid #fff;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus {
+  padding-left: 1.5em;
+  padding-right: 0;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
+  color: #fff;
+  font-size: 14px;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
+  border-color: #fff;
+  float: left;
+  margin-left: -1.5em;
+  margin-right: 0;
+  width: 14px;
+  height: 14px;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
+  border-color: #ca391e;
+  background-color: #ca391e;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
+  box-shadow: unset;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
+  color: #00d757;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a i {
+  color: #00d757;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  height: 35px;
+  padding: 6px 0;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check label {
+  color: #fff;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input {
+  height: 14px;
+  width: 14px;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input:checked {
+  background-color: #ca391e;
+  border-color: #ca391e;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus {
+  padding-left: 1.5em;
+  padding-right: 0;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
+  color: #fff;
+  font-size: 14px;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
+  border-color: #fff;
+  float: left;
+  margin-left: -1.5em;
+  margin-right: 0;
+  width: 14px;
+  height: 14px;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
+  border-color: #ca391e;
+  background-color: #ca391e;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
+  box-shadow: unset;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a span {
+  color: #00d757;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a i {
+  color: #00d757;
+}
+.registration-form .has-profile .registration-form__body form .form-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.registration-form .has-profile .registration-form__body form .form-col label {
+  color: #fff;
+}
+.registration-form .has-profile .registration-form__body form .form-col input {
+  height: 40px;
+  font-size: 14px;
+}
+.registration-form .has-profile .registration-form__body form button {
+  background-color: #CA391E;
+  color: #fff;
+  border: 0;
+  height: 40px;
+}
+.registration-form .has-profile .registration-form__body .error-text {
+  color: #f00;
+  font-size: 12px;
+  min-height: 20px;
+  margin-top: 3px;
+}
+.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp span {
+  color: #fff;
+  font-size: 12px;
+}
+.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp a {
+  text-decoration: none;
+}
+.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp a span {
+  color: #682e23;
+  font-size: 12px;
+}
+.registration-form .has-profile .registration-form__body .warning-text__otp .error-text,
+.registration-form .has-profile .registration-form__body .warning-text__otp .text-error__otp {
+  color: #f00;
+  font-size: 12px;
+  min-height: 20px;
 }/*# sourceMappingURL=style-ltr.css.map */

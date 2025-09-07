@@ -159,7 +159,7 @@ document.addEventListener("languageChanged", () => {
 
 
 
-
+// <---------------- New User Script -------------> //
 const group = document.getElementById("type-group");
 const localContent = document.getElementById("local-content");
 const foreignContent = document.getElementById("foreign-content");
@@ -187,6 +187,9 @@ const counterEl = document.getElementById("counter");
 const egyptianCount = document.getElementById("egyptianCount");
 const foreignCount = document.getElementById("foreignCount");
 
+egyptianCount.classList.remove("d-none");
+foreignCount.classList.add("d-none");
+
 function updateCounter(value) {
   stepCounter = value;
   counterEl.textContent = stepCounter;
@@ -197,25 +200,49 @@ function resetCounter() {
   counterEl.textContent = stepCounter;
 }
 
+// -------- Reset Forms & Steps --------
+function resetFormsAndSteps(type) {
+  // Reset all forms
+  document.querySelectorAll("form").forEach(form => form.reset());
+
+  // Remove invalid/error classes
+  document.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+  document.querySelectorAll(".text-error, .text-error__otp, .d-block").forEach(el => el.classList.add("d-none"));
+
+  // Hide all steps
+  document.querySelectorAll("[id^=step]").forEach(step => step.classList.add("d-none"));
+
+  // Show first step only based on type
+  if (type === "local") {
+    document.getElementById("step1-egy").classList.remove("d-none");
+    egyptianCount.classList.remove("d-none");
+    foreignCount.classList.add("d-none");
+  } else if (type === "foreign") {
+    document.getElementById("step1-Foreign").classList.remove("d-none");
+    foreignCount.classList.remove("d-none");
+    egyptianCount.classList.add("d-none");
+  }
+
+  // Reset counter
+  resetCounter();
+}
+
+// -------- Toggle between local & foreign --------
 group.addEventListener("change", (e) => {
   if (e.target.name === "type") {
-    resetCounter();
-
     if (e.target.value === "local") {
       localContent.classList.remove("d-none");
       foreignContent.classList.add("d-none");
-      egyptianCount.classList.remove("d-none");
-      foreignCount.classList.add("d-none");
+      resetFormsAndSteps("local");
     } else if (e.target.value === "foreign") {
       foreignContent.classList.remove("d-none");
       localContent.classList.add("d-none");
-      foreignCount.classList.remove("d-none");
-      egyptianCount.classList.add("d-none");
+      resetFormsAndSteps("foreign");
     }
   }
 });
 
-/*** ------- Step1 ------- ***/
+/*** ------- Step1 Local ------- ***/
 const nationalId = {
   input: document.getElementById("nationalId"),
   errors: {
@@ -300,7 +327,7 @@ formStep1.addEventListener("submit", (e) => {
   }
 });
 
-/*** ------- Step2 ------- ***/
+/*** ------- Step2 Local ------- ***/
 const otpInput = document.getElementById("otpCode");
 const otpError = document.querySelector(".text-error__otp");
 otpInput.touched = false;
@@ -346,7 +373,7 @@ formStep2.addEventListener("submit", (e) => {
 
 verifyButton.disabled = true;
 
-/*** ------- Step3 ------- ***/
+/*** ------- Step3 Local ------- ***/
 const firstName = {
   input: document.getElementById("firstName"),
   error: document.getElementById("firstNameEgyptian-error"),
@@ -702,6 +729,274 @@ formStep3_Foreign.addEventListener("submit", (e) => {
 });
 
 step3Btn.disabled = true;
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ------------------ Switch Local & Foreign ------------------
+  const groupProfile = document.getElementById("type-groupProfile");
+  const localProfileContent = document.getElementById("localProfile-content");
+  const foreignProfileContent = document.getElementById("foreignProfile-content");
+
+  const egyptianCountProfile = document.getElementById("egyptianProfileCount");
+  const foreignCountProfile = document.getElementById("foreignProfileCount");
+
+  // ------------------ Step Counter ------------------
+  const counterProfile = document.getElementById("counterProfile");
+  function updateCounterProfile(stepNumber) {
+    if (counterProfile) counterProfile.textContent = stepNumber;
+  }
+
+  // ------------------ Egyptian Steps ------------------
+  const step1Profile = document.getElementById("step1-egyProfile");
+  const formStep1Profile = document.getElementById("formProfile-step1");
+  const mobileInput = document.getElementById("mobileNumber2-profile");
+  const sendBtn = formStep1Profile ? formStep1Profile.querySelector("button[type='submit']") : null;
+  const errorRequired = document.getElementById("mobileProfile-required");
+  const errorIncomplete = document.getElementById("mobileProfile-incomplete");
+
+  const step2Profile = document.getElementById("step2-egyProfile");
+  const formStep2Profile = document.getElementById("formProfile-step2");
+  const otpInput = document.getElementById("otpCodeProfile");
+  const verifyBtn = formStep2Profile ? formStep2Profile.querySelector("button[type='submit']") : null;
+  const otpError = document.getElementById("otpProfile-error");
+
+  const step3Profile = document.getElementById("step3-egyProfile");
+  const formStep3Profile = document.getElementById("formProfile-step3");
+
+  // ------------------ Foreign Steps ------------------
+  const step1Foreign = document.getElementById("step1-ForeignProfile");
+  const formStep1Foreign = document.getElementById("formProfile-step1_Foreign");
+  const emailInput = document.getElementById("EmailProfile");
+  const emailErrorRequired = document.getElementById("emailRequiredProfile");
+  const emailErrorFormat = document.getElementById("emailErrorProfile");
+  const emailBtn = document.getElementById("btnStep1-foreignProfile");
+
+  const step2Foreign = document.getElementById("step2-ForeignProfile");
+  const formStep2Foreign = document.getElementById("formProfile-step2_Foreign");
+  const otpForeignInput = document.getElementById("otpCode_ForeignProfile");
+  const otpForeignError = document.getElementById("otpRequiredProfile");
+  const otpForeignBtn = document.getElementById("btnStep2-foreignProfile");
+
+  const step3Foreign = document.getElementById("step3-ForeignProfile");
+  const formStep3Foreign = document.getElementById("formProfile-step3_Foreign");
+  const passportInput = document.getElementById("passport_ForeignProfile");
+  const passportError = document.getElementById("passportRequiredProfile");
+  const visaOptions = document.querySelectorAll("input[name='btnRadio-profile']");
+  const visaError = document.getElementById("visaStatus-errorProfile");
+  const step3Btn = document.getElementById("btns-step3_profile");
+
+  // ------------------ Reset Function ------------------
+  function resetFormsAndStepsProfile(type) {
+    // Reset كل الـ forms
+    [formStep1Profile, formStep2Profile, formStep3Profile,
+      formStep1Foreign, formStep2Foreign, formStep3Foreign].forEach(form => {
+        if (form) form.reset();
+      });
+
+    // اضبط الراديو على حسب النوع
+    const localRadio = document.getElementById("option-localProfile");
+    const foreignRadio = document.getElementById("option-foreignProfile");
+
+    if (type === "local") {
+      if (localRadio) localRadio.checked = true;
+      if (foreignRadio) foreignRadio.checked = false;
+    } else {
+      if (foreignRadio) foreignRadio.checked = true;
+      if (localRadio) localRadio.checked = false;
+    }
+
+    // اخفي كل الـ steps
+    [step1Profile, step2Profile, step3Profile,
+      step1Foreign, step2Foreign, step3Foreign].forEach(step => {
+        if (step) step.classList.add("d-none");
+      });
+
+    // النصوص فوق (Egyptian / Foreigner)
+    if (type === "local") {
+      if (localProfileContent) localProfileContent.classList.remove("d-none");
+      if (foreignProfileContent) foreignProfileContent.classList.add("d-none");
+
+      if (egyptianCountProfile) egyptianCountProfile.classList.remove("d-none");
+      if (foreignCountProfile) foreignCountProfile.classList.add("d-none");
+
+      if (step1Profile) step1Profile.classList.remove("d-none");
+    } else if (type === "foreign") {
+      if (foreignProfileContent) foreignProfileContent.classList.remove("d-none");
+      if (localProfileContent) localProfileContent.classList.add("d-none");
+
+      if (foreignCountProfile) foreignCountProfile.classList.remove("d-none");
+      if (egyptianCountProfile) egyptianCountProfile.classList.add("d-none");
+
+      if (step1Foreign) step1Foreign.classList.remove("d-none");
+    }
+
+    // Reset counter
+    if (counterProfile) counterProfile.textContent = 1;
+  }
+
+  // ------------------ Default Load ------------------
+  resetFormsAndStepsProfile("local"); // دايماً يبدأ Egyptian
+
+  // ------------------ Event Switch ------------------
+  if (groupProfile) {
+    groupProfile.addEventListener("change", (e) => {
+      if (e.target.id === "option-localProfile") {
+        resetFormsAndStepsProfile("local");
+      } else if (e.target.id === "option-foreignProfile") {
+        resetFormsAndStepsProfile("foreign");
+      }
+    });
+  }
+
+  // ------------------ Egyptian Validation ------------------
+  function validateMobile(showErrors = false) {
+    const value = mobileInput.value.trim();
+    const isTenDigits = /^\d{10}$/.test(value);
+
+    if (showErrors) {
+      errorRequired.classList.toggle("d-none", value.length > 0);
+      errorIncomplete.classList.toggle("d-none", value.length === 0 || isTenDigits);
+    }
+
+    return isTenDigits;
+  }
+
+  if (mobileInput && sendBtn) {
+    mobileInput.addEventListener("input", () => {
+      const valid = validateMobile(true);
+      sendBtn.disabled = !valid;
+    });
+    mobileInput.addEventListener("blur", () => validateMobile(true));
+
+    formStep1Profile.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const valid = validateMobile(true);
+      if (valid) {
+        step1Profile.classList.add("d-none");
+        step2Profile.classList.remove("d-none");
+        updateCounterProfile(2);
+      }
+    });
+  }
+
+  function validateOTP(showErrors = false) {
+    const isFourDigits = /^\d{4}$/.test(otpInput.value.trim());
+    if (showErrors) otpError.classList.toggle("d-none", isFourDigits);
+    return isFourDigits;
+  }
+
+  if (otpInput && verifyBtn) {
+    otpInput.addEventListener("input", () => {
+      const valid = validateOTP(true);
+      verifyBtn.disabled = !valid;
+    });
+    otpInput.addEventListener("blur", () => validateOTP(true));
+
+    formStep2Profile.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const valid = validateOTP(true);
+      if (valid) {
+        step2Profile.classList.add("d-none");
+        step3Profile.classList.remove("d-none");
+        updateCounterProfile(3);
+      }
+    });
+  }
+
+  // ------------------ Foreign Validation ------------------
+  function validateEmail(showErrors = false) {
+    const value = emailInput.value.trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    if (showErrors) {
+      emailErrorRequired.classList.toggle("d-none", value.length > 0);
+      emailErrorFormat.classList.toggle("d-none", value.length === 0 || isValid);
+    }
+    return isValid;
+  }
+
+  if (emailInput && emailBtn) {
+    emailInput.addEventListener("input", () => {
+      const valid = validateEmail(true);
+      emailBtn.disabled = !valid;
+    });
+    emailInput.addEventListener("blur", () => validateEmail(true));
+
+    formStep1Foreign.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const valid = validateEmail(true);
+      if (valid) {
+        step1Foreign.classList.add("d-none");
+        step2Foreign.classList.remove("d-none");
+        updateCounterProfile(2);
+      }
+    });
+  }
+
+  function validateOtpForeign(showErrors = false) {
+    const isValid = /^\d{4}$/.test(otpForeignInput.value.trim());
+    if (showErrors) otpForeignError.classList.toggle("d-none", isValid);
+    return isValid;
+  }
+
+  if (otpForeignInput && otpForeignBtn) {
+    otpForeignInput.addEventListener("input", () => {
+      const valid = validateOtpForeign(true);
+      otpForeignBtn.disabled = !valid;
+    });
+    otpForeignInput.addEventListener("blur", () => validateOtpForeign(true));
+
+    formStep2Foreign.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const valid = validateOtpForeign(true);
+      if (valid) {
+        step2Foreign.classList.add("d-none");
+        step3Foreign.classList.remove("d-none");
+        updateCounterProfile(3);
+      }
+    });
+  }
+
+  function validatePassport(showErrors = false) {
+    const isEmpty = passportInput.value.trim().length === 0;
+    if (showErrors) passportError.classList.toggle("d-none", !isEmpty);
+    return !isEmpty;
+  }
+
+  function validateVisa(showErrors = false) {
+    const isChecked = Array.from(visaOptions).some(opt => opt.checked);
+    if (showErrors) visaError.classList.toggle("d-none", isChecked);
+    return isChecked;
+  }
+
+  function updateStep3Button() {
+    step3Btn.disabled = !(validatePassport(true) && validateVisa(true));
+  }
+
+  if (passportInput) {
+    passportInput.addEventListener("input", updateStep3Button);
+    passportInput.addEventListener("blur", () => validatePassport(true));
+  }
+
+  if (visaOptions.length > 0) {
+    visaOptions.forEach(opt => opt.addEventListener("change", updateStep3Button));
+    visaOptions.forEach(opt => opt.addEventListener("blur", () => validateVisa(true)));
+  }
+
+  if (formStep3Foreign) {
+    formStep3Foreign.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const validPassport = validatePassport(true);
+      const validVisa = validateVisa(true);
+      if (validPassport && validVisa) {
+        alert("Step 3 Passed ✅");
+      }
+    });
+  }
+
+  updateStep3Button();
+});
 
 // Agreement Checkbox & Enroll Btn
 const radios = document.querySelectorAll('input[name="flexRadioDefault"]');
