@@ -2108,6 +2108,9 @@ body {
   border-radius: 10px;
   height: 100%;
 }
+.fastivalsDetails .fastivalsDetails__body .description-fastival .competition-description {
+  overflow: auto;
+}
 .fastivalsDetails .fastivalsDetails__body .description-fastival .competition-description .competition-description_title {
   color: #fff;
   font-size: 23px;
