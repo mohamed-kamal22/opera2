@@ -129,10 +129,10 @@ body {
   justify-content: space-between;
 }
 .header .top-header .theme-controls .theme-toggle .sun-icon {
-  order: 1;
+  order: 2;
 }
 .header .top-header .theme-controls .theme-toggle .moon-icon {
-  order: 2;
+  order: 1;
 }
 .header .top-header .theme-controls .theme-toggle .icon {
   z-index: 1;
@@ -1014,7 +1014,7 @@ body {
 }
 /* ===== THEME DESIGN ===== */
 [data-theme=dark] .theme-toggle .indicator {
-  transform: translateX(0);
+  transform: translateX(49px);
 }
 [data-theme=dark] .theme-toggle .sun-icon i {
   color: #fff;
@@ -1042,7 +1042,7 @@ body {
 }
 
 [data-theme=light] .theme-toggle .indicator {
-  transform: translateX(49px);
+  transform: translateX(0);
 }
 [data-theme=light] .theme-toggle .sun-icon i {
   color: #fff;
@@ -2292,6 +2292,7 @@ body {
 }
 .fastivalsDetails .fastivalsDetails__body .winners {
   margin-bottom: 32px;
+  /* ====== Animations ====== */
 }
 .fastivalsDetails .fastivalsDetails__body .winners .section-title {
   font-size: 29px;

@@ -2266,6 +2266,7 @@ body {
 }
 .fastivalsDetails .fastivalsDetails__body .winners {
   margin-bottom: 32px;
+  /* ====== Animations ====== */
 }
 .fastivalsDetails .fastivalsDetails__body .winners .section-title {
   font-size: 29px;

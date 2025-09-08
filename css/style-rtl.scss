@@ -136,11 +136,11 @@ body {
         justify-content: space-between;
 
         .sun-icon {
-          order: 1;
+          order: 2;
         }
 
         .moon-icon {
-          order: 2;
+          order: 1;
         }
 
         .icon {
@@ -1198,7 +1198,7 @@ body {
 
   .theme-toggle {
     .indicator {
-      transform: translateX(0);
+      transform: translateX(49px);
     }
 
     .sun-icon {
@@ -1251,7 +1251,7 @@ body {
 [data-theme="light"] {
   .theme-toggle {
     .indicator {
-      transform: translateX(49px);
+      transform: translateX(0);
     }
 
     .sun-icon {
