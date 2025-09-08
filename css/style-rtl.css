@@ -2113,7 +2113,7 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0.28;
-  z-index: 0;
+  z-index: -1;
 }
 .fastivalsDetails .fastivalsDetails__header {
   margin-bottom: 16px;
@@ -2289,6 +2289,112 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #fff;
+}
+.fastivalsDetails .fastivalsDetails__body .winners {
+  margin-bottom: 32px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .section-title {
+  font-size: 29px;
+  color: var(--text-app);
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tabs-content_winners {
+  display: flex;
+  gap: 32px;
+  position: relative;
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tabs-content_winners .tab {
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--text-app);
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 14px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tabs-content_winners .tab:hover {
+  color: #fff;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tabs-content_winners .tab.active {
+  color: #ca391e;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tabs-content_winners .tab-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 3px;
+  width: 0;
+  background: #ca391e;
+  transition: all 0.4s ease;
+  border-radius: 2px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper::-webkit-scrollbar {
+  height: 9px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper::-webkit-scrollbar-thumb {
+  background: #ca391e;
+  border-radius: 4px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgb(157.5948275862, 44.4698275862, 23.4051724138);
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table thead th {
+  padding: 10px;
+  color: var(--text-app);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table tbody td {
+  padding: 10px;
+  border-top: 1px solid #333;
+  color: var(--text-app);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table tbody td a {
+  color: #1779bb;
+  text-decoration: none;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table tbody td a:hover {
+  text-decoration: underline;
+}
+.fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content.active {
+  display: block;
+}
+@media (max-width: 992px) {
+  .fastivalsDetails .fastivalsDetails__body .winners .content_winners .tab-content .table-wrapper table {
+    min-width: 800px;
+    width: auto;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .fastivalsDetails .fastivalsDetails__body .artistic-committee {
   margin-bottom: 32px;

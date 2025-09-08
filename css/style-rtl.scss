@@ -1201,17 +1201,17 @@ body {
       transform: translateX(0);
     }
 
-     .sun-icon {
+    .sun-icon {
       i {
         color: #fff;
       }
-     }
+    }
 
-     .moon-icon {
+    .moon-icon {
       i {
         color: #fff;
       }
-     }
+    }
   }
 
   .navbar-toggler-icon {
@@ -1262,7 +1262,7 @@ body {
 
     .moon-icon {
       i {
-        color: #000!important;
+        color: #000 !important;
       }
     }
   }
@@ -2669,7 +2669,7 @@ body {
     background-size: cover;
     background-position: center;
     opacity: 0.28;
-    z-index: 0;
+    z-index: -1;
   }
 
   .fastivalsDetails__header {
@@ -2896,6 +2896,143 @@ body {
               color: #fff;
             }
           }
+        }
+      }
+    }
+
+    .winners {
+      margin-bottom: 32px;
+
+      .section-title {
+        font-size: 29px;
+        color: var(--text-app);
+      }
+
+      .content_winners {
+        .tabs-content_winners {
+          display: flex;
+          gap: 32px;
+          position: relative;
+          border-bottom: 1px solid #444;
+          margin-bottom: 20px;
+
+          .tab {
+            padding: 10px 0;
+            cursor: pointer;
+            color: var(--text-app);
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 14px;
+
+            &:hover {
+              color: #fff;
+            }
+
+            &.active {
+              color: #ca391e;
+              font-weight: bold;
+              border-radius: 5px 5px 0 0;
+            }
+          }
+
+          .tab-indicator {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 3px;
+            width: 0;
+            background: #ca391e;
+            transition: all 0.4s ease;
+            border-radius: 2px;
+          }
+        }
+
+        .tab-content {
+          display: none;
+          animation: fadeIn 0.4s ease-in-out;
+
+          .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+              height: 9px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: #ca391e;
+              border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+              background: darken(#ca391e, 10%);
+            }
+
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 10px;
+
+              thead {
+                th {
+                  padding: 10px;
+                  color: var(--text-app);
+                  font-size: 14px;
+                  white-space: nowrap;
+                }
+              }
+
+              tbody {
+                td {
+                  padding: 10px;
+                  border-top: 1px solid #333;
+                  color: var(--text-app);
+                  font-size: 14px;
+                  white-space: nowrap;
+
+                  a {
+                    color: #1779bb;
+                    text-decoration: none;
+
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.active {
+            display: block;
+          }
+
+          @media (max-width: 992px) {
+            .table-wrapper {
+              table {
+                min-width: 800px;
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+
+      /* ====== Animations ====== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     }

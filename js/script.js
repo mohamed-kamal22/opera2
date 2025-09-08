@@ -153,321 +153,317 @@ document.addEventListener("languageChanged", () => {
 
 
 
-
-
-
-
-
-
 // <---------------- New User Script -------------> //
-const group = document.getElementById("type-group");
-const localContent = document.getElementById("local-content");
-const foreignContent = document.getElementById("foreign-content");
-const parentOptionCount = document.getElementById("parent-option__count");
 
-const formStep1 = document.getElementById("form-step1");
-const formStep2 = document.getElementById("form-step2");
-const formStep3 = document.getElementById("form-step3");
+document.addEventListener("DOMContentLoaded", () => {
+  const group = document.getElementById("type-group");
+  const localContent = document.getElementById("local-content");
+  const foreignContent = document.getElementById("foreign-content");
+  const parentOptionCount = document.getElementById("parent-option__count");
 
-const step1 = document.getElementById("step1-egy");
-const step2 = document.getElementById("step2-egy");
-const step3 = document.getElementById("step3-egy");
+  const formStep1 = document.getElementById("form-step1");
+  const formStep2 = document.getElementById("form-step2");
+  const formStep3 = document.getElementById("form-step3");
 
-const sendButton = document.querySelector("#form-step1 button[type='submit']");
-const verifyButton = document.querySelector("#form-step2 button[type='submit']");
-const registerButton = document.querySelector("#form-step3 button[type='submit']");
+  const step1 = document.getElementById("step1-egy");
+  const step2 = document.getElementById("step2-egy");
+  const step3 = document.getElementById("step3-egy");
 
-const show = (el) => el.classList.remove("d-none");
-const hide = (el) => el.classList.add("d-none");
-const markInvalid = (input, invalid) => input.classList.toggle("is-invalid", invalid);
+  const sendButton = document.querySelector("#form-step1 button[type='submit']");
+  const verifyButton = document.querySelector("#form-step2 button[type='submit']");
+  const registerButton = document.querySelector("#form-step3 button[type='submit']");
 
-let stepCounter = 1;
-const counterEl = document.getElementById("counter");
+  const show = (el) => el.classList.remove("d-none");
+  const hide = (el) => el.classList.add("d-none");
+  const markInvalid = (input, invalid) => input.classList.toggle("is-invalid", invalid);
 
-const egyptianCount = document.getElementById("egyptianCount");
-const foreignCount = document.getElementById("foreignCount");
+  let stepCounter = 1;
+  const counterEl = document.getElementById("counter");
 
-egyptianCount.classList.remove("d-none");
-foreignCount.classList.add("d-none");
+  const egyptianCount = document.getElementById("egyptianCount");
+  const foreignCount = document.getElementById("foreignCount");
 
-function updateCounter(value) {
-  stepCounter = value;
-  counterEl.textContent = stepCounter;
-}
+  egyptianCount.classList.remove("d-none");
+  foreignCount.classList.add("d-none");
 
-function resetCounter() {
-  stepCounter = 1;
-  counterEl.textContent = stepCounter;
-}
-
-// -------- Reset Forms & Steps --------
-function resetFormsAndSteps(type) {
-  // Reset all forms
-  document.querySelectorAll("form").forEach(form => form.reset());
-
-  // Remove invalid/error classes
-  document.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
-  document.querySelectorAll(".text-error, .text-error__otp, .d-block").forEach(el => el.classList.add("d-none"));
-
-  // Hide all steps
-  document.querySelectorAll("[id^=step]").forEach(step => step.classList.add("d-none"));
-
-  // Show first step only based on type
-  if (type === "local") {
-    document.getElementById("step1-egy").classList.remove("d-none");
-    egyptianCount.classList.remove("d-none");
-    foreignCount.classList.add("d-none");
-  } else if (type === "foreign") {
-    document.getElementById("step1-Foreign").classList.remove("d-none");
-    foreignCount.classList.remove("d-none");
-    egyptianCount.classList.add("d-none");
+  function updateCounter(value) {
+    stepCounter = value;
+    counterEl.textContent = stepCounter;
   }
 
-  // Reset counter
-  resetCounter();
-}
+  function resetCounter() {
+    stepCounter = 1;
+    counterEl.textContent = stepCounter;
+  }
 
-// -------- Toggle between local & foreign --------
-group.addEventListener("change", (e) => {
-  if (e.target.name === "type") {
-    if (e.target.value === "local") {
-      localContent.classList.remove("d-none");
-      foreignContent.classList.add("d-none");
-      resetFormsAndSteps("local");
-    } else if (e.target.value === "foreign") {
-      foreignContent.classList.remove("d-none");
-      localContent.classList.add("d-none");
-      resetFormsAndSteps("foreign");
+  // -------- Reset Forms & Steps --------
+  function resetFormsAndSteps(type) {
+    // Reset all forms
+    document.querySelectorAll("form").forEach(form => form.reset());
+
+    // Remove invalid/error classes
+    document.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+    document.querySelectorAll(".text-error, .text-error__otp, .d-block").forEach(el => el.classList.add("d-none"));
+
+    // Hide all steps
+    document.querySelectorAll("[id^=step]").forEach(step => step.classList.add("d-none"));
+
+    // Show first step only based on type
+    if (type === "local") {
+      document.getElementById("step1-egy").classList.remove("d-none");
+      egyptianCount.classList.remove("d-none");
+      foreignCount.classList.add("d-none");
+    } else if (type === "foreign") {
+      document.getElementById("step1-Foreign").classList.remove("d-none");
+      foreignCount.classList.remove("d-none");
+      egyptianCount.classList.add("d-none");
     }
+
+    // Reset counter
+    resetCounter();
   }
-});
 
-/*** ------- Step1 Local ------- ***/
-const nationalId = {
-  input: document.getElementById("nationalId"),
-  errors: {
-    required: document.getElementById("id-required"),
-    length: document.getElementById("id-length"),
-    exists: document.getElementById("id-exists")
-  },
-  touched: false
-};
-
-const mobile = {
-  input: document.getElementById("mobileNumber2"),
-  errors: {
-    required: document.getElementById("mobile-required"),
-    incomplete: document.getElementById("mobile-incomplete")
-  },
-  touched: false
-};
-
-function isNationalIdValid(value) {
-  if (!value) return "required";
-  if (!/^\d{14}$/.test(value)) return "length";
-  if (value === "12345678901234") return "exists"; // مثال
-  return null;
-}
-
-function isMobileValid(value) {
-  if (!value) return "required";
-  if (value.length < 10) return "incomplete";
-  return null;
-}
-
-function validateNationalId() {
-  const value = nationalId.input.value.trim();
-  const error = isNationalIdValid(value);
-
-  Object.values(nationalId.errors).forEach(hide);
-  markInvalid(nationalId.input, !!error);
-
-  if (error && nationalId.touched) show(nationalId.errors[error]);
-  return !error;
-}
-
-function validateMobile() {
-  const digitsOnly = mobile.input.value.replace(/\D/g, "");
-  if (mobile.input.value !== digitsOnly) mobile.input.value = digitsOnly;
-
-  const error = isMobileValid(digitsOnly);
-
-  Object.values(mobile.errors).forEach(hide);
-  markInvalid(mobile.input, !!error);
-
-  if (error && mobile.touched) show(mobile.errors[error]);
-  return !error;
-}
-
-function validateFormStep1() {
-  const idOk = validateNationalId();
-  const mobOk = validateMobile();
-  sendButton.disabled = !(idOk && mobOk);
-  return idOk && mobOk;
-}
-
-// Events step1
-[nationalId, mobile].forEach((field) => {
-  field.input.addEventListener("blur", () => {
-    field.touched = true;
-    validateFormStep1();
+  // -------- Toggle between local & foreign --------
+  group.addEventListener("change", (e) => {
+    if (e.target.name === "type") {
+      if (e.target.value === "local") {
+        localContent.classList.remove("d-none");
+        foreignContent.classList.add("d-none");
+        resetFormsAndSteps("local");
+      } else if (e.target.value === "foreign") {
+        foreignContent.classList.remove("d-none");
+        localContent.classList.add("d-none");
+        resetFormsAndSteps("foreign");
+      }
+    }
   });
-  field.input.addEventListener("input", validateFormStep1);
-});
 
-formStep1.addEventListener("submit", (e) => {
-  e.preventDefault();
-  nationalId.touched = mobile.touched = true;
-  if (validateFormStep1()) {
-    step1.classList.add("d-none");
-    step2.classList.remove("d-none");
-    updateCounter(2);
-    egyptianCount.classList.remove("d-none");
-    foreignCount.classList.add("d-none");
-  }
-});
+  /*** ------- Step1 Local ------- ***/
+  const nationalId = {
+    input: document.getElementById("nationalId"),
+    errors: {
+      required: document.getElementById("id-required"),
+      length: document.getElementById("id-length"),
+      exists: document.getElementById("id-exists")
+    },
+    touched: false
+  };
 
-/*** ------- Step2 Local ------- ***/
-const otpInput = document.getElementById("otpCode");
-const otpError = document.querySelector(".text-error__otp");
-otpInput.touched = false;
+  const mobile = {
+    input: document.getElementById("mobileNumber2"),
+    errors: {
+      required: document.getElementById("mobile-required"),
+      incomplete: document.getElementById("mobile-incomplete")
+    },
+    touched: false
+  };
 
-function isOtpValid(value) {
-  if (!value) return "failed";
-  if (!/^\d{4}$/.test(value)) return "failed";
-  return null;
-}
-
-function validateOtp() {
-  const digitsOnly = otpInput.value.replace(/\D/g, "");
-  if (otpInput.value !== digitsOnly) otpInput.value = digitsOnly;
-
-  const error = isOtpValid(digitsOnly);
-
-  hide(otpError);
-  markInvalid(otpInput, !!error);
-
-  if (error && otpInput.touched) show(otpError);
-
-  verifyButton.disabled = !!error;
-  return !error;
-}
-
-otpInput.addEventListener("blur", () => {
-  otpInput.touched = true;
-  validateOtp();
-});
-otpInput.addEventListener("input", validateOtp);
-
-formStep2.addEventListener("submit", (e) => {
-  e.preventDefault();
-  otpInput.touched = true;
-  if (!validateOtp()) {
-    otpInput.focus();
-  } else {
-    step2.classList.add("d-none");
-    step3.classList.remove("d-none");
-    updateCounter(3);
-  }
-});
-
-verifyButton.disabled = true;
-
-/*** ------- Step3 Local ------- ***/
-const firstName = {
-  input: document.getElementById("firstName"),
-  error: document.getElementById("firstNameEgyptian-error"),
-  touched: false
-};
-
-const middleName = {
-  input: document.getElementById("middleName"),
-  error: document.getElementById("middleNameEgyptian-error"),
-  touched: false
-};
-
-const lastName = {
-  input: document.getElementById("lastName"),
-  error: document.getElementById("lastNameEgyptian-error"),
-  touched: false
-};
-
-const idUpload = {
-  input: document.getElementById("IDUpload"),
-  error: document.getElementById("idEgyptian-error"),
-  touched: false
-};
-
-const governorateResidence = {
-  input: document.getElementById("governorateResidence"),
-  error: document.getElementById("govResidence-error"),
-  touched: false
-};
-
-function validateEgyptianField(field) {
-  let valid = true;
-
-  if (field.input.type === "file") {
-    valid = field.input.files && field.input.files.length > 0;
-  } else {
-    valid = !!field.input.value.trim();
+  function isNationalIdValid(value) {
+    if (!value) return "required";
+    if (!/^\d{14}$/.test(value)) return "length";
+    if (value === "12345678901234") return "exists"; // مثال
+    return null;
   }
 
-  if (!valid && field.touched) {
-    show(field.error);
-    markInvalid(field.input, true);
-  } else {
-    hide(field.error);
-    markInvalid(field.input, false);
+  function isMobileValid(value) {
+    if (!value) return "required";
+    if (value.length < 10) return "incomplete";
+    return null;
   }
-  return valid;
-}
 
-function validateStep3Egyptian() {
-  let valid = true;
-  valid &= validateEgyptianField(firstName);
-  valid &= validateEgyptianField(middleName);
-  valid &= validateEgyptianField(lastName);
-  valid &= validateEgyptianField(idUpload);
-  valid &= validateEgyptianField(governorateResidence);
+  function validateNationalId() {
+    const value = nationalId.input.value.trim();
+    const error = isNationalIdValid(value);
 
-  registerButton.disabled = !valid;
-  return !!valid;
-}
+    Object.values(nationalId.errors).forEach(hide);
+    markInvalid(nationalId.input, !!error);
 
-[firstName, middleName, lastName, governorateResidence, idUpload].forEach((field) => {
-  field.input.addEventListener("blur", () => {
-    field.touched = true;
-    validateEgyptianField(field);
+    if (error && nationalId.touched) show(nationalId.errors[error]);
+    return !error;
+  }
+
+  function validateMobile() {
+    const digitsOnly = mobile.input.value.replace(/\D/g, "");
+    if (mobile.input.value !== digitsOnly) mobile.input.value = digitsOnly;
+
+    const error = isMobileValid(digitsOnly);
+
+    Object.values(mobile.errors).forEach(hide);
+    markInvalid(mobile.input, !!error);
+
+    if (error && mobile.touched) show(mobile.errors[error]);
+    return !error;
+  }
+
+  function validateFormStep1() {
+    const idOk = validateNationalId();
+    const mobOk = validateMobile();
+    sendButton.disabled = !(idOk && mobOk);
+    return idOk && mobOk;
+  }
+
+  // Events step1
+  [nationalId, mobile].forEach((field) => {
+    field.input.addEventListener("blur", () => {
+      field.touched = true;
+      validateFormStep1();
+    });
+    field.input.addEventListener("input", validateFormStep1);
+  });
+
+  formStep1.addEventListener("submit", (e) => {
+    e.preventDefault();
+    nationalId.touched = mobile.touched = true;
+    if (validateFormStep1()) {
+      step1.classList.add("d-none");
+      step2.classList.remove("d-none");
+      updateCounter(2);
+      egyptianCount.classList.remove("d-none");
+      foreignCount.classList.add("d-none");
+    }
+  });
+
+  /*** ------- Step2 Local ------- ***/
+  const otpInput = document.getElementById("otpCode");
+  const otpError = document.querySelector(".text-error__otp");
+  otpInput.touched = false;
+
+  function isOtpValid(value) {
+    if (!value) return "failed";
+    if (!/^\d{4}$/.test(value)) return "failed";
+    return null;
+  }
+
+  function validateOtp() {
+    const digitsOnly = otpInput.value.replace(/\D/g, "");
+    if (otpInput.value !== digitsOnly) otpInput.value = digitsOnly;
+
+    const error = isOtpValid(digitsOnly);
+
+    hide(otpError);
+    markInvalid(otpInput, !!error);
+
+    if (error && otpInput.touched) show(otpError);
+
+    verifyButton.disabled = !!error;
+    return !error;
+  }
+
+  otpInput.addEventListener("blur", () => {
+    otpInput.touched = true;
+    validateOtp();
+  });
+  otpInput.addEventListener("input", validateOtp);
+
+  formStep2.addEventListener("submit", (e) => {
+    e.preventDefault();
+    otpInput.touched = true;
+    if (!validateOtp()) {
+      otpInput.focus();
+    } else {
+      step2.classList.add("d-none");
+      step3.classList.remove("d-none");
+      updateCounter(3);
+    }
+  });
+
+  verifyButton.disabled = true;
+
+  /*** ------- Step3 Local ------- ***/
+  const firstName = {
+    input: document.getElementById("firstName"),
+    error: document.getElementById("firstNameEgyptian-error"),
+    touched: false
+  };
+
+  const middleName = {
+    input: document.getElementById("middleName"),
+    error: document.getElementById("middleNameEgyptian-error"),
+    touched: false
+  };
+
+  const lastName = {
+    input: document.getElementById("lastName"),
+    error: document.getElementById("lastNameEgyptian-error"),
+    touched: false
+  };
+
+  const idUpload = {
+    input: document.getElementById("IDUpload"),
+    error: document.getElementById("idEgyptian-error"),
+    touched: false
+  };
+
+  const governorateResidence = {
+    input: document.getElementById("governorateResidence"),
+    error: document.getElementById("govResidence-error"),
+    touched: false
+  };
+
+  function validateEgyptianField(field) {
+    let valid = true;
+
+    if (field.input.type === "file") {
+      valid = field.input.files && field.input.files.length > 0;
+    } else {
+      valid = !!field.input.value.trim();
+    }
+
+    if (!valid && field.touched) {
+      show(field.error);
+      markInvalid(field.input, true);
+    } else {
+      hide(field.error);
+      markInvalid(field.input, false);
+    }
+    return valid;
+  }
+
+  function validateStep3Egyptian() {
+    let valid = true;
+    valid &= validateEgyptianField(firstName);
+    valid &= validateEgyptianField(middleName);
+    valid &= validateEgyptianField(lastName);
+    valid &= validateEgyptianField(idUpload);
+    valid &= validateEgyptianField(governorateResidence);
+
+    registerButton.disabled = !valid;
+    return !!valid;
+  }
+
+  [firstName, middleName, lastName, governorateResidence, idUpload].forEach((field) => {
+    field.input.addEventListener("blur", () => {
+      field.touched = true;
+      validateEgyptianField(field);
+      validateStep3Egyptian();
+    });
+    field.input.addEventListener("input", () => {
+      if (field.touched) {
+        validateEgyptianField(field);
+        validateStep3Egyptian();
+      }
+    });
+  });
+
+  idUpload.input.addEventListener("change", () => {
+    idUpload.touched = true;
     validateStep3Egyptian();
   });
-  field.input.addEventListener("input", () => {
-    if (field.touched) {
-      validateEgyptianField(field);
+
+  formStep3.addEventListener("submit", (e) => {
+    e.preventDefault();
+    [firstName, middleName, lastName, governorateResidence, idUpload].forEach(f => f.touched = true);
+
+    if (validateStep3Egyptian()) {
+      step3.classList.add("d-none");
+      document.getElementById("step4-egy").classList.remove("d-none");
+      parentOptionCount.classList.add("d-none");
+    } else {
       validateStep3Egyptian();
     }
   });
-});
 
-idUpload.input.addEventListener("change", () => {
-  idUpload.touched = true;
-  validateStep3Egyptian();
-});
-
-formStep3.addEventListener("submit", (e) => {
-  e.preventDefault();
-  [firstName, middleName, lastName, governorateResidence, idUpload].forEach(f => f.touched = true);
-
-  if (validateStep3Egyptian()) {
-    step3.classList.add("d-none");
-    document.getElementById("step4-egy").classList.remove("d-none");
-    parentOptionCount.classList.add("d-none");
-  } else {
-    validateStep3Egyptian();
-  }
-});
-
-registerButton.disabled = true;
+  registerButton.disabled = true;
 
 
 
@@ -475,559 +471,631 @@ registerButton.disabled = true;
 
 
 
-const showError = (el) => el.classList.remove("d-none");
-const hideError = (el) => el.classList.add("d-none");
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const fields = {
-  email: {
-    input: document.getElementById("Email"),
-    errors: {
-      required: document.getElementById("emailRequired"),
-      format: document.getElementById("emailError")
+  const showError = (el) => el.classList.remove("d-none");
+  const hideError = (el) => el.classList.add("d-none");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const fields = {
+    email: {
+      input: document.getElementById("Email"),
+      errors: {
+        required: document.getElementById("emailRequired"),
+        format: document.getElementById("emailError")
+      },
+      touched: false,
+      validate(value) {
+        if (!value.trim()) return "required";
+        if (!emailRegex.test(value)) return "format";
+        return null;
+      }
     },
-    touched: false,
-    validate(value) {
-      if (!value.trim()) return "required";
-      if (!emailRegex.test(value)) return "format";
-      return null;
-    }
-  },
-  passport: {
-    input: document.getElementById("Passport"),
-    errors: {
-      required: document.getElementById("passportRequired")
+    passport: {
+      input: document.getElementById("Passport"),
+      errors: {
+        required: document.getElementById("passportRequired")
+      },
+      touched: false,
+      validate(value) {
+        if (!value.trim()) return "required";
+        return null;
+      }
     },
-    touched: false,
-    validate(value) {
-      if (!value.trim()) return "required";
-      return null;
+    nationality: {
+      input: document.getElementById("nationality"),
+      errors: {
+        required: document.getElementById("nationalityRequired")
+      },
+      touched: false,
+      validate(value) {
+        if (!value || value === "Select Nationality") return "required";
+        return null;
+      }
     }
-  },
-  nationality: {
-    input: document.getElementById("nationality"),
-    errors: {
-      required: document.getElementById("nationalityRequired")
-    },
-    touched: false,
-    validate(value) {
-      if (!value || value === "Select Nationality") return "required";
-      return null;
+  };
+
+  const formStep1_Foreign = document.getElementById("form-step1_Foreign");
+  const step1Btn = formStep1_Foreign.querySelector("button[type=submit]");
+
+  // Validate single field
+  function validateForeignField(field) {
+    const value = field.input.value;
+    const errorType = field.validate(value);
+
+    // Hide all errors
+    Object.values(field.errors).forEach(hideError);
+
+    if (errorType && field.touched) {
+      showError(field.errors[errorType]);
+      return false;
     }
+    return !errorType;
   }
-};
 
-const formStep1_Foreign = document.getElementById("form-step1_Foreign");
-const step1Btn = formStep1_Foreign.querySelector("button[type=submit]");
-
-// Validate single field
-function validateForeignField(field) {
-  const value = field.input.value;
-  const errorType = field.validate(value);
-
-  // Hide all errors
-  Object.values(field.errors).forEach(hideError);
-
-  if (errorType && field.touched) {
-    showError(field.errors[errorType]);
-    return false;
+  // Validate whole form
+  function validateForm() {
+    let valid = true;
+    for (const key in fields) {
+      if (!validateForeignField(fields[key])) valid = false;
+    }
+    step1Btn.disabled = !valid;
   }
-  return !errorType;
-}
 
-// Validate whole form
-function validateForm() {
-  let valid = true;
   for (const key in fields) {
-    if (!validateForeignField(fields[key])) valid = false;
-  }
-  step1Btn.disabled = !valid;
-}
+    const field = fields[key];
 
-for (const key in fields) {
-  const field = fields[key];
-
-  field.input.addEventListener("blur", () => {
-    field.touched = true;
-    validateForeignField(field);
-    validateForm();
-  });
-
-  field.input.addEventListener("input", () => {
-    validateForeignField(field);
-    validateForm();
-  });
-}
-
-// Prevent submit if invalid
-formStep1_Foreign.addEventListener("submit", (e) => {
-  e.preventDefault();
-  validateForm();
-
-  if (!step1Btn.disabled) {
-    document.getElementById("step1-Foreign").classList.add("d-none");
-    document.getElementById("step2-Foreign").classList.remove("d-none");
-    stepCounter = 2;
-    counterEl.textContent = stepCounter;
-  }
-});
-
-// OTP Validation (Step 2)
-const formStep2_Foreign = document.getElementById("form-step2_Foreign");
-const otpInput_Foreign = document.getElementById("otpCode_Foreign");
-const otpError_Foreign = document.getElementById("otpRequired");
-const otpBtn_Foreign = formStep2_Foreign.querySelector("button[type=submit]");
-
-otpInput_Foreign.touched = false;
-
-function isOtpForeignValid(value) {
-  if (!value) return "failed";
-  if (!/^\d{4}$/.test(value)) return "failed"; // 4 Digits Only 
-  return null;
-}
-
-function validateOtpForeign() {
-  const digitsOnly = otpInput_Foreign.value.replace(/\D/g, "");
-  if (otpInput_Foreign.value !== digitsOnly) {
-    otpInput_Foreign.value = digitsOnly;
-  }
-
-  const error = isOtpForeignValid(digitsOnly);
-
-  otpError_Foreign.classList.add("d-none");
-  otpInput_Foreign.classList.toggle("is-invalid", !!error);
-
-  if (error && otpInput_Foreign.touched) {
-    otpError_Foreign.classList.remove("d-none");
-  }
-
-  otpBtn_Foreign.disabled = !!error;
-  return !error;
-}
-
-// Events
-otpInput_Foreign.addEventListener("blur", () => {
-  otpInput_Foreign.touched = true;
-  validateOtpForeign();
-});
-
-otpInput_Foreign.addEventListener("input", validateOtpForeign);
-
-formStep2_Foreign.addEventListener("submit", (e) => {
-  e.preventDefault();
-  otpInput_Foreign.touched = true;
-  if (!validateOtpForeign()) {
-    otpInput_Foreign.focus();
-  } else {
-    otpError_Foreign.classList.add("d-none");
-
-    document.getElementById("step2-Foreign").classList.add("d-none");
-    document.getElementById("step3-Foreign").classList.remove("d-none");
-    stepCounter = 3;
-    counterEl.textContent = stepCounter;
-  }
-});
-
-otpBtn_Foreign.disabled = true;
-
-// Step 3 Validation
-const formStep3_Foreign = document.getElementById("form-step3_Foreign");
-const step3Btn = formStep3_Foreign.querySelector("button[type=submit]");
-
-const step3Fields = {
-  firstName: {
-    input: document.getElementById("firstName_Foreign"),
-    error: document.getElementById("firstNameForeign-error"),
-    touched: false,
-    validate(value) {
-      return value.trim() ? null : "required";
-    }
-  },
-  middleName: {
-    input: document.getElementById("middleName_Foreign"),
-    error: document.getElementById("middleNameForeign-error"),
-    touched: false,
-    validate(value) {
-      return value.trim() ? null : "required";
-    }
-  },
-  lastName: {
-    input: document.getElementById("lastName_Foreign"),
-    error: document.getElementById("lastNameForeign-error"),
-    touched: false,
-    validate(value) {
-      return value.trim() ? null : "required";
-    }
-  },
-  visaStatus: {
-    inputs: document.querySelectorAll(".visaStatus input[name=flexRadioDefault]"),
-    error: document.getElementById("visaStatus-error"),
-    touched: false,
-    validate() {
-      return [...this.inputs].some(r => r.checked) ? null : "required";
-    }
-  }
-};
-
-function validateStep3Field(field) {
-  const value = field.input ? field.input.value : null;
-  const errorType = field.input ? field.validate(value) : field.validate();
-
-  if (field.error) hideError(field.error);
-
-  if (errorType && field.touched) {
-    if (field.error) showError(field.error);
-    return false;
-  }
-  return !errorType;
-}
-
-function validateStep3Form() {
-  let valid = true;
-  for (const key in step3Fields) {
-    if (!validateStep3Field(step3Fields[key])) valid = false;
-  }
-  step3Btn.disabled = !valid;
-}
-
-for (const key in step3Fields) {
-  const field = step3Fields[key];
-
-  if (field.input) {
     field.input.addEventListener("blur", () => {
       field.touched = true;
-      validateStep3Field(field);
-      validateStep3Form();
+      validateForeignField(field);
+      validateForm();
     });
 
     field.input.addEventListener("input", () => {
-      validateStep3Field(field);
-      validateStep3Form();
+      validateForeignField(field);
+      validateForm();
     });
-  } else if (field.inputs) {
-    field.inputs.forEach(radio => {
-      radio.addEventListener("change", () => {
+  }
+
+  // Prevent submit if invalid
+  formStep1_Foreign.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validateForm();
+
+    if (!step1Btn.disabled) {
+      document.getElementById("step1-Foreign").classList.add("d-none");
+      document.getElementById("step2-Foreign").classList.remove("d-none");
+      stepCounter = 2;
+      counterEl.textContent = stepCounter;
+    }
+  });
+
+  // OTP Validation (Step 2)
+  const formStep2_Foreign = document.getElementById("form-step2_Foreign");
+  const otpInput_Foreign = document.getElementById("otpCode_Foreign");
+  const otpError_Foreign = document.getElementById("otpRequired");
+  const otpBtn_Foreign = formStep2_Foreign.querySelector("button[type=submit]");
+
+  otpInput_Foreign.touched = false;
+
+  function isOtpForeignValid(value) {
+    if (!value) return "failed";
+    if (!/^\d{4}$/.test(value)) return "failed"; // 4 Digits Only 
+    return null;
+  }
+
+  function validateOtpForeign() {
+    const digitsOnly = otpInput_Foreign.value.replace(/\D/g, "");
+    if (otpInput_Foreign.value !== digitsOnly) {
+      otpInput_Foreign.value = digitsOnly;
+    }
+
+    const error = isOtpForeignValid(digitsOnly);
+
+    otpError_Foreign.classList.add("d-none");
+    otpInput_Foreign.classList.toggle("is-invalid", !!error);
+
+    if (error && otpInput_Foreign.touched) {
+      otpError_Foreign.classList.remove("d-none");
+    }
+
+    otpBtn_Foreign.disabled = !!error;
+    return !error;
+  }
+
+  // Events
+  otpInput_Foreign.addEventListener("blur", () => {
+    otpInput_Foreign.touched = true;
+    validateOtpForeign();
+  });
+
+  otpInput_Foreign.addEventListener("input", validateOtpForeign);
+
+  formStep2_Foreign.addEventListener("submit", (e) => {
+    e.preventDefault();
+    otpInput_Foreign.touched = true;
+    if (!validateOtpForeign()) {
+      otpInput_Foreign.focus();
+    } else {
+      otpError_Foreign.classList.add("d-none");
+
+      document.getElementById("step2-Foreign").classList.add("d-none");
+      document.getElementById("step3-Foreign").classList.remove("d-none");
+      stepCounter = 3;
+      counterEl.textContent = stepCounter;
+    }
+  });
+
+  otpBtn_Foreign.disabled = true;
+
+  // Step 3 Validation
+  const formStep3_Foreign = document.getElementById("form-step3_Foreign");
+  const step3Btn = formStep3_Foreign.querySelector("button[type=submit]");
+
+  const step3Fields = {
+    firstName: {
+      input: document.getElementById("firstName_Foreign"),
+      error: document.getElementById("firstNameForeign-error"),
+      touched: false,
+      validate(value) {
+        return value.trim() ? null : "required";
+      }
+    },
+    middleName: {
+      input: document.getElementById("middleName_Foreign"),
+      error: document.getElementById("middleNameForeign-error"),
+      touched: false,
+      validate(value) {
+        return value.trim() ? null : "required";
+      }
+    },
+    lastName: {
+      input: document.getElementById("lastName_Foreign"),
+      error: document.getElementById("lastNameForeign-error"),
+      touched: false,
+      validate(value) {
+        return value.trim() ? null : "required";
+      }
+    },
+    visaStatus: {
+      inputs: document.querySelectorAll(".visaStatus input[name=flexRadioDefault]"),
+      error: document.getElementById("visaStatus-error"),
+      touched: false,
+      validate() {
+        return [...this.inputs].some(r => r.checked) ? null : "required";
+      }
+    }
+  };
+
+  function validateStep3Field(field) {
+    const value = field.input ? field.input.value : null;
+    const errorType = field.input ? field.validate(value) : field.validate();
+
+    if (field.error) hideError(field.error);
+
+    if (errorType && field.touched) {
+      if (field.error) showError(field.error);
+      return false;
+    }
+    return !errorType;
+  }
+
+  function validateStep3Form() {
+    let valid = true;
+    for (const key in step3Fields) {
+      if (!validateStep3Field(step3Fields[key])) valid = false;
+    }
+    step3Btn.disabled = !valid;
+  }
+
+  for (const key in step3Fields) {
+    const field = step3Fields[key];
+
+    if (field.input) {
+      field.input.addEventListener("blur", () => {
         field.touched = true;
         validateStep3Field(field);
         validateStep3Form();
       });
-    });
-  }
-}
 
-formStep3_Foreign.addEventListener("submit", (e) => {
-  e.preventDefault();
-  for (const key in step3Fields) {
-    step3Fields[key].touched = true;
-  }
-  validateStep3Form();
-
-  if (!step3Btn.disabled) {
-    document.getElementById("step3-Foreign").classList.add("d-none");
-    document.getElementById("step4-Foreign").classList.remove("d-none");
-    parentOptionCount.classList.add("d-none");
-  }
-});
-
-step3Btn.disabled = true;
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  // ------------------ Switch Local & Foreign ------------------
-  const groupProfile = document.getElementById("type-groupProfile");
-  const localProfileContent = document.getElementById("localProfile-content");
-  const foreignProfileContent = document.getElementById("foreignProfile-content");
-
-  const egyptianCountProfile = document.getElementById("egyptianProfileCount");
-  const foreignCountProfile = document.getElementById("foreignProfileCount");
-
-  // ------------------ Step Counter ------------------
-  const counterProfile = document.getElementById("counterProfile");
-  function updateCounterProfile(stepNumber) {
-    if (counterProfile) counterProfile.textContent = stepNumber;
-  }
-
-  // ------------------ Egyptian Steps ------------------
-  const step1Profile = document.getElementById("step1-egyProfile");
-  const formStep1Profile = document.getElementById("formProfile-step1");
-  const mobileInput = document.getElementById("mobileNumber2-profile");
-  const sendBtn = formStep1Profile ? formStep1Profile.querySelector("button[type='submit']") : null;
-  const errorRequired = document.getElementById("mobileProfile-required");
-  const errorIncomplete = document.getElementById("mobileProfile-incomplete");
-
-  const step2Profile = document.getElementById("step2-egyProfile");
-  const formStep2Profile = document.getElementById("formProfile-step2");
-  const otpInput = document.getElementById("otpCodeProfile");
-  const verifyBtn = formStep2Profile ? formStep2Profile.querySelector("button[type='submit']") : null;
-  const otpError = document.getElementById("otpProfile-error");
-
-  const step3Profile = document.getElementById("step3-egyProfile");
-  const formStep3Profile = document.getElementById("formProfile-step3");
-
-  // ------------------ Foreign Steps ------------------
-  const step1Foreign = document.getElementById("step1-ForeignProfile");
-  const formStep1Foreign = document.getElementById("formProfile-step1_Foreign");
-  const emailInput = document.getElementById("EmailProfile");
-  const emailErrorRequired = document.getElementById("emailRequiredProfile");
-  const emailErrorFormat = document.getElementById("emailErrorProfile");
-  const emailBtn = document.getElementById("btnStep1-foreignProfile");
-
-  const step2Foreign = document.getElementById("step2-ForeignProfile");
-  const formStep2Foreign = document.getElementById("formProfile-step2_Foreign");
-  const otpForeignInput = document.getElementById("otpCode_ForeignProfile");
-  const otpForeignError = document.getElementById("otpRequiredProfile");
-  const otpForeignBtn = document.getElementById("btnStep2-foreignProfile");
-
-  const step3Foreign = document.getElementById("step3-ForeignProfile");
-  const formStep3Foreign = document.getElementById("formProfile-step3_Foreign");
-  const passportInput = document.getElementById("passport_ForeignProfile");
-  const passportError = document.getElementById("passportRequiredProfile");
-  const visaOptions = document.querySelectorAll("input[name='btnRadio-profile']");
-  const visaError = document.getElementById("visaStatus-errorProfile");
-  const step3Btn = document.getElementById("btns-step3_profile");
-
-  // ------------------ Reset Function ------------------
-  function resetFormsAndStepsProfile(type) {
-    // Reset كل الـ forms
-    [formStep1Profile, formStep2Profile, formStep3Profile,
-      formStep1Foreign, formStep2Foreign, formStep3Foreign].forEach(form => {
-        if (form) form.reset();
+      field.input.addEventListener("input", () => {
+        validateStep3Field(field);
+        validateStep3Form();
       });
-
-    // اضبط الراديو على حسب النوع
-    const localRadio = document.getElementById("option-localProfile");
-    const foreignRadio = document.getElementById("option-foreignProfile");
-
-    if (type === "local") {
-      if (localRadio) localRadio.checked = true;
-      if (foreignRadio) foreignRadio.checked = false;
-    } else {
-      if (foreignRadio) foreignRadio.checked = true;
-      if (localRadio) localRadio.checked = false;
-    }
-
-    // اخفي كل الـ steps
-    [step1Profile, step2Profile, step3Profile,
-      step1Foreign, step2Foreign, step3Foreign].forEach(step => {
-        if (step) step.classList.add("d-none");
+    } else if (field.inputs) {
+      field.inputs.forEach(radio => {
+        radio.addEventListener("change", () => {
+          field.touched = true;
+          validateStep3Field(field);
+          validateStep3Form();
+        });
       });
+    }
+  }
 
-    // النصوص فوق (Egyptian / Foreigner)
-    if (type === "local") {
-      if (localProfileContent) localProfileContent.classList.remove("d-none");
-      if (foreignProfileContent) foreignProfileContent.classList.add("d-none");
+  formStep3_Foreign.addEventListener("submit", (e) => {
+    e.preventDefault();
+    for (const key in step3Fields) {
+      step3Fields[key].touched = true;
+    }
+    validateStep3Form();
 
-      if (egyptianCountProfile) egyptianCountProfile.classList.remove("d-none");
-      if (foreignCountProfile) foreignCountProfile.classList.add("d-none");
+    if (!step3Btn.disabled) {
+      document.getElementById("step3-Foreign").classList.add("d-none");
+      document.getElementById("step4-Foreign").classList.remove("d-none");
+      parentOptionCount.classList.add("d-none");
+    }
+  });
 
-      if (step1Profile) step1Profile.classList.remove("d-none");
-    } else if (type === "foreign") {
-      if (foreignProfileContent) foreignProfileContent.classList.remove("d-none");
-      if (localProfileContent) localProfileContent.classList.add("d-none");
+  step3Btn.disabled = true;
 
-      if (foreignCountProfile) foreignCountProfile.classList.remove("d-none");
-      if (egyptianCountProfile) egyptianCountProfile.classList.add("d-none");
 
-      if (step1Foreign) step1Foreign.classList.remove("d-none");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // ------------------ Switch Local & Foreign ------------------
+    const groupProfile = document.getElementById("type-groupProfile");
+    const localProfileContent = document.getElementById("localProfile-content");
+    const foreignProfileContent = document.getElementById("foreignProfile-content");
+
+    const egyptianCountProfile = document.getElementById("egyptianProfileCount");
+    const foreignCountProfile = document.getElementById("foreignProfileCount");
+
+    // ------------------ Step Counter ------------------
+    const counterProfile = document.getElementById("counterProfile");
+    function updateCounterProfile(stepNumber) {
+      if (counterProfile) counterProfile.textContent = stepNumber;
     }
 
-    // Reset counter
-    if (counterProfile) counterProfile.textContent = 1;
-  }
+    // ------------------ Egyptian Steps ------------------
+    const step1Profile = document.getElementById("step1-egyProfile");
+    const formStep1Profile = document.getElementById("formProfile-step1");
+    const mobileInput = document.getElementById("mobileNumber2-profile");
+    const sendBtn = formStep1Profile ? formStep1Profile.querySelector("button[type='submit']") : null;
+    const errorRequired = document.getElementById("mobileProfile-required");
+    const errorIncomplete = document.getElementById("mobileProfile-incomplete");
 
-  // ------------------ Default Load ------------------
-  resetFormsAndStepsProfile("local"); // دايماً يبدأ Egyptian
+    const step2Profile = document.getElementById("step2-egyProfile");
+    const formStep2Profile = document.getElementById("formProfile-step2");
+    const otpInput = document.getElementById("otpCodeProfile");
+    const verifyBtn = formStep2Profile ? formStep2Profile.querySelector("button[type='submit']") : null;
+    const otpError = document.getElementById("otpProfile-error");
 
-  // ------------------ Event Switch ------------------
-  if (groupProfile) {
-    groupProfile.addEventListener("change", (e) => {
-      if (e.target.id === "option-localProfile") {
-        resetFormsAndStepsProfile("local");
-      } else if (e.target.id === "option-foreignProfile") {
-        resetFormsAndStepsProfile("foreign");
+    const step3Profile = document.getElementById("step3-egyProfile");
+    const formStep3Profile = document.getElementById("formProfile-step3");
+
+    // ------------------ Foreign Steps ------------------
+    const step1Foreign = document.getElementById("step1-ForeignProfile");
+    const formStep1Foreign = document.getElementById("formProfile-step1_Foreign");
+    const emailInput = document.getElementById("EmailProfile");
+    const emailErrorRequired = document.getElementById("emailRequiredProfile");
+    const emailErrorFormat = document.getElementById("emailErrorProfile");
+    const emailBtn = document.getElementById("btnStep1-foreignProfile");
+
+    const step2Foreign = document.getElementById("step2-ForeignProfile");
+    const formStep2Foreign = document.getElementById("formProfile-step2_Foreign");
+    const otpForeignInput = document.getElementById("otpCode_ForeignProfile");
+    const otpForeignError = document.getElementById("otpRequiredProfile");
+    const otpForeignBtn = document.getElementById("btnStep2-foreignProfile");
+
+    const step3Foreign = document.getElementById("step3-ForeignProfile");
+    const formStep3Foreign = document.getElementById("formProfile-step3_Foreign");
+    const passportInput = document.getElementById("passport_ForeignProfile");
+    const passportError = document.getElementById("passportRequiredProfile");
+    const visaOptions = document.querySelectorAll("input[name='btnRadio-profile']");
+    const visaError = document.getElementById("visaStatus-errorProfile");
+    const step3Btn = document.getElementById("btns-step3_profile");
+
+    // ------------------ Reset Function ------------------
+    function resetFormsAndStepsProfile(type) {
+      // Reset كل الـ forms
+      [formStep1Profile, formStep2Profile, formStep3Profile,
+        formStep1Foreign, formStep2Foreign, formStep3Foreign].forEach(form => {
+          if (form) form.reset();
+        });
+
+      // اضبط الراديو على حسب النوع
+      const localRadio = document.getElementById("option-localProfile");
+      const foreignRadio = document.getElementById("option-foreignProfile");
+
+      if (type === "local") {
+        if (localRadio) localRadio.checked = true;
+        if (foreignRadio) foreignRadio.checked = false;
+      } else {
+        if (foreignRadio) foreignRadio.checked = true;
+        if (localRadio) localRadio.checked = false;
       }
-    });
-  }
 
-  // ------------------ Egyptian Validation ------------------
-  function validateMobile(showErrors = false) {
-    const value = mobileInput.value.trim();
-    const isTenDigits = /^\d{10}$/.test(value);
+      // اخفي كل الـ steps
+      [step1Profile, step2Profile, step3Profile,
+        step1Foreign, step2Foreign, step3Foreign].forEach(step => {
+          if (step) step.classList.add("d-none");
+        });
 
-    if (showErrors) {
-      errorRequired.classList.toggle("d-none", value.length > 0);
-      errorIncomplete.classList.toggle("d-none", value.length === 0 || isTenDigits);
+      // النصوص فوق (Egyptian / Foreigner)
+      if (type === "local") {
+        if (localProfileContent) localProfileContent.classList.remove("d-none");
+        if (foreignProfileContent) foreignProfileContent.classList.add("d-none");
+
+        if (egyptianCountProfile) egyptianCountProfile.classList.remove("d-none");
+        if (foreignCountProfile) foreignCountProfile.classList.add("d-none");
+
+        if (step1Profile) step1Profile.classList.remove("d-none");
+      } else if (type === "foreign") {
+        if (foreignProfileContent) foreignProfileContent.classList.remove("d-none");
+        if (localProfileContent) localProfileContent.classList.add("d-none");
+
+        if (foreignCountProfile) foreignCountProfile.classList.remove("d-none");
+        if (egyptianCountProfile) egyptianCountProfile.classList.add("d-none");
+
+        if (step1Foreign) step1Foreign.classList.remove("d-none");
+      }
+
+      // Reset counter
+      if (counterProfile) counterProfile.textContent = 1;
     }
 
-    return isTenDigits;
-  }
+    // ------------------ Default Load ------------------
+    resetFormsAndStepsProfile("local"); // دايماً يبدأ Egyptian
 
-  if (mobileInput && sendBtn) {
-    mobileInput.addEventListener("input", () => {
-      const valid = validateMobile(true);
-      sendBtn.disabled = !valid;
-    });
-    mobileInput.addEventListener("blur", () => validateMobile(true));
-
-    formStep1Profile.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const valid = validateMobile(true);
-      if (valid) {
-        step1Profile.classList.add("d-none");
-        step2Profile.classList.remove("d-none");
-        updateCounterProfile(2);
-      }
-    });
-  }
-
-  function validateOTP(showErrors = false) {
-    const isFourDigits = /^\d{4}$/.test(otpInput.value.trim());
-    if (showErrors) otpError.classList.toggle("d-none", isFourDigits);
-    return isFourDigits;
-  }
-
-  if (otpInput && verifyBtn) {
-    otpInput.addEventListener("input", () => {
-      const valid = validateOTP(true);
-      verifyBtn.disabled = !valid;
-    });
-    otpInput.addEventListener("blur", () => validateOTP(true));
-
-    formStep2Profile.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const valid = validateOTP(true);
-      if (valid) {
-        step2Profile.classList.add("d-none");
-        step3Profile.classList.remove("d-none");
-        updateCounterProfile(3);
-      }
-    });
-  }
-
-  // ------------------ Foreign Validation ------------------
-  function validateEmail(showErrors = false) {
-    const value = emailInput.value.trim();
-    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-    if (showErrors) {
-      emailErrorRequired.classList.toggle("d-none", value.length > 0);
-      emailErrorFormat.classList.toggle("d-none", value.length === 0 || isValid);
+    // ------------------ Event Switch ------------------
+    if (groupProfile) {
+      groupProfile.addEventListener("change", (e) => {
+        if (e.target.id === "option-localProfile") {
+          resetFormsAndStepsProfile("local");
+        } else if (e.target.id === "option-foreignProfile") {
+          resetFormsAndStepsProfile("foreign");
+        }
+      });
     }
-    return isValid;
-  }
 
-  if (emailInput && emailBtn) {
-    emailInput.addEventListener("input", () => {
-      const valid = validateEmail(true);
-      emailBtn.disabled = !valid;
-    });
-    emailInput.addEventListener("blur", () => validateEmail(true));
+    // ------------------ Egyptian Validation ------------------
+    function validateMobile(showErrors = false) {
+      const value = mobileInput.value.trim();
+      const isTenDigits = /^\d{10}$/.test(value);
 
-    formStep1Foreign.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const valid = validateEmail(true);
-      if (valid) {
-        step1Foreign.classList.add("d-none");
-        step2Foreign.classList.remove("d-none");
-        updateCounterProfile(2);
+      if (showErrors) {
+        errorRequired.classList.toggle("d-none", value.length > 0);
+        errorIncomplete.classList.toggle("d-none", value.length === 0 || isTenDigits);
       }
-    });
-  }
 
-  function validateOtpForeign(showErrors = false) {
-    const isValid = /^\d{4}$/.test(otpForeignInput.value.trim());
-    if (showErrors) otpForeignError.classList.toggle("d-none", isValid);
-    return isValid;
-  }
+      return isTenDigits;
+    }
 
-  if (otpForeignInput && otpForeignBtn) {
-    otpForeignInput.addEventListener("input", () => {
-      const valid = validateOtpForeign(true);
-      otpForeignBtn.disabled = !valid;
-    });
-    otpForeignInput.addEventListener("blur", () => validateOtpForeign(true));
+    if (mobileInput && sendBtn) {
+      mobileInput.addEventListener("input", () => {
+        const valid = validateMobile(true);
+        sendBtn.disabled = !valid;
+      });
+      mobileInput.addEventListener("blur", () => validateMobile(true));
 
-    formStep2Foreign.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const valid = validateOtpForeign(true);
-      if (valid) {
-        step2Foreign.classList.add("d-none");
-        step3Foreign.classList.remove("d-none");
-        updateCounterProfile(3);
+      formStep1Profile.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const valid = validateMobile(true);
+        if (valid) {
+          step1Profile.classList.add("d-none");
+          step2Profile.classList.remove("d-none");
+          updateCounterProfile(2);
+        }
+      });
+    }
+
+    function validateOTP(showErrors = false) {
+      const isFourDigits = /^\d{4}$/.test(otpInput.value.trim());
+      if (showErrors) otpError.classList.toggle("d-none", isFourDigits);
+      return isFourDigits;
+    }
+
+    if (otpInput && verifyBtn) {
+      otpInput.addEventListener("input", () => {
+        const valid = validateOTP(true);
+        verifyBtn.disabled = !valid;
+      });
+      otpInput.addEventListener("blur", () => validateOTP(true));
+
+      formStep2Profile.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const valid = validateOTP(true);
+        if (valid) {
+          step2Profile.classList.add("d-none");
+          step3Profile.classList.remove("d-none");
+          updateCounterProfile(3);
+        }
+      });
+    }
+
+    // ------------------ Foreign Validation ------------------
+    function validateEmail(showErrors = false) {
+      const value = emailInput.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+      if (showErrors) {
+        emailErrorRequired.classList.toggle("d-none", value.length > 0);
+        emailErrorFormat.classList.toggle("d-none", value.length === 0 || isValid);
       }
+      return isValid;
+    }
+
+    if (emailInput && emailBtn) {
+      emailInput.addEventListener("input", () => {
+        const valid = validateEmail(true);
+        emailBtn.disabled = !valid;
+      });
+      emailInput.addEventListener("blur", () => validateEmail(true));
+
+      formStep1Foreign.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const valid = validateEmail(true);
+        if (valid) {
+          step1Foreign.classList.add("d-none");
+          step2Foreign.classList.remove("d-none");
+          updateCounterProfile(2);
+        }
+      });
+    }
+
+    function validateOtpForeign(showErrors = false) {
+      const isValid = /^\d{4}$/.test(otpForeignInput.value.trim());
+      if (showErrors) otpForeignError.classList.toggle("d-none", isValid);
+      return isValid;
+    }
+
+    if (otpForeignInput && otpForeignBtn) {
+      otpForeignInput.addEventListener("input", () => {
+        const valid = validateOtpForeign(true);
+        otpForeignBtn.disabled = !valid;
+      });
+      otpForeignInput.addEventListener("blur", () => validateOtpForeign(true));
+
+      formStep2Foreign.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const valid = validateOtpForeign(true);
+        if (valid) {
+          step2Foreign.classList.add("d-none");
+          step3Foreign.classList.remove("d-none");
+          updateCounterProfile(3);
+        }
+      });
+    }
+
+    function validatePassport(showErrors = false) {
+      const isEmpty = passportInput.value.trim().length === 0;
+      if (showErrors) passportError.classList.toggle("d-none", !isEmpty);
+      return !isEmpty;
+    }
+
+    function validateVisa(showErrors = false) {
+      const isChecked = Array.from(visaOptions).some(opt => opt.checked);
+      if (showErrors) visaError.classList.toggle("d-none", isChecked);
+      return isChecked;
+    }
+
+    function updateStep3Button() {
+      step3Btn.disabled = !(validatePassport(true) && validateVisa(true));
+    }
+
+    if (passportInput) {
+      passportInput.addEventListener("input", updateStep3Button);
+      passportInput.addEventListener("blur", () => validatePassport(true));
+    }
+
+    if (visaOptions.length > 0) {
+      visaOptions.forEach(opt => opt.addEventListener("change", updateStep3Button));
+      visaOptions.forEach(opt => opt.addEventListener("blur", () => validateVisa(true)));
+    }
+
+    if (formStep3Foreign) {
+      formStep3Foreign.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const validPassport = validatePassport(true);
+        const validVisa = validateVisa(true);
+        if (validPassport && validVisa) {
+          alert("Step 3 Passed ✅");
+        }
+      });
+    }
+
+    updateStep3Button();
+  });
+
+  // Agreement Checkbox & Enroll Btn
+  const radios = document.querySelectorAll('input[name="flexRadioDefault"]');
+  const agreeCheckbox = document.getElementById("agree");
+  const enrollBtn = document.getElementById("btn-enroll");
+  const newUserContent = document.getElementById("content-new__user");
+  const hasProfileContent = document.getElementById("content-has__profile");
+  let selectedOption = null;
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      agreeCheckbox.disabled = false;
+      agreeCheckbox.checked = false;
+      enrollBtn.disabled = true;
+      selectedOption = radio.id;
     });
-  }
+  });
 
-  function validatePassport(showErrors = false) {
-    const isEmpty = passportInput.value.trim().length === 0;
-    if (showErrors) passportError.classList.toggle("d-none", !isEmpty);
-    return !isEmpty;
-  }
+  agreeCheckbox.addEventListener("change", () => {
+    enrollBtn.disabled = !agreeCheckbox.checked;
+  });
 
-  function validateVisa(showErrors = false) {
-    const isChecked = Array.from(visaOptions).some(opt => opt.checked);
-    if (showErrors) visaError.classList.toggle("d-none", isChecked);
-    return isChecked;
-  }
+  const registFormModal = document.getElementById('regist-form');
+  registFormModal.addEventListener('show.bs.modal', () => {
+    newUserContent.classList.add("d-none");
+    hasProfileContent.classList.add("d-none");
 
-  function updateStep3Button() {
-    step3Btn.disabled = !(validatePassport(true) && validateVisa(true));
-  }
-
-  if (passportInput) {
-    passportInput.addEventListener("input", updateStep3Button);
-    passportInput.addEventListener("blur", () => validatePassport(true));
-  }
-
-  if (visaOptions.length > 0) {
-    visaOptions.forEach(opt => opt.addEventListener("change", updateStep3Button));
-    visaOptions.forEach(opt => opt.addEventListener("blur", () => validateVisa(true)));
-  }
-
-  if (formStep3Foreign) {
-    formStep3Foreign.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const validPassport = validatePassport(true);
-      const validVisa = validateVisa(true);
-      if (validPassport && validVisa) {
-        alert("Step 3 Passed ✅");
-      }
-    });
-  }
-
-  updateStep3Button();
-});
-
-// Agreement Checkbox & Enroll Btn
-const radios = document.querySelectorAll('input[name="flexRadioDefault"]');
-const agreeCheckbox = document.getElementById("agree");
-const enrollBtn = document.getElementById("btn-enroll");
-const newUserContent = document.getElementById("content-new__user");
-const hasProfileContent = document.getElementById("content-has__profile");
-let selectedOption = null;
-
-radios.forEach(radio => {
-  radio.addEventListener("change", () => {
-    agreeCheckbox.disabled = false;
-    agreeCheckbox.checked = false;
-    enrollBtn.disabled = true;
-    selectedOption = radio.id;
+    if (selectedOption === "newUser-option") {
+      newUserContent.classList.remove("d-none");
+    }
+    if (selectedOption === "hasProfile-option") {
+      hasProfileContent.classList.remove("d-none");
+    }
   });
 });
 
-agreeCheckbox.addEventListener("change", () => {
-  enrollBtn.disabled = !agreeCheckbox.checked;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const tabs = document.querySelectorAll(".tabs-content_winners .tab");
+const indicator = document.querySelector(".tab-indicator");
+const contents = document.querySelectorAll(".tab-content");
+
+function isRTL() {
+  return document.documentElement.getAttribute("dir") === "rtl";
+}
+
+function moveIndicator(tab) {
+  const tabRect = tab.getBoundingClientRect();
+  const parentRect = tab.parentElement.getBoundingClientRect();
+
+  indicator.style.width = `${tabRect.width}px`;
+
+  if (isRTL()) {
+    const rightOffset = parentRect.right - tabRect.right;
+    indicator.style.right = `${rightOffset}px`;
+    indicator.style.left = "auto";
+  } else {
+    indicator.style.left = `${tabRect.left - parentRect.left}px`;
+    indicator.style.right = "auto";
+  }
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    contents.forEach(c => c.classList.remove("active"));
+
+    const target = tab.getAttribute("data-tab");
+    document.getElementById(target).classList.add("active");
+
+    moveIndicator(tab);
+  });
 });
 
-const registFormModal = document.getElementById('regist-form');
-registFormModal.addEventListener('show.bs.modal', () => {
-  newUserContent.classList.add("d-none");
-  hasProfileContent.classList.add("d-none");
+if (tabs.length > 0) {
+  tabs[0].classList.add("active");
+  moveIndicator(tabs[0]);
+}
 
-  if (selectedOption === "newUser-option") {
-    newUserContent.classList.remove("d-none");
-  }
-  if (selectedOption === "hasProfile-option") {
-    hasProfileContent.classList.remove("d-none");
-  }
+const observer = new MutationObserver(() => {
+  const activeTab = document.querySelector(".tab.active");
+  if (activeTab) moveIndicator(activeTab);
 });
+
+observer.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ["dir"]
+});
+
