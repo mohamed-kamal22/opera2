@@ -2966,6 +2966,8 @@ body {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  width: -moz-max-content;
+  width: max-content;
 }
 .registration-form .new-user .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
   color: #00d757;

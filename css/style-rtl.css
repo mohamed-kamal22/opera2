@@ -2998,6 +2998,8 @@ body {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  width: -moz-max-content;
+  width: max-content;
 }
 .registration-form .new-user .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
   color: #00d757;
@@ -3158,6 +3160,7 @@ body {
   border-bottom-left-radius: 0;
   border-top-right-radius: 0.375rem !important;
   border-bottom-right-radius: 0.375rem !important;
+  direction: ltr;
 }
 .registration-form .new-user .registration-form__body .mobileNumber_field .input-group .form-control {
   border-top-right-radius: 0;

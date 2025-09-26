@@ -3884,6 +3884,7 @@ body {
                 align-items: center;
                 gap: 10px;
                 cursor: pointer;
+                width: max-content;
 
                 span {
                   color: #00d757;
@@ -4109,6 +4110,7 @@ body {
             border-bottom-left-radius: 0;
             border-top-right-radius: 0.375rem !important;
             border-bottom-right-radius: 0.375rem !important;
+            direction: ltr;
           }
 
           .form-control {
