@@ -679,29 +679,27 @@ body {
   background-color: var(--text-app);
   padding: 12px 14px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: baseline;
-  gap: 4px;
-}
-.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .getOn {
-  color: var(--bg-news);
-  font-size: 10px;
-  font-weight: normal;
-}
-.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton {
-  margin: 0;
-  display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
-.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton i {
+.main .opera-app .content_opera-app .download_app-store .btns-storesApp button i {
   font-size: 30px;
   color: var(--bg-news);
 }
+.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: flex-start;
+}
 .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span {
   color: var(--bg-news);
-  font-size: 24px;
+}
+.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span:first-child {
+  font-size: 10px;
+}
+.main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span:last-child {
+  font-size: 22px;
   font-weight: 600;
 }
 @media (max-width: 575px) {
@@ -715,13 +713,16 @@ body {
   .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .getOn {
     font-size: 9px;
   }
-  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton i {
+  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button i {
     font-size: 24px;
   }
-  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton img {
+  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button img {
     width: 26px;
   }
-  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span {
+  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span:first-child {
+    font-size: 10px;
+  }
+  .main .opera-app .content_opera-app .download_app-store .btns-storesApp button .containButton span:last-child {
     font-size: 20px;
   }
 }
