@@ -3040,6 +3040,7 @@ body {
 }
 .registration-form .new-user .registration-form__body form .form-col label {
   color: #fff;
+  font-size: 14px;
 }
 .registration-form .new-user .registration-form__body form .form-col label.parentTitle {
   font-size: 20px;
