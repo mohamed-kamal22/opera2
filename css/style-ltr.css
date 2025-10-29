@@ -3040,6 +3040,10 @@ body {
 }
 .registration-form .new-user .registration-form__body form .form-col label {
   color: #fff;
+  font-size: 14px;
+}
+.registration-form .new-user .registration-form__body form .form-col label.parentTitle {
+  font-size: 20px;
 }
 .registration-form .new-user .registration-form__body form .form-col input {
   height: 40px;
@@ -3112,6 +3116,12 @@ body {
 .registration-form .new-user .registration-form__body .content__success .contentBody ._middle p:first-child {
   font-weight: bold;
 }
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
 .registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button {
   background-color: #2ecc71;
   font-size: 16px;
@@ -3120,171 +3130,17 @@ body {
   width: 200px;
   height: 48px;
 }
-.registration-form .has-profile .registration-form__body .registration-form__title {
-  color: #fff;
-  margin-bottom: 22px;
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button.btn-kid {
+  border-radius: 8px;
+  border: solid 1px #969696;
+  background-color: #d8d8d8;
+  color: #555;
 }
-.registration-form .has-profile .registration-form__body .registration-form__stepCount {
-  color: #fff;
-}
-.registration-form .has-profile .registration-form__body .registration-form--option {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-.registration-form .has-profile .registration-form__body .registration-form--option .form-check label {
-  color: #fff;
-}
-.registration-form .has-profile .registration-form__body .registration-form--option .form-check .form-check-input:checked {
-  background-color: #ca391e;
-  border-color: #ca391e;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 hr {
-  margin: 18px 0;
-  border: 1px solid #fff;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus {
-  padding-left: 1.5em;
-  padding-right: 0;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
-  color: #fff;
-  font-size: 14px;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
-  border-color: #fff;
-  float: left;
-  margin-left: -1.5em;
-  margin-right: 0;
-  width: 14px;
-  height: 14px;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
-  border-color: #ca391e;
-  background-color: #ca391e;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
-  box-shadow: unset;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a span {
-  color: #00d757;
-  font-size: 12px;
-  text-decoration: underline;
-}
-.registration-form .has-profile .registration-form__body .local-content .step3 .communication-step3 .icon-whatss a i {
-  color: #00d757;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  height: 35px;
-  padding: 6px 0;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check label {
-  color: #fff;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input {
-  height: 14px;
-  width: 14px;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .mainInfo-step3 .visaStatus .option-visaStatus .form-check .form-check-input:checked {
-  background-color: #ca391e;
-  border-color: #ca391e;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus {
-  padding-left: 1.5em;
-  padding-right: 0;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-label {
-  color: #fff;
-  font-size: 14px;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input {
-  border-color: #fff;
-  float: left;
-  margin-left: -1.5em;
-  margin-right: 0;
-  width: 14px;
-  height: 14px;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:checked {
-  border-color: #ca391e;
-  background-color: #ca391e;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .disabilityStatus-step3 .disabilityStatus .form-check-input:focus {
-  box-shadow: unset;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a span {
-  color: #00d757;
-  font-size: 12px;
-  text-decoration: underline;
-}
-.registration-form .has-profile .registration-form__body .foreign-content .step3 .communication-step3 .icon-whatss a i {
-  color: #00d757;
-}
-.registration-form .has-profile .registration-form__body form .form-col {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.registration-form .has-profile .registration-form__body form .form-col label {
-  color: #fff;
-}
-.registration-form .has-profile .registration-form__body form .form-col input {
-  height: 40px;
-  font-size: 14px;
-}
-.registration-form .has-profile .registration-form__body form button {
-  background-color: #CA391E;
-  color: #fff;
-  border: 0;
-  height: 40px;
-}
-.registration-form .has-profile .registration-form__body .error-text {
-  color: #f00;
-  font-size: 12px;
-  min-height: 20px;
-  margin-top: 3px;
-}
-.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp {
-  margin-bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp span {
-  color: #fff;
-  font-size: 12px;
-}
-.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp a {
-  text-decoration: none;
-}
-.registration-form .has-profile .registration-form__body .warning-text__otp .time-otp a span {
-  color: #682e23;
-  font-size: 12px;
-}
-.registration-form .has-profile .registration-form__body .warning-text__otp .error-text,
-.registration-form .has-profile .registration-form__body .warning-text__otp .text-error__otp {
-  color: #f00;
-  font-size: 12px;
-  min-height: 20px;
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button.btn-kid i {
+  font-size: 20px;
 }
 
-/* ===== Registration Form ===== */
+/* ===== Result Search ===== */
 .result-search {
   position: relative;
   width: 100%;
