@@ -1034,14 +1034,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const isShown = (el) => !!el && el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden';
   const isActive = (el) => !!el && !el.disabled && isShown(el);
 
-  // تتبع العناصر التي تفاعل معها المستخدم (blur/change)
   const touched = new WeakSet();
   const markTouched = el => el && touched.add(el);
 
   // === OTP len ===
   const OTP_LEN = 6;
 
-  // نسخة صامتة + إظهار مشروط بالـ touched أو force
   const isSelectChosen = (sel) =>
     !!sel && !!sel.value && sel.value !== '' && sel.value !== 'Select' && sel.value !== 'Select Nationality';
 
@@ -1100,7 +1098,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('input, select, textarea', root).forEach(el => {
       if (!isActive(el)) return;
       markTouched(el);
-      el.dispatchEvent(new Event('blur',   { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
       if (el.tagName === 'SELECT') {
         el.dispatchEvent(new Event('change', { bubbles: true }));
       }
@@ -1111,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // === aggregate validation for visible rules only ===
-  function allVisibleValid(rules /* Array<[el, checkFn]> */) {
+  function allVisibleValid(rules) {
     const activeRules = rules.filter(([el]) => isActive(el));
     const requiredCount = activeRules.length;
     const allOk = activeRules.every(([, check], idx) => check(activeRules[idx][0]));
@@ -1381,40 +1379,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = wrap.__nav;
     const btn = form.querySelector('button[type="submit"]');
 
-    const first  = $('#firstName', wrap);
+    const first = $('#firstName', wrap);
     const middle = $('#middleName', wrap);
-    const last   = $('#lastName', wrap);
+    const last = $('#lastName', wrap);
 
-    const eFirst  = $('#firstNameEgyptian-error, #firstName-error', wrap);
+    const eFirst = $('#firstNameEgyptian-error, #firstName-error', wrap);
     const eMiddle = $('#middleNameEgyptian-error, #middleName-error', wrap);
-    const eLast   = $('#lastNameEgyptian-error, #lastName-error', wrap);
+    const eLast = $('#lastNameEgyptian-error, #lastName-error', wrap);
 
     // Adult
-    const gov  = $('#governorateResidence', wrap);
+    const gov = $('#governorateResidence', wrap);
     const idUp = $('#IDUpload', wrap);
     const eGov = $('#govResidence-error', wrap);
-    const eID  = $('#idEgyptian-error', wrap);
+    const eID = $('#idEgyptian-error', wrap);
 
     // Parent
-    const govParent  = $('#governorateResidence-parent', wrap);
+    const govParent = $('#governorateResidence-parent', wrap);
     const idUpParent = $('#IDUpload-egy', wrap);
     const eGovParent = $('#govResidenceParent-error', wrap);
-    const eIDParent  = $('#idEgyptianParent-error', wrap);
+    const eIDParent = $('#idEgyptianParent-error', wrap);
 
     // Kid
-    const kidId    = $('#KidNationalID', wrap);
+    const kidId = $('#KidNationalID', wrap);
     const kidFirst = $('#firstNameKid', wrap);
-    const eKidId    = $('#kidNationalId-error, #KidNationalID-error', wrap);
+    const eKidId = $('#kidNationalId-error, #KidNationalID-error', wrap);
     const eKidFirst = $('#firstNameEgyptianKid-error', wrap);
 
     // Disability
-    const disChk  = $('#checkDisability', wrap);
-    const disNum  = $('#disabilityNumber', wrap);
-    const disImg  = $('#disabilityImage', wrap);
+    const disChk = $('#checkDisability', wrap);
+    const disNum = $('#disabilityNumber', wrap);
+    const disImg = $('#disabilityImage', wrap);
     const eDisNum = $('#disabilityNumber-error', wrap);
     const eDisImg = $('#disabilityImage-error', wrap);
 
-    [eFirst,eMiddle,eLast,eGov,eID,eGovParent,eIDParent,eKidId,eKidFirst,eDisNum,eDisImg].forEach(hide);
+    [eFirst, eMiddle, eLast, eGov, eID, eGovParent, eIDParent, eKidId, eKidFirst, eDisNum, eDisImg].forEach(hide);
 
     function toggleDisabilityFields() {
       const on = !!disChk?.checked;
@@ -1438,31 +1436,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function recomputeButton() {
       const nameRules = [
-        [first,  nonEmpty],
+        [first, nonEmpty],
         [middle, nonEmpty],
-        [last,   nonEmpty],
+        [last, nonEmpty],
       ];
 
       const adultRules = [
-        [gov,  isSelectChosen],
+        [gov, isSelectChosen],
         [idUp, hasFile],
       ];
 
       const parentRules = [
-        [govParent,  isSelectChosen],
+        [govParent, isSelectChosen],
         [idUpParent, hasFile],
       ];
 
       const kidRules = [
-        [kidId,    nonEmpty],
+        [kidId, nonEmpty],
         [kidFirst, nonEmpty],
       ];
 
       const disRules = (isActive(disChk) && disChk.checked)
         ? [
-            [disNum, nonEmpty],
-            [disImg, hasFile],
-          ]
+          [disNum, nonEmpty],
+          [disImg, hasFile],
+        ]
         : [];
 
       const rules = [
@@ -1477,36 +1475,36 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = (requiredCount === 0) ? true : !allOk;
     }
 
-    showRequiredOnBlur(first,     eFirst);
-    showRequiredOnBlur(middle,    eMiddle);
-    showRequiredOnBlur(last,      eLast);
-    showRequiredOnBlur(kidId,     eKidId);
-    showRequiredOnBlur(kidFirst,  eKidFirst);
+    showRequiredOnBlur(first, eFirst);
+    showRequiredOnBlur(middle, eMiddle);
+    showRequiredOnBlur(last, eLast);
+    showRequiredOnBlur(kidId, eKidId);
+    showRequiredOnBlur(kidFirst, eKidFirst);
 
-    gov?.addEventListener('blur',   () => { markTouched(gov); maybeShowSelectError(gov, eGov); recomputeButton(); });
+    gov?.addEventListener('blur', () => { markTouched(gov); maybeShowSelectError(gov, eGov); recomputeButton(); });
     gov?.addEventListener('change', () => { markTouched(gov); maybeShowSelectError(gov, eGov); recomputeButton(); });
 
-    idUp?.addEventListener('blur',   () => { markTouched(idUp); maybeShowFileError(idUp, eID); recomputeButton(); });
+    idUp?.addEventListener('blur', () => { markTouched(idUp); maybeShowFileError(idUp, eID); recomputeButton(); });
     idUp?.addEventListener('change', () => { markTouched(idUp); maybeShowFileError(idUp, eID); recomputeButton(); });
 
-    govParent?.addEventListener('blur',   () => { markTouched(govParent); maybeShowSelectError(govParent, eGovParent); recomputeButton(); });
+    govParent?.addEventListener('blur', () => { markTouched(govParent); maybeShowSelectError(govParent, eGovParent); recomputeButton(); });
     govParent?.addEventListener('change', () => { markTouched(govParent); maybeShowSelectError(govParent, eGovParent); recomputeButton(); });
 
-    idUpParent?.addEventListener('blur',   () => { markTouched(idUpParent); maybeShowFileError(idUpParent, eIDParent); recomputeButton(); });
+    idUpParent?.addEventListener('blur', () => { markTouched(idUpParent); maybeShowFileError(idUpParent, eIDParent); recomputeButton(); });
     idUpParent?.addEventListener('change', () => { markTouched(idUpParent); maybeShowFileError(idUpParent, eIDParent); recomputeButton(); });
 
     [first, middle, last, kidId, kidFirst].forEach(i => i?.addEventListener('input', () => {
       if (i && touched.has(i)) {
-        const err = i===first?eFirst:i===middle?eMiddle:i===last?eLast:i===kidId?eKidId:eKidFirst;
+        const err = i === first ? eFirst : i === middle ? eMiddle : i === last ? eLast : i === kidId ? eKidId : eKidFirst;
         if (nonEmpty(i)) hide(err);
       }
       recomputeButton();
     }));
 
     disChk?.addEventListener('change', () => { toggleDisabilityFields(); recomputeButton(); });
-    disNum?.addEventListener('blur',   () => { markTouched(disNum); renderDisabilityTyping(); recomputeButton(); });
-    disNum?.addEventListener('input',  () => { renderDisabilityTyping(); recomputeButton(); });
-    disImg?.addEventListener('blur',   () => { markTouched(disImg); renderDisabilityTyping(); recomputeButton(); });
+    disNum?.addEventListener('blur', () => { markTouched(disNum); renderDisabilityTyping(); recomputeButton(); });
+    disNum?.addEventListener('input', () => { renderDisabilityTyping(); recomputeButton(); });
+    disImg?.addEventListener('blur', () => { markTouched(disImg); renderDisabilityTyping(); recomputeButton(); });
     disImg?.addEventListener('change', () => { markTouched(disImg); renderDisabilityTyping(); recomputeButton(); });
 
     toggleDisabilityFields();
@@ -1539,8 +1537,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const eEmailReq = $('#emailRequired', wrap);
     const eEmailFmt = $('#emailError', wrap);
-    const ePassReq  = $('#passportRequired', wrap);
-    const eNatReq   = $('#nationalityRequired', wrap);
+    const ePassReq = $('#passportRequired', wrap);
+    const eNatReq = $('#nationalityRequired', wrap);
 
     email?.addEventListener('blur', () => {
       markTouched(email);
@@ -1631,8 +1629,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adult names
     const first = $('#firstName_Foreign', wrap);
-    const mid   = $('#middleName_Foreign', wrap);
-    const last  = $('#lastName_Foreign', wrap);
+    const mid = $('#middleName_Foreign', wrap);
+    const last = $('#lastName_Foreign', wrap);
     const eF = $('#firstNameForeign-error', wrap);
     const eM = $('#middleNameForeign-error', wrap);
     const eL = $('#lastNameForeign-error', wrap);
@@ -1645,48 +1643,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Parent (NEW/UPDATED IDs) =====
     // Visa Status (Do you have a valid visa for Egypt?)
     const visaYesP = $('#parentOption-yes', wrap);
-    const visaNoP  = $('#parentOption-no', wrap);
-    const eVisaP   = $('#visaStatusParent-error', wrap);
+    const visaNoP = $('#parentOption-no', wrap);
+    const eVisaP = $('#visaStatusParent-error', wrap);
 
     // Parent Date of Birth (UPDATED)
-    const parentDOB   = $('#dateBirth_Parent', wrap);
-    const eParentDOB  = $('#dateBirth_ForeignParent_error', wrap);
+    const parentDOB = $('#dateBirth_Parent', wrap);
+    const eParentDOB = $('#dateBirth_ForeignParent_error', wrap);
 
     // Parent Gender
-    const parentGender    = $('#gender-foreignParent', wrap);
-    const eParentGender   = $('#gender-foreignParent-error', wrap);
+    const parentGender = $('#gender-foreignParent', wrap);
+    const eParentGender = $('#gender-foreignParent-error', wrap);
 
     // Parent Passport Image
-    const parentPassImg   = $('#PassportImage_Foreign', wrap);
-    const eParentPassImg  = $('#passportImageForeign-error', wrap);
+    const parentPassImg = $('#PassportImage_Foreign', wrap);
+    const eParentPassImg = $('#passportImageForeign-error', wrap);
 
     // ===== Kid =====
     const kidPassportId = $('#KidPassportlID-foreign', wrap);
-    const kidFirstName  = $('#firstNameKid-foreign', wrap);
-    const kidDOB        = $('#dateBirth_Foreign', wrap);
-    const kidGender     = $('#gender-foreignKid', wrap);
-    const kidGov        = $('#governorateResidence-foreignKid', wrap);
-    const kidPassImg    = $('#PassportImage_ForeignKid', wrap);
-    const kidConsent    = $('#guardianConsent_ForeignKid', wrap);
+    const kidFirstName = $('#firstNameKid-foreign', wrap);
+    const kidDOB = $('#dateBirth_Foreign', wrap);
+    const kidGender = $('#gender-foreignKid', wrap);
+    const kidGov = $('#governorateResidence-foreignKid', wrap);
+    const kidPassImg = $('#PassportImage_ForeignKid', wrap);
+    const kidConsent = $('#guardianConsent_ForeignKid', wrap);
 
     const eKidPassportId = $('#KidPassportID-error', wrap);
-    const eKidFirstName  = $('#firstNameForeignKid-error', wrap);
-    const eKidDOB        = $('#dateBirth_ForeignKid', wrap);
-    const eKidGender     = $('#gender-foreignKid-error', wrap);
-    const eKidGov        = $('#govResidenceForeignKid-error', wrap);
-    const eKidPassImg    = $('#passportImageForeignKid-error', wrap);
-    const eKidConsent    = $('#guardianConsentForeignKid-error', wrap);
+    const eKidFirstName = $('#firstNameForeignKid-error', wrap);
+    const eKidDOB = $('#dateBirth_ForeignKid', wrap);
+    const eKidGender = $('#gender-foreignKid-error', wrap);
+    const eKidGov = $('#govResidenceForeignKid-error', wrap);
+    const eKidPassImg = $('#passportImageForeignKid-error', wrap);
+    const eKidConsent = $('#guardianConsentForeignKid-error', wrap);
 
-    [eF,eM,eL,eVisaP,eParentDOB,eParentGender,eParentPassImg,eKidPassportId,eKidFirstName,eKidDOB,eKidGender,eKidGov,eKidPassImg,eKidConsent].forEach(hide);
+    [eF, eM, eL, eVisaP, eParentDOB, eParentGender, eParentPassImg, eKidPassportId, eKidFirstName, eKidDOB, eKidGender, eKidGov, eKidPassImg, eKidConsent].forEach(hide);
 
     // required (adult names)
     showRequiredOnBlur(first, eF);
-    showRequiredOnBlur(mid,   eM);
-    showRequiredOnBlur(last,  eL);
+    showRequiredOnBlur(mid, eM);
+    showRequiredOnBlur(last, eL);
 
     // required (kid)
     showRequiredOnBlur(kidPassportId, eKidPassportId);
-    showRequiredOnBlur(kidFirstName,  eKidFirstName);
+    showRequiredOnBlur(kidFirstName, eKidFirstName);
 
     function toggleDisabilityFields() {
       const on = disChk?.checked;
@@ -1707,7 +1705,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return ok;
     }
     function renderParentGender() {
-      const ok = ['male','female'].includes(parentGender?.value);
+      const ok = ['male', 'female'].includes(parentGender?.value);
       ok ? hide(eParentGender) : show(eParentGender);
       return ok;
     }
@@ -1720,32 +1718,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function recomputeButton() {
       const nameRules = [
         [first, nonEmpty],
-        [mid,   nonEmpty],
-        [last,  nonEmpty],
+        [mid, nonEmpty],
+        [last, nonEmpty],
       ];
 
       const parentRules = [
         [visaYesP || visaNoP, () => isAnyChecked(visaYesP, visaNoP)],
-        [parentDOB,     (el)=> (el?.value ?? '').trim().length > 0],
-        [parentGender,  (el)=> ['male','female'].includes(el?.value)],
-        [parentPassImg, (el)=> !!(el?.files && el.files.length>0)],
+        [parentDOB, (el) => (el?.value ?? '').trim().length > 0],
+        [parentGender, (el) => ['male', 'female'].includes(el?.value)],
+        [parentPassImg, (el) => !!(el?.files && el.files.length > 0)],
       ];
 
       const disRules = (isActive(disChk) && disChk.checked)
         ? [
-            [disNum, nonEmpty],
-            [disImg, (el)=> !!(el?.files && el.files.length>0)],
-          ]
+          [disNum, nonEmpty],
+          [disImg, (el) => !!(el?.files && el.files.length > 0)],
+        ]
         : [];
 
       const kidRules = [
         [kidPassportId, nonEmpty],
-        [kidFirstName,  nonEmpty],
-        [kidDOB,        (el)=> (el?.value ?? '').trim().length > 0],
-        [kidGender,     (el)=> ['male','female'].includes(el?.value)],
-        [kidGov,        (el)=> !!el?.value && el.value !== ''],
-        [kidPassImg,    (el)=> !!(el?.files && el.files.length>0)],
-        [kidConsent,    (el)=> !!(el?.files && el.files.length>0)],
+        [kidFirstName, nonEmpty],
+        [kidDOB, (el) => (el?.value ?? '').trim().length > 0],
+        [kidGender, (el) => ['male', 'female'].includes(el?.value)],
+        [kidGov, (el) => !!el?.value && el.value !== ''],
+        [kidPassImg, (el) => !!(el?.files && el.files.length > 0)],
+        [kidConsent, (el) => !!(el?.files && el.files.length > 0)],
       ];
 
       const rules = [
@@ -1761,29 +1759,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // listeners — adult names
     [first, mid, last].forEach(i => i?.addEventListener('input', () => {
-      if (nonEmpty(i)) hide(i===first?eF:i===mid?eM:eL);
+      if (nonEmpty(i)) hide(i === first ? eF : i === mid ? eM : eL);
       recomputeButton();
     }));
 
     // listeners — parent
     [visaYesP, visaNoP].forEach(r => r?.addEventListener('change', () => { renderVisaParent(); recomputeButton(); }));
-    parentDOB?.addEventListener('change',   () => { renderParentDOB(); recomputeButton(); });
-    parentGender?.addEventListener('change',() => { renderParentGender(); recomputeButton(); });
-    parentPassImg?.addEventListener('change',() => { renderFile(parentPassImg, eParentPassImg); recomputeButton(); });
+    parentDOB?.addEventListener('change', () => { renderParentDOB(); recomputeButton(); });
+    parentGender?.addEventListener('change', () => { renderParentGender(); recomputeButton(); });
+    parentPassImg?.addEventListener('change', () => { renderFile(parentPassImg, eParentPassImg); recomputeButton(); });
 
     // Disability
     disChk?.addEventListener('change', () => { toggleDisabilityFields(); recomputeButton(); });
-    disNum?.addEventListener('input',  recomputeButton);
+    disNum?.addEventListener('input', recomputeButton);
     disImg?.addEventListener('change', recomputeButton);
 
     // listeners — kid
     kidPassportId?.addEventListener('input', () => { if (nonEmpty(kidPassportId)) hide(eKidPassportId); recomputeButton(); });
-    kidFirstName?.addEventListener('input',  () => { if (nonEmpty(kidFirstName))  hide(eKidFirstName);  recomputeButton(); });
-    kidDOB?.addEventListener('change',   () => { const ok = (kidDOB?.value ?? '').trim().length>0; ok?hide(eKidDOB):show(eKidDOB); recomputeButton(); });
-    kidGender?.addEventListener('change',() => { const ok = ['male','female'].includes(kidGender?.value); ok?hide(eKidGender):show(eKidGender); recomputeButton(); });
-    kidGov?.addEventListener('change',   () => { const ok = !!kidGov?.value && kidGov.value!==''; ok?hide(eKidGov):show(eKidGov); recomputeButton(); });
-    kidPassImg?.addEventListener('change',() => { renderFile(kidPassImg, eKidPassImg); recomputeButton(); });
-    kidConsent?.addEventListener('change',() => { renderFile(kidConsent, eKidConsent); recomputeButton(); });
+    kidFirstName?.addEventListener('input', () => { if (nonEmpty(kidFirstName)) hide(eKidFirstName); recomputeButton(); });
+    kidDOB?.addEventListener('change', () => { const ok = (kidDOB?.value ?? '').trim().length > 0; ok ? hide(eKidDOB) : show(eKidDOB); recomputeButton(); });
+    kidGender?.addEventListener('change', () => { const ok = ['male', 'female'].includes(kidGender?.value); ok ? hide(eKidGender) : show(eKidGender); recomputeButton(); });
+    kidGov?.addEventListener('change', () => { const ok = !!kidGov?.value && kidGov.value !== ''; ok ? hide(eKidGov) : show(eKidGov); recomputeButton(); });
+    kidPassImg?.addEventListener('change', () => { renderFile(kidPassImg, eKidPassImg); recomputeButton(); });
+    kidConsent?.addEventListener('change', () => { renderFile(kidConsent, eKidConsent); recomputeButton(); });
 
     toggleDisabilityFields();
     recomputeButton();
@@ -1796,5 +1794,4 @@ document.addEventListener('DOMContentLoaded', () => {
       nav?.hideProgressUI();
     });
   })();
-
 });
