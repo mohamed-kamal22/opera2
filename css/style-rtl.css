@@ -3073,6 +3073,9 @@ body {
 .registration-form .new-user .registration-form__body form .form-col label {
   color: #fff;
 }
+.registration-form .new-user .registration-form__body form .form-col label.parentTitle {
+  font-size: 20px;
+}
 .registration-form .new-user .registration-form__body form .form-col input {
   height: 40px;
   font-size: 14px;
@@ -3148,6 +3151,12 @@ body {
 .registration-form .new-user .registration-form__body .content__success .contentBody ._middle p:first-child {
   font-weight: bold;
 }
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
 .registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button {
   background-color: #2ecc71;
   font-size: 16px;
@@ -3155,6 +3164,15 @@ body {
   color: #fff;
   width: 200px;
   height: 48px;
+}
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button.btn-kid {
+  border-radius: 8px;
+  border: solid 1px #969696;
+  background-color: #d8d8d8;
+  color: #555;
+}
+.registration-form .new-user .registration-form__body .content__success .contentBody ._bottom button.btn-kid i {
+  font-size: 20px;
 }
 .registration-form .new-user .registration-form__body .mobileNumber_field .input-group .input-group-text {
   border-top-left-radius: 0;

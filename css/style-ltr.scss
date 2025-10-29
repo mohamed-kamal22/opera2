@@ -3970,6 +3970,10 @@ body {
 
           label {
             color: #fff;
+
+            &.parentTitle {
+              font-size: 20px;
+            }
           }
 
           input {
@@ -4063,6 +4067,11 @@ body {
           }
 
           ._bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+
             button {
               background-color: #2ecc71;
               font-size: 16px;
@@ -4070,6 +4079,16 @@ body {
               color: #fff;
               width: 200px;
               height: 48px;
+
+              &.btn-kid {
+                border-radius: 8px;
+                border: solid 1px #969696;
+                background-color: #d8d8d8;
+                color: #555;
+                i {
+                  font-size: 20px;
+                }
+              }
             }
           }
         }
@@ -4318,7 +4337,7 @@ body {
 
 
 
-/* ===== Registration Form ===== */
+/* ===== Result Search ===== */
 .result-search {
   position: relative;
   width: 100%;
